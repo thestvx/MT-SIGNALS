@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body data-theme="dark">
 
     <div id="particles-js"></div>
 
@@ -21,9 +21,25 @@
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
-                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
+                    <li id="auth-links">
+                        <a href="login.html" class="cta-button-nav">تسجيل الدخول</a>
+                    </li>
+                    <li id="profile-container" style="display: none;">
+                        <div class="profile-dropdown">
+                            <i class="fas fa-user-circle profile-icon"></i>
+                            <div class="dropdown-menu">
+                                <a href="#">الإعدادات</a>
+                                <a href="#" id="logout-button">تسجيل الخروج</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
+            <div class="theme-toggle">
+                <button id="theme-toggle-button">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -63,9 +79,58 @@
         </div>
     </footer>
 
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    
+    <!-- Other Scripts -->
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+            authDomain: "mt-siganls.firebaseapp.com",
+            projectId: "mt-siganls",
+            storageBucket: "mt-siganls.firebasestorage.app",
+            messagingSenderId: "84758913270",
+            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Check for theme preference and apply it
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.setAttribute('data-theme', currentTheme);
+        }
+
+        const themeToggleButton = document.getElementById('theme-toggle-button');
+        themeToggleButton.addEventListener('click', () => {
+            let newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        auth.onAuthStateChanged(user => {
+            const authLinks = document.getElementById('auth-links');
+            const profileContainer = document.getElementById('profile-container');
+            if (user) {
+                // User is signed in
+                authLinks.style.display = 'none';
+                profileContainer.style.display = 'block';
+            } else {
+                // User is signed out
+                authLinks.style.display = 'block';
+                profileContainer.style.display = 'none';
+            }
+        });
+
+        document.getElementById('logout-button').addEventListener('click', async (e) => {
+            e.preventDefault();
+            await auth.signOut();
+            window.location.href = 'index.html';
+        });
+
         AOS.init({
             duration: 1000,
             once: true,
