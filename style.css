@@ -1,7 +1,7 @@
 /*
 ** ملاحظة مهمة:
 ** تأكد من أن لديك مجلد باسم 'fonts' في نفس مجلد ملف style.css.
-** ضع ملفات خطوط 'JannaLT' و 'ExpoArabic' داخل هذا المجلد.
+** ضع ملفات خطوط 'JannaLT' و 'ExpoArabic' و 'BlackLives' داخل هذا المجلد.
 */
 
 @font-face {
@@ -18,6 +18,15 @@
     src: url('fonts/ExpoArabic-Bold.woff2') format('woff2'),
          url('fonts/ExpoArabic-Bold.ttf') format('truetype');
     font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BlackLives';
+    src: url('fonts/a-BlackLives.woff2') format('woff2'),
+         url('fonts/a-BlackLives.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
@@ -47,18 +56,18 @@ header {
 }
 
 header h1 {
-    font-family: 'Expo Arabic', sans-serif;
+    font-family: 'BlackLives', sans-serif;
     float: right;
     margin: 0;
     display: flex; /* لضمان محاذاة اللوجو مع النص */
     align-items: center; /* لمحاذاة العناصر في الوسط */
-    font-size: 2.2em; /* تم زيادة حجم الخط هنا */
+    font-size: 2.5em; /* تم تكبير حجم الخط ليتناسب مع اللوجو */
 }
 
 .logo {
-    height: 60px; /* تم تغيير الحجم هنا */
+    height: 70px; /* تم تكبير حجم اللوجو */
     width: auto;
-    margin-left: 10px; /* مسافة بين اللوجو والنص */
+    margin-left: 10px;
 }
 
 header nav {
