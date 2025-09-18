@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT SIGNALS - منصة صفقات التداول</title>
+    <title>MT SIGNALS | أفضل منصة لتحليل إشارات التداول</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -20,35 +21,39 @@
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" data-aos="fade-up" data-aos-delay="200">
             <div class="container">
-                <h2 data-aos="fade-up" data-aos-duration="1000">حقق أرباحك مع صفقاتنا الاحترافية</h2>
-                <p data-aos="fade-up" data-aos-delay="200">منصة MT SIGNALS تساعدك في اتخاذ قرارات تداول مدروسة على Expert Option. انضم الآن إلى مجتمعنا.</p>
-                <a href="pricing.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">ابدأ الآن</a>
+                <h2>أفضل إشارات التداول بين يديك</h2>
+                <p>انضم إلى MT SIGNALS واستفد من التحليلات الفنية الدقيقة التي تساعدك على اتخاذ قرارات تداول مدروسة وزيادة أرباحك.</p>
+                <a href="signup.html" class="cta-button">ابدأ الآن مجاناً</a>
             </div>
         </section>
 
         <section class="features">
-            <div class="container">
-                <h3 data-aos="fade-up">لماذا تختار MT SIGNALS؟</h3>
+            <div class="container" data-aos="fade-up">
+                <h3>لماذا تختار MT SIGNALS؟</h3>
                 <div class="feature-grid">
-                    <div class="feature-item" data-aos="fade-right" data-aos-delay="200">
-                        <h4>صفقات دقيقة</h4>
-                        <p>نقدم صفقات تداول مختارة بعناية لزيادة فرص نجاحك.</p>
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                        <h4>تحليلات دقيقة</h4>
+                        <p>نقدم لك إشارات تداول مبنية على تحليل فني عميق للسوق.</p>
                     </div>
-                    <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-                        <h4>تحليلات الخبراء</h4>
-                        <p>فريق من المحللين المحترفين يقدمون لك أفضل التوصيات.</p>
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-bullseye fa-3x"></i>
+                        <h4>دعم فني مستمر</h4>
+                        <p>فريقنا متاح على مدار الساعة للإجابة على استفساراتك وتقديم المساعدة.</p>
                     </div>
-                    <div class="feature-item" data-aos="fade-left" data-aos-delay="400">
-                        <h4>دعم 24/7</h4>
-                        <p>فريق الدعم متاح على مدار الساعة للإجابة على استفساراتك.</p>
+                    <div class="feature-item" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fas fa-lock fa-3x"></i>
+                        <h4>حماية بياناتك</h4>
+                        <p>نستخدم أعلى معايير الأمان لحماية بياناتك الشخصية وتداولاتك.</p>
                     </div>
                 </div>
             </div>
@@ -64,108 +69,8 @@
     <script src="js/particles.min.js"></script>
     <script>
         particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 5,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "grab": {
-                        "distance": 400,
-                        "line_linked": {
-                            "opacity": 1
-                        }
-                    },
-                    "bubble": {
-                        "distance": 400,
-                        "size": 40,
-                        "duration": 2,
-                        "opacity": 8,
-                        "speed": 3
-                    },
-                    "repulse": {
-                        "distance": 200,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    },
-                    "remove": {
-                        "particles_nb": 2
-                    }
-                }
-            },
+            "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } },
             "retina_detect": true
         });
     </script>
