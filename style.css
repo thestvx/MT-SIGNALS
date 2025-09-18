@@ -50,6 +50,14 @@ header h1 {
     font-family: 'Expo Arabic', sans-serif;
     float: right;
     margin: 0;
+    display: flex; /* لضمان محاذاة اللوجو مع النص */
+    align-items: center; /* لمحاذاة العناصر في الوسط */
+}
+
+.logo {
+    height: 40px; /* يمكنك تغيير هذا الحجم حسب رغبتك */
+    width: auto;
+    margin-left: 10px; /* مسافة بين اللوجو والنص */
 }
 
 header nav {
