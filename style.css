@@ -605,3 +605,63 @@ footer {
         transform: scale(1.05);
     }
 }
+
+/*
+*** التنسيقات الجديدة للميزات داخل بطاقات الاشتراكات ***
+*/
+
+.features-list {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* المسافة بين الميزات */
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item p {
+    margin: 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    flex-grow: 1; /* يملأ المساحة المتاحة */
+}
+
+.feature-icon {
+    font-size: 1.5em;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px; /* المسافة بين الأيقونة والنص */
+    font-weight: bold;
+    color: #fff;
+}
+
+.feature-icon.available {
+    background: #00b894; /* أخضر */
+}
+
+.feature-item.unavailable .feature-icon {
+    background: #ccc; /* رمادي للمزايا غير المتاحة */
+}
+
+.feature-item.unavailable p {
+    color: #888;
+    text-decoration: line-through; /* خط على النص */
+}
