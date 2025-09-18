@@ -31,14 +31,17 @@
     font-display: swap;
 }
 
-body {
-    font-family: 'Janna LT', sans-serif;
+html, body {
     margin: 0;
     padding: 0;
     direction: rtl;
-    background-color: transparent; /* تم تغيير الخلفية إلى شفافة */
-    color: #001a33; /* أزرق غامق */
+    background-color: transparent; /* تم جعل الخلفية شفافة بشكل إجباري */
+    color: #001a33;
     line-height: 1.6;
+}
+
+body {
+    font-family: 'Janna LT', sans-serif;
 }
 
 .container {
@@ -48,11 +51,11 @@ body {
 }
 
 header {
-    background: #002b55; /* أزرق داكن */
+    background: #002b55;
     color: #fff;
     padding-top: 20px;
     min-height: 70px;
-    border-bottom: #00b894 3px solid; /* أخضر بارز */
+    border-bottom: #00b894 3px solid;
     position: relative;
     z-index: 2;
 }
@@ -61,13 +64,13 @@ header h1 {
     font-family: 'BlackLives', sans-serif;
     float: right;
     margin: 0;
-    display: flex; /* لضمان محاذاة اللوجو مع النص */
-    align-items: center; /* لمحاذاة العناصر في الوسط */
-    font-size: 2.5em; /* تم تكبير حجم الخط ليتناسب مع اللوجو */
+    display: flex;
+    align-items: center;
+    font-size: 2.5em;
 }
 
 .logo {
-    height: 70px; /* تم تكبير حجم اللوجو */
+    height: 70px;
     width: auto;
     margin-left: 10px;
 }
@@ -96,7 +99,7 @@ header a {
 }
 
 .hero {
-    background: rgba(255, 255, 255, 0.7); /* تم تغيير الشفافية إلى 0.7 */
+    background: rgba(255, 255, 255, 0.7);
     padding: 100px 0;
     text-align: center;
     position: relative;
@@ -105,7 +108,7 @@ header a {
 
 .hero h2 {
     font-size: 3em;
-    color: #002b55; /* أزرق داكن */
+    color: #002b55;
     font-family: 'Expo Arabic', sans-serif;
 }
 
@@ -117,7 +120,7 @@ header a {
 
 .cta-button {
     display: inline-block;
-    background: #00b894; /* أخضر */
+    background: #00b894;
     color: #fff;
     padding: 15px 30px;
     text-decoration: none;
@@ -128,11 +131,11 @@ header a {
 }
 
 .cta-button:hover {
-    background: #00876b; /* أخضر أغمق عند التمرير */
+    background: #00876b;
 }
 
 .features {
-    background: rgba(255, 255, 255, 0.75); /* تم تغيير الشفافية إلى 0.75 */
+    background: rgba(255, 255, 255, 0.75);
     padding: 50px 0;
     text-align: center;
     position: relative;
@@ -159,7 +162,7 @@ header a {
 }
 
 footer {
-    background: #002b55; /* أزرق داكن */
+    background: #002b55;
     color: #fff;
     text-align: center;
     padding: 20px 0;
@@ -173,12 +176,12 @@ footer {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #002b55; /* لون خلفية أزرق داكن */
+    background-color: #002b55;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    z-index: -1; /* يضعها في الخلفية */
-    opacity: 0.8; /* لكي لا تشتت الانتباه عن المحتوى */
+    z-index: -1;
+    opacity: 0.8;
 }
 
 /* لضمان ظهور المحتوى فوق الجزيئات */
