@@ -52,10 +52,11 @@ header h1 {
     margin: 0;
     display: flex; /* لضمان محاذاة اللوجو مع النص */
     align-items: center; /* لمحاذاة العناصر في الوسط */
+    font-size: 2.2em; /* تم زيادة حجم الخط هنا */
 }
 
 .logo {
-    height: 40px; /* يمكنك تغيير هذا الحجم حسب رغبتك */
+    height: 60px; /* تم تغيير الحجم هنا */
     width: auto;
     margin-left: 10px; /* مسافة بين اللوجو والنص */
 }
