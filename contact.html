@@ -34,9 +34,8 @@
                     <p>فريقنا هنا دائماً للاستماع إلى استفساراتك واقتراحاتك. لا تتردد في التواصل معنا عبر أي من الطرق التالية، وسنكون سعداء بمساعدتك.</p>
                 </div>
                 
-                <div class="contact-content">
-                    
-                    <div class="contact-form-container" data-aos="fade-right">
+                <div class="contact-main-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-form-column">
                         <h3>أرسل لنا رسالة</h3>
                         <form action="#" method="POST" class="contact-form">
                             <input type="text" name="name" placeholder="الاسم الكامل" required>
@@ -46,27 +45,27 @@
                         </form>
                     </div>
                     
-                    <div class="contact-info-container" data-aos="fade-left">
-                        <h3>تواصل معنا مباشرةً</h3>
-                        <div class="info-card">
-                            <div class="icon-circle"><i class="fas fa-envelope"></i></div>
-                            <div class="info-text">
+                    <div class="contact-info-column">
+                        <h3>معلومات الاتصال</h3>
+                        <div class="info-group">
+                            <i class="fas fa-envelope"></i>
+                            <div class="text">
                                 <h4>البريد الإلكتروني</h4>
-                                <p>contact@mtsignals.com</p>
+                                <a href="mailto:contact@mtsignals.com">contact@mtsignals.com</a>
                             </div>
                         </div>
-                        <div class="info-card">
-                            <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
-                            <div class="info-text">
+                        <div class="info-group">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="text">
                                 <h4>رقم الهاتف</h4>
-                                <p>+966 50 123 4567</p>
+                                <a href="tel:+966501234567">+966 50 123 4567</a>
                             </div>
                         </div>
-                        <div class="info-card">
-                            <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
-                            <div class="info-text">
+                        <div class="info-group">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="text">
                                 <h4>واتساب</h4>
-                                <p>+966 50 123 4567</p>
+                                <a href="https://wa.me/966501234567">+966 50 123 4567</a>
                             </div>
                         </div>
                     </div>
@@ -96,15 +95,7 @@
     <script src="js/particles.min.js"></script>
     <script>
         particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5 },
-                "size": { "value": 5, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 6 }
-            },
+            "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } },
             "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } },
             "retina_detect": true
         });
