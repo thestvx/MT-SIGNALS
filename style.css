@@ -593,7 +593,7 @@ footer {
 }
 
 /*
-*** تنسيقات صفحة تواصل معنا (Contact Us) ***
+*** تنسيقات صفحة تواصل معنا (Contact Us) - النسخة الجديدة ***
 */
 
 .contact-section {
@@ -621,31 +621,46 @@ footer {
     margin: 0 auto;
 }
 
-.contact-content {
+.contact-main-card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-}
-
-.contact-form-container,
-.contact-info-container {
     background: #fff;
-    padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    text-align: right;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    max-width: 950px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.contact-form-container h3,
-.contact-info-container h3 {
+.contact-form-column,
+.contact-info-column {
+    flex: 1;
+    padding: 50px;
+    min-width: 300px;
+}
+
+.contact-info-column {
+    background: linear-gradient(135deg, #002b55, #004080);
+    color: #fff;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-info-column h3 {
+    color: #00b894;
+    font-family: 'Expo Arabic', sans-serif;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+}
+
+.contact-form-column h3 {
     font-family: 'Expo Arabic', sans-serif;
     color: #002b55;
     font-size: 1.8em;
     margin-bottom: 25px;
+    text-align: right;
 }
 
 /* تنسيق الاستمارة */
@@ -654,7 +669,7 @@ footer {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 8px;
     background: #f9f9f9;
     font-family: 'Janna LT', sans-serif;
@@ -675,7 +690,8 @@ footer {
 }
 
 .cta-button-contact {
-    display: inline-block;
+    display: block;
+    width: 100%;
     background: #002b55;
     color: #fff;
     padding: 15px 40px;
@@ -685,7 +701,6 @@ footer {
     font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%;
 }
 
 .cta-button-contact:hover {
@@ -693,45 +708,44 @@ footer {
     transform: translateY(-2px);
 }
 
-/* تنسيق بطاقات معلومات التواصل */
-.info-card {
+/* تنسيق معلومات الاتصال */
+.info-group {
     display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    text-align: right;
+    gap: 20px;
 }
 
-.info-card:hover {
-    transform: translateX(10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.info-group i {
+    font-size: 2em;
+    color: #00b894;
+    transition: transform 0.3s ease;
 }
 
-.icon-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #00b894;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    margin-left: 20px;
+.info-group:hover i {
+    transform: scale(1.1);
 }
 
-.info-text h4 {
+.info-group .text {
+    flex: 1;
+}
+
+.info-group .text h4 {
     margin: 0;
     font-size: 1.2em;
-    color: #002b55;
+    font-family: 'Expo Arabic', sans-serif;
 }
 
-.info-text p {
-    margin: 5px 0 0;
-    color: #666;
+.info-group .text a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.info-group .text a:hover {
+    color: #00b894;
 }
 
 /* تنسيق أيقونات التواصل الاجتماعي */
@@ -824,14 +838,13 @@ footer {
     .recommended:hover {
         transform: scale(1.05);
     }
-    .contact-content {
+    .contact-main-card {
         flex-direction: column;
-        align-items: center;
+        padding: 0;
     }
-    .contact-form-container,
-    .contact-info-container {
-        width: 90%;
-        max-width: none;
+    .contact-form-column,
+    .contact-info-column {
+        padding: 40px;
     }
     .contact-header h2 {
         font-size: 2em;
