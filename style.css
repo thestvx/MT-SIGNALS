@@ -592,7 +592,191 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* للتوافق مع الشاشات الصغيرة */
+/*
+*** تنسيقات صفحة تواصل معنا (Contact Us) ***
+*/
+
+.contact-section {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-header {
+    margin-bottom: 50px;
+}
+
+.contact-header h2 {
+    font-size: 3em;
+    color: #002b55;
+    font-family: 'BlackLives', sans-serif;
+    margin-bottom: 15px;
+}
+
+.contact-header p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contact-form-container,
+.contact-info-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: right;
+}
+
+.contact-form-container h3,
+.contact-info-container h3 {
+    font-family: 'Expo Arabic', sans-serif;
+    color: #002b55;
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
+
+/* تنسيق الاستمارة */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    font-family: 'Janna LT', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #00b894;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 184, 148, 0.2);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.cta-button-contact {
+    display: inline-block;
+    background: #002b55;
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+}
+
+.cta-button-contact:hover {
+    background: #00b894;
+    transform: translateY(-2px);
+}
+
+/* تنسيق بطاقات معلومات التواصل */
+.info-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #00b894;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+.info-text h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #002b55;
+}
+
+.info-text p {
+    margin: 5px 0 0;
+    color: #666;
+}
+
+/* تنسيق أيقونات التواصل الاجتماعي */
+.social-media {
+    background: rgba(230, 240, 255, 0.9);
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid #d0d0d0;
+}
+
+.social-media h3 {
+    font-family: 'Expo Arabic', sans-serif;
+    color: #002b55;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-icon-link {
+    width: 60px;
+    height: 60px;
+    background: #002b55;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon-link:hover {
+    background: #00b894;
+    transform: translateY(-5px) scale(1.1);
+}
+
+/*
+*** التوافق مع الشاشات الصغيرة ***
+*/
+
 @media (max-width: 768px) {
     .container {
         width: 95%;
@@ -639,5 +823,17 @@ footer {
     }
     .recommended:hover {
         transform: scale(1.05);
+    }
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-form-container,
+    .contact-info-container {
+        width: 90%;
+        max-width: none;
+    }
+    .contact-header h2 {
+        font-size: 2em;
     }
 }
