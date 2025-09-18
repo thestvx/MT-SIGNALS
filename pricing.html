@@ -9,6 +9,8 @@
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <header>
         <div class="container">
             <h1><img src="logo.png" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
@@ -104,6 +106,12 @@
         </div>
     </footer>
 
+    <script src="js/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'js/particlesjs-config.json', function() {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
