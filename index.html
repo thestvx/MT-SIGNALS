@@ -14,7 +14,7 @@
 
     <header>
         <div class="container">
-            <h1><img src="logo.png" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
+            <h1><img src="https://placehold.co/40x40/202c3c/FFFFFF?text=MT" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">الرئيسية</a></li>
@@ -98,7 +98,6 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
-        // Check for theme preference and apply it
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) {
             document.body.setAttribute('data-theme', currentTheme);
@@ -115,11 +114,9 @@
             const authLinks = document.getElementById('auth-links');
             const profileContainer = document.getElementById('profile-container');
             if (user) {
-                // User is signed in
                 authLinks.style.display = 'none';
                 profileContainer.style.display = 'block';
             } else {
-                // User is signed out
                 authLinks.style.display = 'block';
                 profileContainer.style.display = 'none';
             }
@@ -137,6 +134,5 @@
         });
         particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
     </script>
-
 </body>
 </html>
