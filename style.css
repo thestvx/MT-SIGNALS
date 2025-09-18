@@ -1,0 +1,156 @@
+/*
+** ملاحظة مهمة:
+** تأكد من أن لديك مجلد باسم 'fonts' في نفس مجلد ملف style.css.
+** ضع ملفات خطوط 'JannaLT' و 'ExpoArabic' داخل هذا المجلد.
+*/
+
+@font-face {
+    font-family: 'Janna LT';
+    src: url('fonts/JannaLT-Bold.woff2') format('woff2'),
+         url('fonts/JannaLT-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Expo Arabic';
+    src: url('fonts/ExpoArabic-Bold.woff2') format('woff2'),
+         url('fonts/ExpoArabic-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Janna LT', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    background-color: #e6f0ff; /* أزرق فاتح جداً */
+    color: #001a33; /* أزرق غامق */
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #002b55; /* أزرق داكن */
+    color: #fff;
+    padding-top: 20px;
+    min-height: 70px;
+    border-bottom: #00b894 3px solid; /* أخضر بارز */
+}
+
+header h1 {
+    font-family: 'Expo Arabic', sans-serif;
+    float: right;
+    margin: 0;
+}
+
+header nav {
+    float: left;
+    margin-top: 10px;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header li {
+    display: inline;
+    padding: 0 20px 0 0;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.hero {
+    background: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h2 {
+    font-size: 3em;
+    color: #002b55; /* أزرق داكن */
+    font-family: 'Expo Arabic', sans-serif;
+}
+
+.hero p {
+    font-size: 1.2em;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #00b894; /* أخضر */
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #00876b; /* أخضر أغمق عند التمرير */
+}
+
+.features {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.feature-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.feature-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.feature-item h4 {
+    font-family: 'Expo Arabic', sans-serif;
+}
+
+footer {
+    background: #002b55; /* أزرق داكن */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+/* للتوافق مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    header h1, header nav {
+        float: none;
+        text-align: center;
+    }
+    header nav ul {
+        padding-top: 10px;
+    }
+    .feature-grid {
+        flex-direction: column;
+    }
+}
