@@ -44,17 +44,28 @@ html, body {
 
 body {
     font-family: 'Janna LT', sans-serif;
-    /* خلفية متدرجة ديناميكية */
-    background: linear-gradient(135deg, #001a33, #002b55, #003d7a, #004e9e, #005fbd);
-    background-size: 400% 400%;
-    animation: GradientAnimation 15s ease infinite;
 }
 
-@keyframes GradientAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* الخلفية المتحركة مع الصورة لجميع الصفحات */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #002b55;
+    background-image: url('images/trading-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    z-index: -1;
+    opacity: 0.8;
 }
+
+body > *:not(#particles-js) {
+    position: relative;
+    z-index: 2;
+}
+
 
 .container {
     width: 90%;
@@ -118,12 +129,7 @@ header a:hover {
     color: #00b894;
 }
 
-/* تنسيقات الصفحة الرئيسية (الأنيميشن) */
-/* تم استبدال خلفية Particles.js بالخلفية المتدرجة الجديدة */
-#particles-js {
-    display: none; /* إخفاء الخلفية القديمة */
-}
-
+/* تنسيقات الصفحة الرئيسية */
 .hero {
     background: rgba(255, 255, 255, 0.7);
     padding: 100px 0;
@@ -243,7 +249,7 @@ footer {
 }
 
 .about-vision {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(230, 240, 255, 0.95));
+    background: rgba(255, 255, 255, 0.95);
     padding: 60px 0;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -299,7 +305,7 @@ footer {
 }
 
 .our-story {
-    background: #f8fcfd;
+    background: rgba(255, 255, 255, 0.9);
     padding: 60px 0;
     text-align: right;
     border-top: 1px solid #e0e0e0;
@@ -322,7 +328,7 @@ footer {
 
 .team-new {
     padding: 60px 0;
-    background: #e6f0ff;
+    background: rgba(230, 240, 255, 0.9);
     text-align: center;
     border-top: 1px solid #d0d0d0;
 }
@@ -419,7 +425,7 @@ footer {
 .pricing-grid {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* تم التعديل هنا لضمان التناسق العمودي */
+    align-items: flex-start;
     gap: 30px;
     flex-wrap: wrap;
 }
@@ -437,7 +443,7 @@ footer {
 }
 
 .pricing-card:hover {
-    transform: scale(1.05); /* تأثير تكبير بسيط عند التمرير */
+    transform: scale(1.05);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
@@ -518,7 +524,7 @@ footer {
 }
 
 .recommended:hover {
-    transform: scale(1.08); /* تكبير أكبر قليلاً عند التمرير */
+    transform: scale(1.08);
 }
 
 .recommended .card-header h3 {
