@@ -61,6 +61,7 @@ body {
     opacity: 0.8;
 }
 
+/* هذا التعديل يضمن أن محتوى الصفحة يكون فوق الخلفية المتحركة */
 body > *:not(#particles-js) {
     position: relative;
     z-index: 2;
