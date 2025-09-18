@@ -592,13 +592,13 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+
 /*
 *** تنسيقات صفحة تواصل معنا (Contact Us) - النسخة الجديدة ***
 */
 
 .contact-section {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(5px);
+    background: transparent;
     padding: 80px 0;
     text-align: center;
 }
@@ -607,26 +607,36 @@ footer {
     margin-bottom: 50px;
 }
 
+.contact-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
 .contact-header h2 {
     font-size: 3em;
-    color: #002b55;
+    color: #fff;
     font-family: 'BlackLives', sans-serif;
     margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .contact-header p {
     font-size: 1.2em;
-    color: #555;
+    color: #f0f0f0;
     max-width: 800px;
     margin: 0 auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.contact-main-card {
+.contact-card-blur {
     display: flex;
     flex-wrap: wrap;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.15); /* لون خلفية شفاف */
+    backdrop-filter: blur(10px); /* تأثير الزجاج المضبب */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* حدود شفافة */
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     max-width: 950px;
     margin: 0 auto;
     overflow: hidden;
@@ -639,8 +649,12 @@ footer {
     min-width: 300px;
 }
 
+.contact-form-column {
+    background: rgba(255, 255, 255, 0.9);
+}
+
 .contact-info-column {
-    background: linear-gradient(135deg, #002b55, #004080);
+    background: rgba(0, 43, 85, 0.9);
     color: #fff;
     text-align: right;
     display: flex;
@@ -674,15 +688,17 @@ footer {
     background: #f9f9f9;
     font-family: 'Janna LT', sans-serif;
     font-size: 1em;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     box-sizing: border-box;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: #00b894;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
+    transform: scale(1.01);
     outline: none;
-    box-shadow: 0 0 8px rgba(0, 184, 148, 0.2);
 }
 
 .contact-form textarea {
@@ -700,12 +716,32 @@ footer {
     font-weight: bold;
     font-size: 1.1em;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s;
 }
 
 .cta-button-contact:hover {
+    color: #002b55;
+}
+
+.cta-button-contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: #00b894;
-    transform: translateY(-2px);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.cta-button-contact:hover::before {
+    transform: scaleX(1);
 }
 
 /* تنسيق معلومات الاتصال */
@@ -715,6 +751,11 @@ footer {
     margin-bottom: 30px;
     text-align: right;
     gap: 20px;
+    transition: transform 0.3s ease;
+}
+
+.info-group:hover {
+    transform: translateX(10px);
 }
 
 .info-group i {
@@ -724,7 +765,7 @@ footer {
 }
 
 .info-group:hover i {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(5deg);
 }
 
 .info-group .text {
@@ -838,9 +879,9 @@ footer {
     .recommended:hover {
         transform: scale(1.05);
     }
-    .contact-main-card {
+    .contact-main-card,
+    .contact-card-blur {
         flex-direction: column;
-        padding: 0;
     }
     .contact-form-column,
     .contact-info-column {
@@ -848,5 +889,8 @@ footer {
     }
     .contact-header h2 {
         font-size: 2em;
+    }
+    .contact-logo {
+        width: 100px;
     }
 }
