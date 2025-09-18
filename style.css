@@ -35,7 +35,7 @@ html, body {
     margin: 0;
     padding: 0;
     direction: rtl;
-    background-color: transparent; /* تم جعل الخلفية شفافة بشكل إجباري */
+    background-color: transparent;
     color: #001a33;
     line-height: 1.6;
 }
@@ -177,9 +177,11 @@ footer {
     width: 100%;
     height: 100%;
     background-color: #002b55;
+    background-image: url('images/trading-bg.jpg'); /* تم إضافة هذا السطر */
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
+    background-position: center; /* تم تغيير الموضع للتوسيط */
+    background-blend-mode: multiply; /* تأثير احترافي لدمج اللون مع الصورة */
     z-index: -1;
     opacity: 0.8;
 }
