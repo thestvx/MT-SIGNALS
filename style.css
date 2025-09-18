@@ -36,7 +36,7 @@ body {
     margin: 0;
     padding: 0;
     direction: rtl;
-    background-color: #e6f0ff; /* أزرق فاتح جداً */
+    background-color: transparent; /* تم تغيير الخلفية إلى شفافة */
     color: #001a33; /* أزرق غامق */
     line-height: 1.6;
 }
@@ -96,7 +96,7 @@ header a {
 }
 
 .hero {
-    background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء شبه شفافة لقسم البطل */
+    background: rgba(255, 255, 255, 0.7); /* تم تغيير الشفافية إلى 0.7 */
     padding: 100px 0;
     text-align: center;
     position: relative;
@@ -132,7 +132,7 @@ header a {
 }
 
 .features {
-    background: rgba(255, 255, 255, 0.95); /* خلفية بيضاء شبه شفافة لأقسام الميزات */
+    background: rgba(255, 255, 255, 0.75); /* تم تغيير الشفافية إلى 0.75 */
     padding: 50px 0;
     text-align: center;
     position: relative;
