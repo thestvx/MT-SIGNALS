@@ -389,6 +389,168 @@ footer {
     margin-top: 5px;
 }
 
+/*
+*** تنسيقات صفحة الاشتراكات (Pricing) ***
+*/
+
+.pricing-hero {
+    background-color: #002b55;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.pricing-hero h2 {
+    font-size: 3em;
+    font-family: 'BlackLives', sans-serif;
+    margin-bottom: 15px;
+}
+
+.pricing-hero p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pricing-plans {
+    padding: 80px 0;
+    background: #f0f4f9;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #00b894, #002b55);
+    transition: all 0.4s ease;
+}
+
+.pricing-card:hover::before {
+    height: 100%;
+    opacity: 0.05;
+}
+
+.card-header h3 {
+    font-family: 'Expo Arabic', sans-serif;
+    font-size: 1.8em;
+    color: #002b55;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #00b894;
+    font-family: 'BlackLives', sans-serif;
+    margin-bottom: 10px;
+}
+
+.price small {
+    font-size: 0.5em;
+    font-weight: normal;
+    color: #555;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.pricing-card ul li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #444;
+}
+
+.pricing-card ul li.unavailable {
+    color: #aaa;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.cta-button-card {
+    display: inline-block;
+    background: #002b55;
+    color: #fff;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button-card:hover {
+    background: #00b894;
+}
+
+/* تنسيقات البطاقة الموصى بها (الاحترافي) */
+.recommended {
+    transform: translateY(-20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    border: 3px solid #00b894;
+}
+
+.recommended:hover {
+    transform: translateY(-25px) scale(1.03);
+}
+
+.recommended .card-header h3 {
+    color: #00b894;
+}
+
+.recommended::before {
+    background: linear-gradient(45deg, #00b894, #00d3a5, #002b55);
+    height: 20px;
+}
+
+.recommended:hover::before {
+    height: 100%;
+    opacity: 0.07;
+}
+
+.card-badge {
+    position: absolute;
+    top: 20px;
+    right: -25px;
+    background: #00b894;
+    color: #fff;
+    padding: 5px 25px;
+    font-size: 0.9em;
+    transform: rotate(45deg);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 /* للتوافق مع الشاشات الصغيرة */
 @media (max-width: 768px) {
     .container {
@@ -422,5 +584,19 @@ footer {
     }
     .about-vision .vision-card h3 {
         font-size: 1.8em;
+    }
+    .pricing-grid {
+        flex-direction: column;
+    }
+    .pricing-card {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 30px;
+    }
+    .recommended {
+        transform: translateY(-10px);
+    }
+    .recommended:hover {
+        transform: translateY(-15px) scale(1.02);
     }
 }
