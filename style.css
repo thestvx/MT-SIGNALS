@@ -177,11 +177,11 @@ footer {
     width: 100%;
     height: 100%;
     background-color: #002b55;
-    background-image: url('images/trading-bg.jpg'); /* تم إضافة هذا السطر */
+    background-image: url('images/trading-bg.jpg'); /* تأكد من أن هذا المسار يطابق اسم مجلدك وملفك */
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; /* تم تغيير الموضع للتوسيط */
-    background-blend-mode: multiply; /* تأثير احترافي لدمج اللون مع الصورة */
+    background-position: center;
+    background-blend-mode: multiply;
     z-index: -1;
     opacity: 0.8;
 }
