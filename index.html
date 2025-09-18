@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <div id="particles-js"></div>
+
     <header>
         <div class="container">
             <h1><img src="logo.png" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
@@ -58,5 +60,12 @@
         </div>
     </footer>
 
+    <script src="js/particles.min.js"></script>
+    <script>
+        // تهيئة particles.js باستخدام ملف الإعدادات
+        particlesJS.load('particles-js', 'js/particlesjs-config.json', function() {
+            console.log('particles.js loaded - callback');
+        });
+    </script>
 </body>
 </html>
