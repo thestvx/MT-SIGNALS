@@ -32,11 +32,11 @@
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
-                    <li id="auth-buttons-container">
-                        </li>
                 </ul>
             </nav>
             <div class="header-right">
+                <div id="auth-buttons-container" class="auth-buttons">
+                    </div>
                 <div class="theme-toggle">
                     <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
                         <i class="fas fa-moon"></i>
@@ -113,12 +113,12 @@
         
         // قم بوضع كود التهيئة الخاص بك هنا
         const firebaseConfig = {
-          apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-          authDomain: "mt-siganls.firebaseapp.com",
-          projectId: "mt-siganls",
-          storageBucket: "mt-siganls.firebasestorage.app",
-          messagingSenderId: "84758913270",
-          appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+            authDomain: "mt-siganls.firebaseapp.com",
+            projectId: "mt-siganls",
+            storageBucket: "mt-siganls.firebasestorage.app",
+            messagingSenderId: "84758913270",
+            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
         };
         
         // تهيئة Firebase
@@ -133,9 +133,9 @@
                     // المستخدم مسجل الدخول
                     const username = user.displayName || user.email;
                     authButtonsContainer.innerHTML = `
-                        <li class="user-info">مرحباً, ${username.split('@')[0]}!</li>
-                        <li><a href="dashboard.html" class="cta-button-nav">لوحة التحكم</a></li>
-                        <li><a href="#" id="logout-button" class="cta-button-nav">تسجيل الخروج</a></li>
+                        <span class="user-info">مرحباً, ${username.split('@')[0]}!</span>
+                        <a href="dashboard.html" class="button cta-button-nav">لوحة التحكم</a>
+                        <a href="#" id="logout-button" class="button cta-button-nav">تسجيل الخروج</a>
                     `;
                     const logoutButton = document.getElementById('logout-button');
                     if (logoutButton) {
@@ -152,8 +152,8 @@
                 } else {
                     // المستخدم غير مسجل الدخول
                     authButtonsContainer.innerHTML = `
-                        <li><a href="signup.html" class="cta-button-nav">إنشاء حساب جديد</a></li>
-                        <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
+                        <a href="signup.html" class="button cta-button-nav">إنشاء حساب جديد</a>
+                        <a href="login.html" class="button cta-button-nav">تسجيل الدخول</a>
                     `;
                 }
             }
