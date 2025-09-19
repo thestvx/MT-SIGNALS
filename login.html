@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
 
@@ -46,31 +43,31 @@
     </header>
 
     <main>
-        <section class="auth-section">
-            <div class="auth-card" data-aos="zoom-in">
-                <div class="auth-header">
+        <section class="section auth-section">
+            <div class="card auth-card" data-aos="zoom-in">
+                <div class="auth-header text-center">
                     <img src="logo.png" alt="MT SIGNALS Logo" class="auth-logo">
                     <h2 class="auth-title">تسجيل الدخول</h2>
                     <p class="auth-subtitle">أدخل بياناتك للاستفادة من جميع الميزات</p>
                 </div>
                 <form id="login-form" class="auth-form">
-                    <div class="input-group">
-                        <input type="email" id="email" placeholder="البريد الإلكتروني" required>
-                        <i class="fas fa-envelope input-icon"></i>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required>
                     </div>
-                    <div class="input-group">
-                        <input type="password" id="password" placeholder="كلمة المرور" required>
-                        <i class="fas fa-lock input-icon"></i>
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <input type="password" id="password" required>
                     </div>
                     <a href="#" class="forgot-password-link">نسيت كلمة المرور؟</a>
-                    <button type="submit" class="auth-button">تسجيل الدخول</button>
+                    <button type="submit" class="button button-primary">تسجيل الدخول</button>
                     <p id="error-message" class="error-message"></p>
                 </form>
                 <div class="social-login">
                     <div class="divider">
                         <span>أو</span>
                     </div>
-                    <button id="google-login" class="google-button">
+                    <button id="google-login" class="button button-google">
                         <i class="fab fa-google"></i>
                         <span>تسجيل الدخول باستخدام جوجل</span>
                     </button>
@@ -90,71 +87,8 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script> <script>
-        // Firebase initialization
-        const firebaseConfig = {
-            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-            authDomain: "mt-siganls.firebaseapp.com",
-            projectId: "mt-siganls",
-            storageBucket: "mt-siganls.firebasestorage.app",
-            messagingSenderId: "84758913270",
-            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
-        };
-        firebase.initializeApp(firebaseConfig);
-
-        const auth = firebase.auth();
-        const loginForm = document.getElementById('login-form');
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
-        const errorMessage = document.getElementById('error-message');
-        const googleButton = document.getElementById('google-login');
-
-        // Login with Email and Password
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = emailInput.value;
-            const password = passwordInput.value;
-            errorMessage.textContent = ''; 
-
-            try {
-                await auth.signInWithEmailAndPassword(email, password);
-                
-                // Redirect on successful login
-                window.location.href = 'index.html'; 
-                
-            } catch (error) {
-                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                    errorMessage.textContent = 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
-                } else {
-                    errorMessage.textContent = 'حدث خطأ في تسجيل الدخول. يرجى المحاولة لاحقًا.';
-                    console.error('Login Error:', error);
-                }
-            }
-        });
-
-        // Login with Google
-        googleButton.addEventListener('click', async () => {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            try {
-                await auth.signInWithPopup(provider);
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error('Google Login Error:', error);
-                errorMessage.textContent = 'فشل تسجيل الدخول باستخدام جوجل. يرجى المحاولة مرة أخرى.';
-            }
-        });
-
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-
-        // Initialize Particles
-        particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
