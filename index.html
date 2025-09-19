@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
 
@@ -29,18 +26,7 @@
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
-                    <li id="auth-links">
-                        <a href="login.html" class="cta-button-nav">تسجيل الدخول</a>
-                    </li>
-                    <li id="profile-container" style="display: none;">
-                        <div class="profile-dropdown">
-                            <i class="fas fa-user-circle profile-icon"></i>
-                            <div class="dropdown-menu">
-                                <a href="#">الإعدادات</a>
-                                <a href="#" id="logout-button">تسجيل الخروج</a>
-                            </div>
-                        </div>
-                    </li>
+                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
                 </ul>
             </nav>
             <div class="header-right">
@@ -57,8 +43,8 @@
     </header>
 
     <main>
-        <section class="hero-section" data-aos="fade-up" data-aos-duration="1500">
-            <div class="container text-center">
+        <section class="hero-section text-center" data-aos="fade-up" data-aos-duration="1500">
+            <div class="container">
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">
                     أفضل إشارات التداول لربح مضمون
                     <span class="gradient-text"> MT SIGNALS</span>
@@ -67,34 +53,34 @@
                     انضم إلى الآلاف من المتداولين الناجحين وابدأ بتحقيق الأرباح اليوم.
                 </p>
                 <div class="hero-buttons" data-aos="fade-up" data-aos-delay="700">
-                    <a href="signup.html" class="cta-button-main">ابدأ الآن</a>
-                    <a href="about.html" class="cta-button-secondary">اكتشف المزيد</a>
+                    <a href="signup.html" class="button button-primary">ابدأ الآن</a>
+                    <a href="about.html" class="button button-secondary">اكتشف المزيد</a>
                 </div>
             </div>
         </section>
 
         <section class="section features-section">
             <div class="container">
-                <h2 class="section-title">لماذا تختار <span class="gradient-text">MT SIGNALS؟</span></h2>
-                <p class="section-subtitle">نقدم لك كل ما تحتاجه لتحقيق النجاح في عالم التداول.</p>
+                <h2 class="section-title text-center">لماذا تختار <span class="gradient-text">MT SIGNALS؟</span></h2>
+                <p class="section-subtitle text-center">نقدم لك كل ما تحتاجه لتحقيق النجاح في عالم التداول.</p>
                 <div class="features-grid">
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-chart-line feature-icon"></i>
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-chart-line icon-large"></i>
                         <h3>دقة عالية</h3>
                         <p>نقدم إشارات تداول دقيقة لتحقيق أفضل النتائج في السوق.</p>
                     </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-user-tie feature-icon"></i>
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-user-tie icon-large"></i>
                         <h3>خبراء معتمدون</h3>
                         <p>فريق من الخبراء يحلل السوق على مدار الساعة ليقدم لك الأفضل.</p>
                     </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-headset feature-icon"></i>
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-headset icon-large"></i>
                         <h3>دعم فني</h3>
                         <p>فريق دعم جاهز للإجابة على جميع استفساراتك 24/7.</p>
                     </div>
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fas fa-shield-alt feature-icon"></i>
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-shield-alt icon-large"></i>
                         <h3>أمان تام</h3>
                         <p>نستخدم أحدث تقنيات الأمان لحماية بياناتك وأموالك.</p>
                     </div>
@@ -129,12 +115,12 @@
 
         <section class="section testimonials-section">
             <div class="container">
-                <h2 class="section-title">ماذا يقول <span class="gradient-text">عملاؤنا</span></h2>
-                <p class="section-subtitle">قصص نجاح حقيقية من متداولين مثلكم.</p>
+                <h2 class="section-title text-center">ماذا يقول <span class="gradient-text">عملاؤنا</span></h2>
+                <p class="section-subtitle text-center">قصص نجاح حقيقية من متداولين مثلكم.</p>
                 <div class="testimonials-grid">
-                    <div class="testimonial-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="card testimonial-card" data-aos="fade-right" data-aos-delay="100">
                         <div class="testimonial-content">
-                            <i class="fas fa-quote-right quote-icon"></i>
+                            <i class="fas fa-quote-right icon-small"></i>
                             <p>"منصة MT SIGNALS غيّرت طريقة تداولي بالكامل. دقة الإشارات لا تصدق، والدعم الفني ممتاز!"</p>
                         </div>
                         <div class="testimonial-author">
@@ -145,9 +131,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="card testimonial-card" data-aos="fade-left" data-aos-delay="200">
                         <div class="testimonial-content">
-                            <i class="fas fa-quote-right quote-icon"></i>
+                            <i class="fas fa-quote-right icon-small"></i>
                             <p>"بفضل الإشارات، تمكنت من تحقيق أرباح لم أكن أحلم بها. أنصح بها كل من يبحث عن نتائج حقيقية."</p>
                         </div>
                         <div class="testimonial-author">
@@ -166,13 +152,12 @@
             <div class="container" data-aos="zoom-in" data-aos-delay="100">
                 <h2 class="cta-title">هل أنت مستعد لبدء رحلة النجاح؟</h2>
                 <p class="cta-subtitle">لا تضيع المزيد من الوقت، ابدأ الآن مع أفضل إشارات التداول.</p>
-                <a href="signup.html" class="cta-button">ابدأ مجاناً</a>
+                <a href="signup.html" class="button button-primary">ابدأ مجاناً</a>
             </div>
         </section>
-
     </main>
 
-    <footer class="site-footer">
+    <footer>
         <div class="container">
             <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
             <div class="social-links">
@@ -184,99 +169,8 @@
         </div>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Your existing JavaScript code...
-        const firebaseConfig = {
-            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-            authDomain: "mt-siganls.firebaseapp.com",
-            projectId: "mt-siganls",
-            storageBucket: "mt-siganls.firebasestorage.app",
-            messagingSenderId: "84758913270",
-            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-
-        // Theme Toggle
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.body.setAttribute('data-theme', currentTheme);
-        }
-
-        const themeToggleButton = document.getElementById('theme-toggle-button');
-        const themeIcon = themeToggleButton.querySelector('i');
-        themeToggleButton.addEventListener('click', () => {
-            let newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            document.body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeIcon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-        });
-
-        // Auth State
-        auth.onAuthStateChanged(user => {
-            const authLinks = document.getElementById('auth-links');
-            const profileContainer = document.getElementById('profile-container');
-            if (user) {
-                authLinks.style.display = 'none';
-                profileContainer.style.display = 'block';
-            } else {
-                authLinks.style.display = 'block';
-                profileContainer.style.display = 'none';
-            }
-        });
-
-        // Logout
-        document.getElementById('logout-button').addEventListener('click', async (e) => {
-            e.preventDefault();
-            await auth.signOut();
-            window.location.href = 'index.html';
-        });
-
-        // AOS Initialization
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-
-        // Stats Counter Animation
-        const counters = document.querySelectorAll('.stat-number');
-        const options = {
-            root: null,
-            threshold: 0.5
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = parseInt(counter.dataset.target);
-                    let count = 0;
-                    const increment = Math.ceil(target / 100);
-                    const timer = setInterval(() => {
-                        count += increment;
-                        if (count > target) {
-                            count = target;
-                            clearInterval(timer);
-                        }
-                        counter.textContent = count;
-                    }, 15);
-                    observer.unobserve(counter);
-                }
-            });
-        }, options);
-
-        counters.forEach(counter => {
-            observer.observe(counter);
-        });
-
-        // Particles.js
-        particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
-
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
