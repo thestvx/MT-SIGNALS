@@ -298,6 +298,15 @@ body {
     margin-right: 2rem;
 }
 
+/* التعديل الجديد: تنسيق عناصر قائمة التنقل للمستخدمين المسجلين */
+.main-nav ul li.user-info {
+    color: var(--accent-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
 .main-nav ul li a {
     color: var(--text-color);
     text-decoration: none;
@@ -697,20 +706,19 @@ body {
 
 /* --- Auth Pages (Login & Signup) --- */
 .auth-page .main-header {
-    /* التعديل هنا لضمان أن يكون الهيدر ثابتًا ومناسبًا لصفحة تسجيل الدخول */
     background-color: var(--card-bg);
     box-shadow: var(--box-shadow);
-    position: static; /* تم تغيير هذا السطر */
+    position: static;
     padding: 1.5rem 0;
 }
 
 .auth-section {
-    min-height: calc(100vh - 120px); /* تم تعديل هذا السطر لحساب ارتفاع الهيدر */
+    min-height: calc(100vh - 120px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 40px 0; /* تم تعديل هذا السطر */
+    padding: 40px 0;
 }
 
 .auth-card {
@@ -802,14 +810,21 @@ body {
     transform: translateY(-50%);
 }
 
+/* التعديل الجديد: تنسيق رسالة الخطأ والنجاح */
 .error-message {
-    color: #ff4d4f;
     font-size: 0.9rem;
     margin-top: 1rem;
     text-align: center;
+    font-weight: 600;
+    color: #ff4d4f; /* لون أحمر افتراضي للأخطاء */
 }
 
-/* تحسينات إضافية لصفحات التسجيل */
+/* تنسيق رسالة النجاح بشكل خاص */
+.success-message {
+    color: #00c6a7; /* لون أخضر للنجاح */
+}
+
+/* تحسينات إضافية لصفحات المصادقة */
 .auth-form .form-group {
     margin-bottom: 1.5rem;
     display: flex;
@@ -894,7 +909,7 @@ footer {
     font-family: 'All Genders v4', sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--heading-color);
+    color: var(--text-color); /* تم تعديل اللون */
     margin-top: 20px;
     animation: fadeIn 1.5s ease-in-out;
 }
@@ -902,7 +917,7 @@ footer {
 .splash-subtext {
     font-family: 'All Genders v4', sans-serif;
     font-size: 1rem;
-    color: var(--text-color-secondary);
+    color: var(--text-muted); /* تم تعديل اللون */
     margin-top: 10px;
     animation: fadeIn 1.5s ease-in-out;
 }
@@ -927,6 +942,19 @@ footer {
     color: var(--text-muted);
     max-width: 700px;
     margin: 0 auto 2rem;
+}
+
+/* --- Dashboard Page Styles (جديد) --- */
+.dashboard-container {
+    padding-top: 100px;
+}
+.dashboard-card {
+    padding: 2.5rem;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 /* --- Animations --- */
