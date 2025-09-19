@@ -336,6 +336,13 @@ body {
     color: var(--primary-color);
 }
 
+/* تعديل المسافة بين الأزرار وأيقونة الثيم */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* هذه الخاصية الجديدة هي الحل للمشكلة */
+}
+
 .cta-button-nav {
     background-color: var(--primary-color);
     color: #fff !important;
@@ -345,7 +352,6 @@ body {
     font-weight: 700;
     transition: all 0.3s ease;
     border: 2px solid var(--primary-color);
-    margin-right: 10px;
 }
 
 .cta-button-nav:hover {
@@ -360,6 +366,7 @@ body {
     font-size: 1.3rem;
     cursor: pointer;
     transition: color 0.3s ease, transform 0.3s ease;
+    margin-right: 1rem; /* إضافة مسافة على اليمين لأيقونة الثيم */
 }
 
 .theme-toggle button:hover {
