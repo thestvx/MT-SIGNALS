@@ -290,21 +290,14 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
+    /* التعديل الجديد: لضمان محاذاة العناصر بشكل صحيح */
+    align-items: center; 
     margin: 0;
     padding: 0;
 }
 
 .main-nav ul li {
     margin-right: 2rem;
-}
-
-/* التعديل الجديد: تنسيق عناصر قائمة التنقل للمستخدمين المسجلين */
-.main-nav ul li.user-info {
-    color: var(--accent-color);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
 }
 
 .main-nav ul li a {
@@ -336,6 +329,7 @@ body {
     color: var(--primary-color);
 }
 
+/* التعديل الجديد: تنسيق أزرار التنقل بشكل صحيح */
 .cta-button-nav {
     background-color: var(--primary-color);
     color: #fff !important;
@@ -345,6 +339,8 @@ body {
     font-weight: 700;
     transition: all 0.3s ease;
     border: 2px solid var(--primary-color);
+    /* إضافة تنسيق لمنع التداخل */
+    margin-right: 10px;
 }
 
 .cta-button-nav:hover {
@@ -810,21 +806,18 @@ body {
     transform: translateY(-50%);
 }
 
-/* التعديل الجديد: تنسيق رسالة الخطأ والنجاح */
 .error-message {
     font-size: 0.9rem;
     margin-top: 1rem;
     text-align: center;
     font-weight: 600;
-    color: #ff4d4f; /* لون أحمر افتراضي للأخطاء */
+    color: #ff4d4f;
 }
 
-/* تنسيق رسالة النجاح بشكل خاص */
 .success-message {
-    color: #00c6a7; /* لون أخضر للنجاح */
+    color: #00c6a7;
 }
 
-/* تحسينات إضافية لصفحات المصادقة */
 .auth-form .form-group {
     margin-bottom: 1.5rem;
     display: flex;
@@ -909,7 +902,7 @@ footer {
     font-family: 'All Genders v4', sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
-    color: var(--text-color); /* تم تعديل اللون */
+    color: var(--text-color);
     margin-top: 20px;
     animation: fadeIn 1.5s ease-in-out;
 }
@@ -917,7 +910,7 @@ footer {
 .splash-subtext {
     font-family: 'All Genders v4', sans-serif;
     font-size: 1rem;
-    color: var(--text-muted); /* تم تعديل اللون */
+    color: var(--text-muted);
     margin-top: 10px;
     animation: fadeIn 1.5s ease-in-out;
 }
