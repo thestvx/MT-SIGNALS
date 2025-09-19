@@ -697,17 +697,20 @@ body {
 
 /* --- Auth Pages (Login & Signup) --- */
 .auth-page .main-header {
-    /* أزل position: relative; هنا لتجنب المشاكل */
+    /* التعديل هنا لضمان أن يكون الهيدر ثابتًا ومناسبًا لصفحة تسجيل الدخول */
     background-color: var(--card-bg);
     box-shadow: var(--box-shadow);
+    position: static; /* تم تغيير هذا السطر */
+    padding: 1.5rem 0;
 }
+
 .auth-section {
-    min-height: 100vh;
+    min-height: calc(100vh - 120px); /* تم تعديل هذا السطر لحساب ارتفاع الهيدر */
     display: flex;
-    flex-direction: column; /* تم إضافة هذا السطر */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 120px 0;
+    padding: 40px 0; /* تم تعديل هذا السطر */
 }
 
 .auth-card {
