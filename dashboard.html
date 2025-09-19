@@ -1,92 +1,41 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم - MT SIGNALS</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body data-theme="dark">
+<script type="module">
+    // ...
+    function updateNavButtons(user) {
+        const authButtonsContainer = document.getElementById('auth-buttons-container');
+        if (authButtonsContainer) {
+            if (user) {
+                const username = user.displayName || user.email;
+                authButtonsContainer.innerHTML = `
+                    <span class="user-info">مرحباً, ${username.split('@')[0]}!</span>
+                    <a href="dashboard.html" class="button cta-button-nav">لوحة التحكم</a>
+                    <a href="#" id="logout-button" class="button cta-button-nav">تسجيل الخروج</a>
+                `;
+                
+                // Add active class to dashboard link if on dashboard page
+                if (window.location.pathname.includes('dashboard.html')) {
+                    document.querySelector('#auth-buttons-container a[href="dashboard.html"]').classList.add('active');
+                }
 
-    <div id="particles-js"></div>
+                const logoutButton = document.getElementById('logout-button');
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        try {
+                            await signOut(auth);
+                            window.location.href = 'index.html';
+                        } catch (error) {
+                            console.error('فشل تسجيل الخروج:', error);
+                        }
+                    });
+                }
+            } else {
+                authButtonsContainer.innerHTML = `
+                    <a href="signup.html" class="button cta-button-nav">إنشاء حساب جديد</a>
+                    <a href="login.html" class="button cta-button-nav">تسجيل الدخول</a>
+                `;
+            }
+        }
+    }
 
-    <header class="main-header">
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul id="main-nav-ul">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div id="auth-buttons-container" class="auth-buttons">
-                    </div>
-                <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section class="section dashboard-section">
-            <div class="container dashboard-container">
-                <div class="card dashboard-card">
-                    <h2 class="section-title" data-aos="fade-up">لوحة التحكم</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">مرحباً بك في لوحة التحكم الخاصة بك.</p>
-                    <div class="dashboard-content">
-                        <div class="dashboard-item" data-aos="fade-up" data-aos-delay="200">
-                            <h3>معلومات الحساب</h3>
-                            <p id="user-info">جاري تحميل البيانات...</p>
-                        </div>
-                        <div class="dashboard-item" data-aos="fade-up" data-aos-delay="300">
-                            <h3>تغيير كلمة المرور</h3>
-                            <form id="password-change-form">
-                                <div class="form-group">
-                                    <label for="new-password">كلمة المرور الجديدة</label>
-                                    <input type="password" id="new-password" placeholder="أدخل كلمة المرور الجديدة" required>
-                                </div>
-                                <button type="submit" class="button button-primary">تغيير كلمة المرور</button>
-                            </form>
-                            <p id="password-message" class="error-message"></p>
-                        </div>
-                        <div class="dashboard-item" data-aos="fade-up" data-aos-delay="400">
-                            <h3>الاشتراكات</h3>
-                            <p>لا يوجد لديك اشتراك حالي. <a href="pricing.html">تصفح خططنا</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script type="module" src="js/dashboard.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-</body>
-</html>
+    // ...
+</script>
