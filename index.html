@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
 
     <div id="particles-js"></div>
 
-    <header>
+    <header class="main-header">
         <div class="container">
-            <h1><img src="https://placehold.co/40x40/202c3c/FFFFFF?text=MT" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
-            <nav>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="site-logo">
+                    <span class="site-name">MT SIGNALS</span>
+                </a>
+            </div>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">الرئيسية</a></li>
                     <li><a href="about.html">حول المنصة</a></li>
@@ -35,9 +43,14 @@
                     </li>
                 </ul>
             </nav>
-            <div class="theme-toggle">
-                <button id="theme-toggle-button">
-                    <i class="fas fa-moon"></i>
+            <div class="header-right">
+                <div class="theme-toggle">
+                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
@@ -45,48 +58,50 @@
 
     <main>
         <section class="hero" data-aos="fade-up" data-aos-duration="1500">
-            <div class="container">
-                <h2>أفضل إشارات التداول لربح مضمون</h2>
-                <p>انضم إلى الآلاف من المتداولين الناجحين وابدأ بتحقيق الأرباح اليوم.</p>
-                <a href="signup.html" class="cta-button-main">ابدأ الآن</a>
+            <div class="container text-center">
+                <h1 class="hero-title">أفضل إشارات التداول لربح مضمون</h1>
+                <p class="hero-subtitle">انضم إلى الآلاف من المتداولين الناجحين وابدأ بتحقيق الأرباح اليوم.</p>
+                <a href="signup.html" class="cta-button-main" data-aos="zoom-in" data-aos-delay="600">ابدأ الآن</a>
             </div>
         </section>
 
         <section class="features" data-aos="fade-up" data-aos-delay="500">
             <div class="container">
-                <div class="feature-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>دقة عالية</h3>
-                    <p>نقدم إشارات تداول دقيقة لتحقيق أفضل النتائج في السوق.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-user-tie"></i>
-                    <h3>خبراء معتمدون</h3>
-                    <p>فريق من الخبراء يحلل السوق على مدار الساعة ليقدم لك الأفضل.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>دعم فني</h3>
-                    <p>فريق دعم جاهز للإجابة على جميع استفساراتك 24/7.</p>
+                <h2 class="section-title">لماذا تختار MT SIGNALS؟</h2>
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3>دقة عالية</h3>
+                        <p>نقدم إشارات تداول دقيقة لتحقيق أفضل النتائج في السوق.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                        <i class="fas fa-user-tie feature-icon"></i>
+                        <h3>خبراء معتمدون</h3>
+                        <p>فريق من الخبراء يحلل السوق على مدار الساعة ليقدم لك الأفضل.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
+                        <i class="fas fa-headset feature-icon"></i>
+                        <h3>دعم فني</h3>
+                        <p>فريق دعم جاهز للإجابة على جميع استفساراتك 24/7.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
             <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     
-    <!-- Other Scripts -->
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Your existing JavaScript code...
         const firebaseConfig = {
             apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
             authDomain: "mt-siganls.firebaseapp.com",
@@ -98,18 +113,22 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
+        // Theme Toggle
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) {
             document.body.setAttribute('data-theme', currentTheme);
         }
 
         const themeToggleButton = document.getElementById('theme-toggle-button');
+        const themeIcon = themeToggleButton.querySelector('i');
         themeToggleButton.addEventListener('click', () => {
             let newTheme = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
             document.body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            themeIcon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         });
 
+        // Auth State
         auth.onAuthStateChanged(user => {
             const authLinks = document.getElementById('auth-links');
             const profileContainer = document.getElementById('profile-container');
@@ -122,17 +141,22 @@
             }
         });
 
+        // Logout
         document.getElementById('logout-button').addEventListener('click', async (e) => {
             e.preventDefault();
             await auth.signOut();
             window.location.href = 'index.html';
         });
 
+        // AOS Initialization
         AOS.init({
             duration: 1000,
             once: true,
         });
+
+        // Particles.js
         particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
+
     </script>
 </body>
 </html>
