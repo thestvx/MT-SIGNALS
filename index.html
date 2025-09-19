@@ -27,12 +27,13 @@
                 </a>
             </div>
             <nav class="main-nav">
-                <ul>
+                <ul id="main-nav-ul">
                     <li><a href="index.html" class="active">الرئيسية</a></li>
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
-                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
+                    <li id="auth-buttons-container">
+                        </li>
                 </ul>
             </nav>
             <div class="header-right">
@@ -106,6 +107,64 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        
+        // قم بوضع كود التهيئة الخاص بك هنا
+        const firebaseConfig = {
+          apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+          authDomain: "mt-siganls.firebaseapp.com",
+          projectId: "mt-siganls",
+          storageBucket: "mt-siganls.firebasestorage.app",
+          messagingSenderId: "84758913270",
+          appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+        };
+        
+        // تهيئة Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // وظيفة لتحديث أزرار التنقل بناءً على حالة تسجيل الدخول
+        function updateNavButtons(user) {
+            const authButtonsContainer = document.getElementById('auth-buttons-container');
+            if (authButtonsContainer) {
+                if (user) {
+                    // المستخدم مسجل الدخول
+                    const username = user.displayName || user.email;
+                    authButtonsContainer.innerHTML = `
+                        <li class="user-info">مرحباً, ${username.split('@')[0]}!</li>
+                        <li><a href="dashboard.html" class="cta-button-nav">لوحة التحكم</a></li>
+                        <li><a href="#" id="logout-button" class="cta-button-nav">تسجيل الخروج</a></li>
+                    `;
+                    const logoutButton = document.getElementById('logout-button');
+                    if (logoutButton) {
+                        logoutButton.addEventListener('click', async (e) => {
+                            e.preventDefault();
+                            try {
+                                await signOut(auth);
+                                window.location.href = 'index.html'; // إعادة التوجيه للصفحة الرئيسية بعد تسجيل الخروج
+                            } catch (error) {
+                                console.error('فشل تسجيل الخروج:', error);
+                            }
+                        });
+                    }
+                } else {
+                    // المستخدم غير مسجل الدخول
+                    authButtonsContainer.innerHTML = `
+                        <li><a href="signup.html" class="cta-button-nav">إنشاء حساب جديد</a></li>
+                        <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
+                    `;
+                }
+            }
+        }
+
+        // مراقبة حالة المصادقة
+        onAuthStateChanged(auth, (user) => {
+            updateNavButtons(user);
+        });
+    </script>
+
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
