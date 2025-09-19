@@ -1,6 +1,14 @@
 /* Importing Google Fonts and defining variables for colors and styles */
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
+/* Defining the new custom font */
+@font-face {
+    font-family: 'All Genders v4';
+    src: url('../fonts/All Genders v4.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Global Variables and Colors */
 :root {
     --primary-color: #007BFF;
@@ -848,6 +856,7 @@ footer {
 }
 
 .splash-text {
+    font-family: 'All Genders v4', sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
     color: var(--heading-color);
@@ -856,12 +865,12 @@ footer {
 }
 
 .splash-subtext {
+    font-family: 'All Genders v4', sans-serif;
     font-size: 1rem;
     color: var(--text-color-secondary);
     margin-top: 10px;
     animation: fadeIn 1.5s ease-in-out;
 }
-
 
 /* --- Animations --- */
 @keyframes rotate-logo {
