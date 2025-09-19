@@ -7,82 +7,102 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-theme="dark">
 
     <div id="particles-js"></div>
 
-    <header>
+    <header class="main-header">
         <div class="container">
-            <h1><img src="logo.png" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
-            <nav>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
+                    <span class="site-name">MT SIGNALS</span>
+                </a>
+            </div>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="contact.html" class="active">تواصل معنا</a></li>
                     <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
                 </ul>
             </nav>
+            <div class="header-right">
+                <div class="theme-toggle">
+                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
         <section class="contact-section">
             <div class="container">
-                <div class="contact-header" data-aos="fade-down" data-aos-delay="100">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="contact-logo">
-                    <h2>كن جزءًا من عائلتنا</h2>
-                    <p>فريقنا هنا دائماً للاستماع إلى استفساراتك واقتراحاتك. لا تتردد في التواصل معنا عبر أي من الطرق التالية، وسنكون سعداء بمساعدتك.</p>
+                <div class="contact-header" data-aos="fade-down">
+                    <h2 class="section-heading">تواصل معنا</h2>
+                    <p class="section-subtitle">نحن هنا لمساعدتك والإجابة على استفساراتك.</p>
                 </div>
                 
-                <div class="contact-card-blur" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="contact-form-column">
-                        <h3>أرسل لنا رسالة</h3>
-                        <form action="#" method="POST" class="contact-form">
-                            <input type="text" name="name" placeholder="الاسم الكامل" required>
-                            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-                            <textarea name="message" placeholder="رسالتك" rows="6" required></textarea>
-                            <button type="submit" class="cta-button-contact">إرسال الرسالة</button>
-                        </form>
-                    </div>
-                    
-                    <div class="contact-info-column">
-                        <h3>تواصل معنا مباشرةً</h3>
-                        <div class="info-group">
-                            <i class="fas fa-envelope"></i>
-                            <div class="text">
+                <div class="contact-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info">
+                        <h3>معلومات الاتصال</h3>
+                        <div class="info-item">
+                            <i class="fas fa-envelope icon"></i>
+                            <div class="info-text">
                                 <h4>البريد الإلكتروني</h4>
                                 <a href="mailto:contact@mtsignals.com">contact@mtsignals.com</a>
                             </div>
                         </div>
-                        <div class="info-group">
-                            <i class="fas fa-phone-alt"></i>
-                            <div class="text">
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt icon"></i>
+                            <div class="info-text">
                                 <h4>رقم الهاتف</h4>
                                 <a href="tel:+966501234567">+966 50 123 4567</a>
                             </div>
                         </div>
-                        <div class="info-group">
-                            <i class="fab fa-whatsapp"></i>
-                            <div class="text">
+                        <div class="info-item">
+                            <i class="fab fa-whatsapp icon"></i>
+                            <div class="info-text">
                                 <h4>واتساب</h4>
-                                <a href="https://wa.me/966501234567">+966 50 123 4567</a>
+                                <a href="https://wa.me/966501234567" target="_blank">+966 50 123 4567</a>
                             </div>
                         </div>
+                        <div class="social-media-icons">
+                            <a href="https://www.instagram.com/MTSignals" target="_blank" class="social-icon-link"><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/MTSignals" target="_blank" class="social-icon-link"><i class="fab fa-twitter"></i></a>
+                            <a href="https://t.me/MTSignalsChannel" target="_blank" class="social-icon-link"><i class="fab fa-telegram-plane"></i></a>
+                            <a href="https://www.facebook.com/MTSignals" target="_blank" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="social-media">
-            <div class="container">
-                <h3 data-aos="fade-up">تابعنا على وسائل التواصل الاجتماعي</h3>
-                <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
-                    <a href="https://www.instagram.com/MTSignals" class="social-icon-link"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/MTSignals" class="social-icon-link"><i class="fab fa-twitter"></i></a>
-                    <a href="https://t.me/MTSignalsChannel" class="social-icon-link"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://www.facebook.com/MTSignals" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
+                    
+                    <div class="contact-form-card">
+                        <h3>أرسل لنا رسالة</h3>
+                        <form action="#" method="POST" class="contact-form">
+                            <div class="input-group">
+                                <input type="text" name="name" id="name" placeholder="الاسم الكامل" required>
+                                <i class="fas fa-user input-icon"></i>
+                            </div>
+                            <div class="input-group">
+                                <input type="email" name="email" id="email" placeholder="البريد الإلكتروني" required>
+                                <i class="fas fa-envelope input-icon"></i>
+                            </div>
+                            <div class="input-group">
+                                <textarea name="message" id="message" placeholder="رسالتك" rows="6" required></textarea>
+                                <i class="fas fa-comment-dots input-icon-textarea"></i>
+                            </div>
+                            <button type="submit" class="auth-button">إرسال الرسالة</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -95,12 +115,18 @@
     </footer>
 
     <script src="js/particles.min.js"></script>
-    <script>
-        particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
-    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+
     <script>
-        AOS.init();
+        // Particles.js initialization
+        particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
+
+        // AOS initialization
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
     </script>
 </body>
 </html>
