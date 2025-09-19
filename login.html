@@ -85,23 +85,90 @@
         </div>
     </footer>
 
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        
+        // قم بوضع كود التهيئة الخاص بك هنا
         const firebaseConfig = {
-            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-            authDomain: "mt-siganls.firebaseapp.com",
-            projectId: "mt-siganls",
-            storageBucket: "mt-siganls.firebasestorage.app",
-            messagingSenderId: "84758913270",
-            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+          apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+          authDomain: "mt-siganls.firebaseapp.com",
+          projectId: "mt-siganls",
+          storageBucket: "mt-siganls.firebasestorage.app",
+          messagingSenderId: "84758913270",
+          appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
         };
+        
+        // تهيئة Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
 
-        // قم بتهيئة Firebase
-        firebase.initializeApp(firebaseConfig);
+        function handleLogin(auth) {
+            const loginForm = document.getElementById('login-form');
+            const googleLoginButton = document.getElementById('google-login');
+            const errorMessageElement = document.getElementById('error-message');
+
+            // التعامل مع تسجيل الدخول بالبريد الإلكتروني وكلمة المرور
+            if (loginForm) {
+                loginForm.addEventListener('submit', async (e) => {
+                    e.preventDefault(); // منع إعادة تحميل الصفحة
+                    const email = loginForm['email'].value;
+                    const password = loginForm['password'].value;
+
+                    try {
+                        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                        console.log('تم تسجيل الدخول بنجاح:', userCredential.user);
+                        
+                        // إعادة توجيه المستخدم بعد تسجيل الدخول
+                        window.location.href = 'dashboard.html';
+                    } catch (error) {
+                        console.error('فشل تسجيل الدخول:', error.code, error.message);
+                        let displayMessage = '';
+                        switch (error.code) {
+                            case 'auth/user-not-found':
+                            case 'auth/wrong-password':
+                                displayMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+                                break;
+                            case 'auth/invalid-email':
+                                displayMessage = 'صيغة البريد الإلكتروني غير صحيحة.';
+                                break;
+                            default:
+                                displayMessage = 'حدث خطأ. يرجى المحاولة مرة أخرى.';
+                        }
+                        errorMessageElement.textContent = displayMessage;
+                        errorMessageElement.style.color = '#ff4d4f';
+                    }
+                });
+            }
+
+            // التعامل مع تسجيل الدخول بحساب جوجل
+            if (googleLoginButton) {
+                googleLoginButton.addEventListener('click', async () => {
+                    const provider = new GoogleAuthProvider();
+                    try {
+                        const result = await signInWithPopup(auth, provider);
+                        console.log('تم تسجيل الدخول بحساب جوجل بنجاح:', result.user);
+                        
+                        // إعادة توجيه المستخدم
+                        window.location.href = 'dashboard.html';
+                    } catch (error) {
+                        console.error('فشل تسجيل الدخول بجوجل:', error.code, error.message);
+                        let displayMessage = 'فشل تسجيل الدخول بحساب جوجل.';
+                        if (error.code === 'auth/popup-closed-by-user') {
+                            displayMessage = 'تم إغلاق نافذة تسجيل الدخول.';
+                        }
+                        errorMessageElement.textContent = displayMessage;
+                        errorMessageElement.style.color = '#ff4d4f';
+                    }
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            handleLogin(auth);
+            // ... (بقية الأكواد الخاصة بالصفحة، مثل تهيئة AOS و Particles)
+        });
     </script>
-
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
