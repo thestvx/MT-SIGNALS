@@ -195,10 +195,23 @@ function initializeTheme() {
     }
 }
 
+// New function to handle the splash screen
+function handleSplashScreen() {
+    const splashScreen = document.getElementById('splash-screen');
+    if (splashScreen) {
+        setTimeout(() => {
+            splashScreen.classList.add('fade-out');
+        }, 5000); // 5 seconds
+    }
+}
+
 // Event listeners for page load and interactions
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize theme
     initializeTheme();
+
+    // Handle the splash screen
+    handleSplashScreen();
 
     // Initialize AOS animations
     AOS.init({
