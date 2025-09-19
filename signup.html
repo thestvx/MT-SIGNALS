@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-theme="dark">
 
     <div id="particles-js"></div>
 
-    <header>
+    <header class="main-header">
         <div class="container">
-            <h1><img src="logo.png" alt="MT SIGNALS Logo" class="logo"> MT SIGNALS</h1>
-            <nav>
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
+                    <span class="site-name">MT SIGNALS</span>
+                </a>
+            </div>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="about.html">حول المنصة</a></li>
@@ -24,32 +32,54 @@
                     <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
                 </ul>
             </nav>
+            <div class="header-right">
+                <div class="theme-toggle">
+                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
         <section class="auth-section">
             <div class="auth-card" data-aos="zoom-in">
-                <h2>إنشاء حساب جديد</h2>
-                <p class="auth-subtitle">ابدأ رحلتك معنا اليوم واحصل على أفضل الإشارات!</p>
+                <div class="auth-header">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="auth-logo">
+                    <h2 class="auth-title">إنشاء حساب جديد</h2>
+                    <p class="auth-subtitle">ابدأ رحلتك معنا اليوم واحصل على أفضل الإشارات!</p>
+                </div>
                 <form id="signup-form" class="auth-form">
                     <div class="input-group">
-                        <i class="fas fa-user"></i>
                         <input type="text" id="username" placeholder="اسم المستخدم" required>
+                        <i class="fas fa-user input-icon"></i>
                     </div>
                     <div class="input-group">
-                        <i class="fas fa-envelope"></i>
                         <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                        <i class="fas fa-envelope input-icon"></i>
                     </div>
                     <div class="input-group">
-                        <i class="fas fa-lock"></i>
                         <input type="password" id="password" placeholder="كلمة المرور" required>
+                        <i class="fas fa-lock input-icon"></i>
                     </div>
                     <button type="submit" class="auth-button">إنشاء الحساب</button>
                     <p id="error-message" class="error-message"></p>
                 </form>
                 <div class="auth-links">
                     <p>هل لديك حساب بالفعل؟ <a href="login.html">سجّل الدخول</a></p>
+                </div>
+                <div class="social-login">
+                    <div class="divider">
+                        <span>أو</span>
+                    </div>
+                    <button id="google-signup" class="google-button">
+                        <i class="fab fa-google"></i>
+                        <span>التسجيل باستخدام جوجل</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -78,7 +108,6 @@
             messagingSenderId: "84758913270",
             appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
         };
-        
         firebase.initializeApp(firebaseConfig);
 
         const auth = firebase.auth();
@@ -89,47 +118,70 @@
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
         const errorMessage = document.getElementById('error-message');
+        const googleButton = document.getElementById('google-signup');
 
+        // Signup with Email and Password
         signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = usernameInput.value;
             const email = emailInput.value;
             const password = passwordInput.value;
-            errorMessage.textContent = ''; // مسح الرسائل السابقة
+            errorMessage.textContent = ''; 
 
             try {
-                // إنشاء المستخدم باستخدام البريد الإلكتروني وكلمة المرور
                 const userCredential = await auth.createUserWithEmailAndPassword(email, password);
                 const user = userCredential.user;
 
-                // حفظ اسم المستخدم في قاعدة البيانات Firestore
                 await db.collection('users').doc(user.uid).set({
                     username: username,
-                    email: email
+                    email: email,
+                    created_at: firebase.firestore.FieldValue.serverTimestamp()
                 });
 
-                alert('تم إنشاء الحساب بنجاح! يمكنك الآن تسجيل الدخول.');
-                window.location.href = 'login.html'; // الانتقال إلى صفحة تسجيل الدخول
+                window.location.href = 'index.html'; 
 
             } catch (error) {
-                // عرض رسالة الخطأ للمستخدم
                 if (error.code === 'auth/email-already-in-use') {
                     errorMessage.textContent = 'هذا البريد الإلكتروني مستخدم بالفعل.';
                 } else if (error.code === 'auth/weak-password') {
                     errorMessage.textContent = 'كلمة المرور ضعيفة جدًا، يجب أن تكون 6 أحرف على الأقل.';
                 } else {
-                    errorMessage.textContent = 'حدث خطأ غير معروف، يرجى المحاولة لاحقًا.';
+                    errorMessage.textContent = 'حدث خطأ في إنشاء الحساب. يرجى المحاولة لاحقًا.';
+                    console.error('Signup Error:', error);
                 }
             }
         });
 
-        // تهيئة AOS
+        // Signup with Google
+        googleButton.addEventListener('click', async () => {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            try {
+                const result = await auth.signInWithPopup(provider);
+                const user = result.user;
+                
+                // Check if user document already exists
+                const userDoc = await db.collection('users').doc(user.uid).get();
+                if (!userDoc.exists) {
+                    await db.collection('users').doc(user.uid).set({
+                        username: user.displayName,
+                        email: user.email,
+                        created_at: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                }
+                
+                window.location.href = 'index.html'; 
+            } catch (error) {
+                console.error('Google Sign-up Error:', error);
+                errorMessage.textContent = 'فشل التسجيل باستخدام جوجل. يرجى المحاولة مرة أخرى.';
+            }
+        });
+
+        // Add this to ensure particles and AOS work on this page
         AOS.init({
             duration: 1000,
             once: true,
         });
         
-        // تهيئة Particles
         particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
     </script>
 </body>
