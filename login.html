@@ -1,110 +1,109 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول - MT SIGNALS</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - MT SIGNALS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-theme="dark">
+<body data-theme="dark" class="auth-page">
 
-    <div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-    <header class="main-header">
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li><a href="login.html" class="cta-button-nav active">تسجيل الدخول</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
+                    <span class="site-name">MT SIGNALS</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">حول المنصة</a></li>
+                    <li><a href="pricing.html">الاشتراكات</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="login.html" class="cta-button-nav active">تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="theme-toggle">
+                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <main>
-        <section class="section auth-section">
-            <div class="card auth-card" data-aos="zoom-in">
-                <div class="auth-header">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="auth-logo">
-                    <h2 class="auth-title">تسجيل الدخول</h2>
-                    <p class="auth-subtitle">مرحباً بعودتك! قم بتسجيل الدخول للوصول إلى حسابك.</p>
-                </div>
-                <form id="login-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">كلمة المرور</label>
-                        <input type="password" id="password" required>
-                    </div>
-                    <a href="#" class="forgot-password-link">هل نسيت كلمة المرور؟</a>
-                    <button type="submit" class="button button-primary">تسجيل الدخول</button>
-                    <p id="error-message" class="error-message"></p>
-                </form>
-                <div class="social-login">
-                    <div class="divider">
-                        <span>أو</span>
-                    </div>
-                    <button id="google-login" class="button button-google">
-                        <i class="fab fa-google"></i>
-                        <span>تسجيل الدخول باستخدام جوجل</span>
-                    </button>
-                </div>
-                <div class="auth-links">
-                    <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب جديد</a></p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <main>
+        <section class="section auth-section">
+            <div class="card auth-card" data-aos="zoom-in">
+                <div class="auth-header">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="auth-logo">
+                    <h2 class="auth-title">تسجيل الدخول</h2>
+                    <p class="auth-subtitle">مرحباً بعودتك! قم بتسجيل الدخول للوصول إلى حسابك.</p>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">كلمة المرور</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <a href="#" class="forgot-password-link">هل نسيت كلمة المرور؟</a>
+                    <button type="submit" class="button button-primary">تسجيل الدخول</button>
+                    <p id="error-message" class="error-message"></p>
+                </form>
+                <div class="social-login">
+                    <div class="divider">
+                        <span>أو</span>
+                    </div>
+                    <button id="google-login" class="button button-google">
+                        <i class="fab fa-google"></i>
+                        <span>تسجيل الدخول باستخدام جوجل</span>
+                    </button>
+                </div>
+                <div class="auth-links">
+                    <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب جديد</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
 
-        <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-            authDomain: "mt-siganls.firebaseapp.com",
-            projectId: "mt-siganls",
-            storageBucket: "mt-siganls.firebasestorage.app",
-            messagingSenderId: "84758913270",
-            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
-           
-        };
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+            authDomain: "mt-siganls.firebaseapp.com",
+            projectId: "mt-siganls",
+            storageBucket: "mt-siganls.firebasestorage.app",
+            messagingSenderId: "84758913270",
+            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+        };
 
-        // قم بتهيئة Firebase
-        firebase.initializeApp(firebaseConfig);
-    </script>
+        // قم بتهيئة Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
