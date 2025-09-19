@@ -3,12 +3,12 @@
 
 /* Global Variables and Colors */
 :root {
-    --primary-color: #007BFF; /* Blue for primary elements */
+    --primary-color: #007BFF;
     --primary-hover: #0056b3;
-    --accent-color: #00c6a7; /* A bright accent color */
-    --dark-bg: #111827; /* Darker background */
-    --card-bg: #1f2937; /* Slightly lighter than dark-bg for cards */
-    --text-color: #e5e7eb; /* Off-white text */
+    --accent-color: #00c6a7;
+    --dark-bg: #111827;
+    --card-bg: #1f2937;
+    --text-color: #e5e7eb;
     --text-muted: #9ca3af;
     --border-color: #374151;
     --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -101,23 +101,66 @@ body {
     margin: 0 auto 3rem;
 }
 
-.cta-button {
-    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-    color: #fff;
+.button {
+    display: inline-block;
     padding: 1rem 2.5rem;
     border-radius: 9999px;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 700;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-    display: inline-block;
     border: 2px solid transparent;
+    text-align: center;
+    cursor: pointer;
 }
 
-.cta-button:hover {
+.button-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+.button-primary:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.button-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.button-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #fff;
+    color: #1f2937;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button-google:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-google i {
+    margin-left: 10px;
+    font-size: 1.2rem;
 }
 
 .card {
@@ -141,15 +184,27 @@ body {
     animation: icon-pulse 2s infinite;
 }
 
-.input-group {
-    position: relative;
+.icon-small {
+    font-size: 0.9rem;
+    margin-left: 8px;
+    color: var(--primary-color);
+}
+
+.form-group {
     margin-bottom: 1.5rem;
 }
 
-.input-group input,
-.input-group textarea {
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
     width: 100%;
-    background-color: var(--dark-bg);
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 0.75rem 1rem;
@@ -158,30 +213,11 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.input-group input:focus,
-.input-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
-}
-
-.input-group .input-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-    transition: color 0.3s ease;
-}
-
-.input-group textarea + .input-icon {
-    top: 15px;
-    transform: translateY(0);
-}
-
-.input-group input:focus + .input-icon,
-.input-group textarea:focus + .input-icon {
-    color: var(--primary-color);
 }
 
 /* --- Header & Navigation --- */
@@ -225,8 +261,8 @@ body {
 }
 
 .main-header .logo {
-    max-width: 40px; 
-    height: 40px; 
+    max-width: 40px;
+    height: 40px;
     margin-left: 10px;
     border-radius: 50%;
     animation: rotate-logo 5s linear infinite;
@@ -377,7 +413,7 @@ body {
 
 /* --- Home Page Specific Styles --- */
 .hero-section.home-hero-section {
-    background: transparent; /* Keep particles.js visible */
+    background: transparent;
 }
 
 /* --- Features Section --- */
@@ -392,32 +428,32 @@ body {
 }
 
 /* --- Pricing Section --- */
-.pricing-section .pricing-plans {
+.pricing-section .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     justify-content: center;
+    margin-top: 3rem;
 }
 
-.pricing-section .plan-card {
+.pricing-section .pricing-card {
     text-align: center;
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease;
     border: 2px solid transparent;
 }
 
-.pricing-section .plan-card:hover {
+.pricing-section .pricing-card:hover {
     transform: translateY(-10px);
 }
 
-.pricing-section .plan-card.featured {
+.pricing-section .pricing-card.featured {
     border-color: var(--primary-color);
     position: relative;
     z-index: 1;
     transform: scale(1.05);
 }
 
-.pricing-section .plan-card.featured::before {
-    content: 'الأكثر شيوعًا';
+.pricing-section .card-badge {
     position: absolute;
     top: 0;
     right: 0;
@@ -430,7 +466,7 @@ body {
     font-weight: 700;
 }
 
-.pricing-section .plan-card ul {
+.pricing-section .pricing-card ul {
     list-style: none;
     margin-bottom: 2rem;
     text-align: right;
@@ -438,7 +474,7 @@ body {
     padding-top: 1rem;
 }
 
-.pricing-section .plan-card ul li {
+.pricing-section .pricing-card ul li {
     padding: 0.5rem 0;
     transition: color 0.3s ease;
     display: flex;
@@ -446,31 +482,17 @@ body {
     justify-content: flex-end;
 }
 
-.pricing-section .plan-card ul li:not(:last-child) {
+.pricing-section .pricing-card ul li:not(:last-child) {
     border-bottom: 1px dashed var(--border-color);
 }
 
-.pricing-section .plan-card ul li i {
-    color: var(--primary-color);
-    margin-right: 10px;
+.pricing-section .pricing-card ul li i {
     font-size: 0.9rem;
+    margin-right: 10px;
 }
 
-.pricing-section .plan-card .btn-choose {
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 0.75rem 2rem;
-    border-radius: 9999px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.pricing-section .plan-card .btn-choose:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+.pricing-section .pricing-card .unavailable i {
+    color: var(--text-muted);
 }
 
 /* --- About Page Specific Styles --- */
@@ -682,6 +704,7 @@ body {
 
 .auth-header {
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .auth-logo {
@@ -762,32 +785,12 @@ body {
     transform: translateY(-50%);
 }
 
-.google-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #fff;
-    color: #1f2937;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+.error-message {
+    color: #ff4d4f;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: center;
 }
-
-.google-button:hover {
-    background-color: #f1f1f1;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.google-button i {
-    margin-left: 10px;
-    font-size: 1.2rem;
-}
-
 
 /* --- Footer --- */
 footer {
@@ -866,7 +869,7 @@ footer {
         margin-right: auto;
     }
     .main-header .container {
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
     }
@@ -914,13 +917,13 @@ footer {
     .hero-section p, .section-subtitle, .cta-subtitle, .hero-section .hero-subtitle {
         font-size: 1rem;
     }
-    .features-section .features-grid, .pricing-section .pricing-plans, .values-section .values-grid {
+    .features-section .features-grid, .pricing-section .pricing-grid, .values-section .values-grid {
         grid-template-columns: 1fr;
     }
-    .pricing-section .plan-card.featured {
+    .pricing-section .pricing-card.featured {
         transform: scale(1);
     }
     .story-section .row {
-        flex-direction: column-reverse; /* Reorder for mobile */
+        flex-direction: column-reverse;
     }
 }
