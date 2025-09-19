@@ -45,10 +45,10 @@
     <main>
         <section class="section auth-section">
             <div class="card auth-card" data-aos="zoom-in">
-                <div class="auth-header text-center">
+                <div class="auth-header">
                     <img src="logo.png" alt="MT SIGNALS Logo" class="auth-logo">
                     <h2 class="auth-title">تسجيل الدخول</h2>
-                    <p class="auth-subtitle">أدخل بياناتك للاستفادة من جميع الميزات</p>
+                    <p class="auth-subtitle">مرحباً بعودتك! قم بتسجيل الدخول للوصول إلى حسابك.</p>
                 </div>
                 <form id="login-form" class="auth-form">
                     <div class="form-group">
@@ -59,7 +59,7 @@
                         <label for="password">كلمة المرور</label>
                         <input type="password" id="password" required>
                     </div>
-                    <a href="#" class="forgot-password-link">نسيت كلمة المرور؟</a>
+                    <a href="#" class="forgot-password-link">هل نسيت كلمة المرور؟</a>
                     <button type="submit" class="button button-primary">تسجيل الدخول</button>
                     <p id="error-message" class="error-message"></p>
                 </form>
@@ -73,7 +73,7 @@
                     </button>
                 </div>
                 <div class="auth-links">
-                    <p>ليس لديك حساب؟ <a href="signup.html">أنشئ حساباً جديداً</a></p>
+                    <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب جديد</a></p>
                 </div>
             </div>
         </section>
@@ -87,6 +87,7 @@
 
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
