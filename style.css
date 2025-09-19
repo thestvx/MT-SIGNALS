@@ -290,14 +290,21 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
-    /* التعديل الجديد: لضمان محاذاة العناصر بشكل صحيح */
-    align-items: center; 
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
 .main-nav ul li {
     margin-right: 2rem;
+}
+
+.main-nav ul li.user-info {
+    color: var(--accent-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
 }
 
 .main-nav ul li a {
@@ -329,7 +336,6 @@ body {
     color: var(--primary-color);
 }
 
-/* التعديل الجديد: تنسيق أزرار التنقل بشكل صحيح */
 .cta-button-nav {
     background-color: var(--primary-color);
     color: #fff !important;
@@ -339,7 +345,6 @@ body {
     font-weight: 700;
     transition: all 0.3s ease;
     border: 2px solid var(--primary-color);
-    /* إضافة تنسيق لمنع التداخل */
     margin-right: 10px;
 }
 
