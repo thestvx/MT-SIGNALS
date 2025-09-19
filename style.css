@@ -696,6 +696,11 @@ body {
 }
 
 /* --- Auth Pages (Login & Signup) --- */
+.auth-page .main-header {
+    position: relative;
+    background-color: var(--card-bg);
+    box-shadow: var(--box-shadow);
+}
 .auth-section {
     min-height: 100vh;
     display: flex;
@@ -825,6 +830,7 @@ body {
     text-align: right;
     margin-right: auto;
 }
+
 
 /* --- Footer --- */
 footer {
