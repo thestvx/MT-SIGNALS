@@ -25,10 +25,23 @@ function toggleMenu() {
 function setActiveLink() {
     const currentPath = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('.main-nav ul li a');
-
+    const authLinks = document.querySelectorAll('#auth-buttons-container a');
+    
+    // Highlight main navigation links
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPath) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // Highlight auth links (Dashboard link)
+    authLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
@@ -89,7 +102,6 @@ function initializeParticles() {
 
 // Function to handle Firebase authentication
 function handleAuth() {
-    // Firebase initialization is already in the HTML file
     const auth = firebase.auth();
     const db = firebase.firestore();
 
@@ -109,7 +121,8 @@ function handleAuth() {
 
             try {
                 await auth.signInWithEmailAndPassword(email, password);
-                window.location.href = 'index.html';
+                // Redirect to dashboard after successful login
+                window.location.href = 'dashboard.html';
             } catch (error) {
                 if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                     errorMessage.textContent = 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
@@ -140,7 +153,8 @@ function handleAuth() {
                     created_at: firebase.firestore.FieldValue.serverTimestamp()
                 });
 
-                window.location.href = 'index.html';
+                // Redirect to dashboard after successful signup
+                window.location.href = 'dashboard.html';
             } catch (error) {
                 if (error.code === 'auth/email-already-in-use') {
                     errorMessage.textContent = 'هذا البريد الإلكتروني مستخدم بالفعل.';
@@ -174,7 +188,8 @@ function handleAuth() {
                         });
                     }
 
-                    window.location.href = 'index.html';
+                    // Redirect to dashboard after successful Google auth
+                    window.location.href = 'dashboard.html';
                 } catch (error) {
                     console.error('Google Auth Error:', error);
                     errorMessage.textContent = 'فشل التسجيل باستخدام جوجل. يرجى المحاولة مرة أخرى.';
