@@ -108,6 +108,8 @@ body {
 .main-header .logo {
     width: 40px;
     height: 40px;
+    max-width: 100%;
+    height: auto;
     margin-left: 10px;
     border-radius: 50%;
     animation: rotate-logo 5s linear infinite;
