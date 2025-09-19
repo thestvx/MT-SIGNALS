@@ -109,38 +109,40 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // الدالة المسؤولة عن تسجيل المستخدمين
         function handleAuth(auth, db) {
             const signupForm = document.getElementById('signup-form');
             const googleSignupButton = document.getElementById('google-signup');
             const errorMessageElement = document.getElementById('error-message');
 
-            // التعامل مع تسجيل الدخول بالبريد الإلكتروني وكلمة المرور
             if (signupForm) {
                 signupForm.addEventListener('submit', async (e) => {
-                    e.preventDefault(); // منع إعادة تحميل الصفحة
+                    e.preventDefault();
 
                     const username = signupForm['username'].value;
                     const email = signupForm['email'].value;
                     const password = signupForm['password'].value;
 
                     try {
-                        // إنشاء مستخدم جديد في Firebase Authentication
                         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                         const user = userCredential.user;
                         console.log('تم إنشاء حساب جديد بنجاح:', user);
 
-                        // حفظ بيانات المستخدم في Firestore
                         await setDoc(doc(db, "users", user.uid), {
                             username: username,
                             email: email,
                             createdAt: serverTimestamp(),
                         });
                         
-                        // إعادة توجيه المستخدم بعد التسجيل
-                        window.location.href = 'index.html'; // أو أي صفحة تريدها
+                        // **التعديل الجديد:** عرض رسالة نجاح وتغيير لونها
+                        errorMessageElement.textContent = 'تم إنشاء الحساب بنجاح! سيتم توجيهك إلى صفحة تسجيل الدخول.';
+                        errorMessageElement.style.color = '#00c6a7'; // لون أخضر أو أي لون يعجبك
+
+                        // **التعديل الجديد:** تأخير إعادة التوجيه
+                        setTimeout(() => {
+                            window.location.href = 'login.html'; 
+                        }, 2000); // 2000 مللي ثانية = 2 ثانية
+                        
                     } catch (error) {
-                        // عرض رسالة الخطأ
                         console.error('فشل إنشاء الحساب:', error.code, error.message);
                         let displayMessage = '';
                         switch (error.code) {
@@ -157,11 +159,11 @@
                                 displayMessage = 'حدث خطأ. يرجى المحاولة مرة أخرى.';
                         }
                         errorMessageElement.textContent = displayMessage;
+                        errorMessageElement.style.color = '#ff4d4f'; // لون أحمر للأخطاء
                     }
                 });
             }
 
-            // التعامل مع تسجيل الدخول بحساب جوجل
             if (googleSignupButton) {
                 googleSignupButton.addEventListener('click', async () => {
                     const provider = new GoogleAuthProvider();
@@ -170,7 +172,6 @@
                         const user = result.user;
                         console.log('تم تسجيل الدخول بحساب جوجل بنجاح:', user);
                         
-                        // حفظ بيانات المستخدم في Firestore (إذا لم يكن موجودًا)
                         const userDocRef = doc(db, "users", user.uid);
                         const docSnap = await getDoc(userDocRef);
                         
@@ -182,8 +183,14 @@
                             });
                         }
 
-                        // إعادة توجيه المستخدم
-                        window.location.href = 'index.html';
+                        // **التعديل الجديد:** عرض رسالة نجاح
+                        errorMessageElement.textContent = 'تم تسجيل الدخول بنجاح! سيتم توجيهك إلى صفحة تسجيل الدخول.';
+                        errorMessageElement.style.color = '#00c6a7';
+
+                        // **التعديل الجديد:** تأخير إعادة التوجيه
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 2000);
                     } catch (error) {
                         console.error('فشل تسجيل الدخول بجوجل:', error.code, error.message);
                         let displayMessage = 'فشل تسجيل الدخول بحساب جوجل.';
@@ -191,15 +198,15 @@
                             displayMessage = 'تم إغلاق نافذة تسجيل الدخول.';
                         }
                         errorMessageElement.textContent = displayMessage;
+                        errorMessageElement.style.color = '#ff4d4f';
                     }
                 });
             }
         }
 
-        // قم باستدعاء الدالة الرئيسية التي تشغل الكود
         document.addEventListener('DOMContentLoaded', () => {
             handleAuth(auth, db);
-            // استدعاء الدوال الأخرى من ملفات السكربت الخارجية
+            // استدعاء الدوال الأخرى
         });
     </script>
     <script src="js/particles.min.js"></script>
