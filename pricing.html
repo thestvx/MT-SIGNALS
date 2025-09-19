@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body data-theme="dark">
 
@@ -46,16 +43,14 @@
     </header>
 
     <main>
-        <section class="pricing-hero" data-aos="fade-down">
-            <div class="container text-center">
-                <h2 class="section-heading">باقات الاشتراك</h2>
+        <section class="section pricing-section">
+            <div class="container text-center" data-aos="fade-down">
+                <h1 class="section-title">باقات الاشتراك</h1>
                 <p class="section-subtitle">اختر الباقة التي تناسبك وابدأ رحلتك نحو التداول الناجح.</p>
             </div>
-        </section>
-        <section class="pricing-plans">
-            <div class="container pricing-grid">
+            <div class="container pricing-grid" data-aos="fade-up" data-aos-delay="200">
                 
-                <div class="plan-card" data-aos="fade-right" data-aos-delay="100">
+                <div class="card pricing-card" data-aos="fade-right" data-aos-delay="100">
                     <div class="card-header">
                         <div class="icon-container">
                             <i class="fas fa-user-tag"></i>
@@ -64,17 +59,17 @@
                         <p class="price">49$<span>/شهري</span></p>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> إشارات يومية</li>
-                        <li><i class="fas fa-check"></i> دعم فني عبر البريد الإلكتروني</li>
-                        <li><i class="fas fa-check"></i> تغطية للعملات الرئيسية</li>
-                        <li class="unavailable"><i class="fas fa-times"></i> تحليل شامل</li>
-                        <li class="unavailable"><i class="fas fa-times"></i> إشارات حصرية</li>
-                        <li class="unavailable"><i class="fas fa-times"></i> مكالمات استشارية</li>
+                        <li><i class="fas fa-check icon-small"></i> إشارات يومية</li>
+                        <li><i class="fas fa-check icon-small"></i> دعم فني عبر البريد الإلكتروني</li>
+                        <li><i class="fas fa-check icon-small"></i> تغطية للعملات الرئيسية</li>
+                        <li class="unavailable"><i class="fas fa-times icon-small"></i> تحليل شامل</li>
+                        <li class="unavailable"><i class="fas fa-times icon-small"></i> إشارات حصرية</li>
+                        <li class="unavailable"><i class="fas fa-times icon-small"></i> مكالمات استشارية</li>
                     </ul>
-                    <a href="#" class="btn-choose">اشترك الآن</a>
+                    <a href="#" class="button button-primary">اشترك الآن</a>
                 </div>
                 
-                <div class="plan-card featured" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card pricing-card featured" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card-badge">الأكثر شيوعًا</div>
                     <div class="card-header">
                         <div class="icon-container">
@@ -84,17 +79,17 @@
                         <p class="price">99$<span>/شهري</span></p>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> إشارات يومية وفورية</li>
-                        <li><i class="fas fa-check"></i> دعم فني عبر البريد الإلكتروني والواتساب</li>
-                        <li><i class="fas fa-check"></i> تغطية لجميع العملات الرئيسية والفرعية</li>
-                        <li><i class="fas fa-check"></i> تحليل شامل للسوق</li>
-                        <li><i class="fas fa-check"></i> إشارات حصرية للمشتركين</li>
-                        <li class="unavailable"><i class="fas fa-times"></i> مكالمات استشارية</li>
+                        <li><i class="fas fa-check icon-small"></i> إشارات يومية وفورية</li>
+                        <li><i class="fas fa-check icon-small"></i> دعم فني عبر البريد الإلكتروني والواتساب</li>
+                        <li><i class="fas fa-check icon-small"></i> تغطية لجميع العملات الرئيسية والفرعية</li>
+                        <li><i class="fas fa-check icon-small"></i> تحليل شامل للسوق</li>
+                        <li><i class="fas fa-check icon-small"></i> إشارات حصرية للمشتركين</li>
+                        <li class="unavailable"><i class="fas fa-times icon-small"></i> مكالمات استشارية</li>
                     </ul>
-                    <a href="#" class="btn-choose">اشترك الآن</a>
+                    <a href="#" class="button button-primary">اشترك الآن</a>
                 </div>
                 
-                <div class="plan-card" data-aos="fade-left" data-aos-delay="300">
+                <div class="card pricing-card" data-aos="fade-left" data-aos-delay="300">
                     <div class="card-header">
                         <div class="icon-container">
                             <i class="fas fa-crown"></i>
@@ -103,14 +98,14 @@
                         <p class="price">199$<span>/شهري</span></p>
                     </div>
                     <ul class="features-list">
-                        <li><i class="fas fa-check"></i> جميع مميزات الباقة الاحترافية</li>
-                        <li><i class="fas fa-check"></i> إشارات حصرية VIP</li>
-                        <li><i class="fas fa-check"></i> مكالمات استشارية خاصة مع الخبراء</li>
-                        <li><i class="fas fa-check"></i> تحليلات شخصية ومخصصة</li>
-                        <li><i class="fas fa-check"></i> وصول مبكر للميزات الجديدة</li>
-                        <li><i class="fas fa-check"></i> دعم فني مخصص 24/7</li>
+                        <li><i class="fas fa-check icon-small"></i> جميع مميزات الباقة الاحترافية</li>
+                        <li><i class="fas fa-check icon-small"></i> إشارات حصرية VIP</li>
+                        <li><i class="fas fa-check icon-small"></i> مكالمات استشارية خاصة مع الخبراء</li>
+                        <li><i class="fas fa-check icon-small"></i> تحليلات شخصية ومخصصة</li>
+                        <li><i class="fas fa-check icon-small"></i> وصول مبكر للميزات الجديدة</li>
+                        <li><i class="fas fa-check icon-small"></i> دعم فني مخصص 24/7</li>
                     </ul>
-                    <a href="#" class="btn-choose">اشترك الآن</a>
+                    <a href="#" class="button button-primary">اشترك الآن</a>
                 </div>
             </div>
         </section>
@@ -124,15 +119,6 @@
 
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script> <script>
-        // Particles.js initialization
-        particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
-
-        // AOS initialization
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
