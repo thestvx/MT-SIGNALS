@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const avatarUploadInput = document.getElementById('avatar-upload');
     const avatarMessageEl = document.getElementById('avatar-message');
     const subscriptionStatusEl = document.getElementById('subscription-status');
+    const usernameChangeForm = document.getElementById('username-change-form');
+    const newUsernameInput = document.getElementById('new-username');
+    const usernameMessageEl = document.getElementById('username-message');
 
     // دالة لتحديث رسائل الحالة
     const updateStatusMessage = (element, message, isSuccess) => {
@@ -164,6 +167,41 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (error) {
                 console.error('حدث خطأ في عملية رفع أو تحديث الصورة:', error);
                 updateStatusMessage(avatarMessageEl, 'فشل تحديث الصورة. حاول مرة أخرى.', false);
+            }
+        });
+    }
+
+    // Handle username change form submission
+    if (usernameChangeForm) {
+        usernameChangeForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newUsername = newUsernameInput.value;
+            const user = auth.currentUser;
+
+            if (!newUsername || newUsername.trim() === '') {
+                updateStatusMessage(usernameMessageEl, 'اسم المستخدم لا يمكن أن يكون فارغًا.', false);
+                return;
+            }
+
+            updateStatusMessage(usernameMessageEl, 'جاري تحديث اسم المستخدم...', false);
+
+            if (user) {
+                try {
+                    // تحديث اسم المستخدم في Firebase Auth
+                    await updateProfile(user, { displayName: newUsername });
+                    
+                    // تحديث اسم المستخدم في Firestore
+                    const userRef = doc(db, 'users', user.uid);
+                    await updateDoc(userRef, { username: newUsername });
+
+                    // تحديث واجهة المستخدم
+                    document.getElementById('user-info').querySelector('p:last-of-type').innerHTML = `<strong>اسم المستخدم:</strong> ${newUsername}`;
+                    
+                    updateStatusMessage(usernameMessageEl, 'تم تحديث اسم المستخدم بنجاح!', true);
+                } catch (error) {
+                    console.error('حدث خطأ في تحديث اسم المستخدم:', error);
+                    updateStatusMessage(usernameMessageEl, 'فشل تحديث اسم المستخدم. حاول مرة أخرى.', false);
+                }
             }
         });
     }
