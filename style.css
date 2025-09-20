@@ -960,17 +960,17 @@ footer {
 
 /* ---- لوحة التحكم - Dashboard Styles ---- */
 .profile-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.2);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
 .profile-avatar-container {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* --- Animations --- */
@@ -1076,7 +1076,8 @@ footer {
 }
 
 /* تعديل عرض أزرار المصادقة عند تسجيل الدخول */
-.auth-buttons.hidden {
+.auth-buttons.hidden,
+.user-profile-actions.hidden {
     display: none;
 }
 
