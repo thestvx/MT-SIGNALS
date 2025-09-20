@@ -6,62 +6,59 @@
     <title>تسجيل الدخول - MT Signals</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="auth-page">
-    
-    <header class="main-header">
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
-                    <span class="site-name">MT Signals</span>
-                </a>
-            </div>
-            <div class="header-right">
-                <div class="theme-toggle">
-                    <button id="theme-toggle-button">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
+
+    <main class="auth-split-section">
+        <div class="auth-visual-side">
+            <div class="auth-visual-content">
+                <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo-large">
+                <h1 class="auth-visual-title">انضم إلينا اليوم</h1>
+                <p class="auth-visual-text">استفد من إشارات التداول الاحترافية وكن جزءًا من مجتمعنا المتنامي.</p>
             </div>
         </div>
-    </header>
 
-    <section class="auth-section">
-        <div class="card auth-card" data-aos="fade-up">
-            <div class="auth-header">
-                <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo">
+        <div class="auth-form-side">
+            <div class="auth-form-container" data-aos="fade-up">
                 <h2 class="auth-title">تسجيل الدخول</h2>
                 <p class="auth-subtitle">أدخل بياناتك للمتابعة.</p>
-            </div>
-            <form id="login-form" class="auth-form">
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">كلمة المرور</label>
-                    <input type="password" id="password" required>
-                </div>
-                <button type="submit" class="button button-primary" id="login-button">تسجيل الدخول</button>
-            </form>
-            <p id="auth-message" class="error-message"></p>
-            <div class="divider">
-                <span>أو</span>
-            </div>
-            <button id="google-login-button" class="button-google">
-                <i class="fab fa-google"></i>
-                تسجيل الدخول باستخدام جوجل
-            </button>
-            <p class="auth-links">
-                ليس لديك حساب؟
-                <a href="signup.html">إنشاء حساب جديد</a>
-            </p>
-        </div>
-    </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <form id="login-form" class="auth-form">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="كلمة المرور" required>
+                    </div>
+                    <a href="#" class="forgot-password-link">هل نسيت كلمة المرور؟</a>
+                    <button type="submit" class="button button-primary">تسجيل الدخول</button>
+                    <p id="login-message" class="error-message"></p>
+                </form>
+
+                <div class="divider"><span>أو</span></div>
+                
+                <div class="social-login">
+                    <button class="button button-google" id="google-login">
+                        <i class="fab fa-google"></i>
+                        الدخول باستخدام جوجل
+                    </button>
+                </div>
+
+                <p class="auth-links">
+                    لا تمتلك حسابًا؟ <a href="signup.html">إنشاء حساب جديد</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
     <script type="module" src="js/login.js"></script>
-    <script type="module" src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
 </body>
 </html>
