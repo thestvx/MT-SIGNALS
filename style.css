@@ -273,7 +273,7 @@ body {
     height: 40px;
     margin-left: 10px;
     border-radius: 50%;
-    animation: rotate-logo 5s linear infinite;
+    animation: bounce 1.5s infinite;
 }
 
 .main-header .site-name {
@@ -748,7 +748,7 @@ body {
     width: 100px;
     height: 100px;
     margin-bottom: 2rem;
-    animation: rotate-logo 5s linear infinite;
+    animation: bounce 1.5s infinite;
 }
 
 .logo-link {
@@ -892,36 +892,32 @@ body {
     color: #00c6a7;
 }
 
-/* Style for the back-to-home button */
-.back-home-btn {
-    position: absolute;
-    top: 2rem;
+/* Floating Home Button */
+.floating-home-btn {
+    position: fixed;
+    bottom: 2rem;
     right: 2rem;
-    color: var(--text-color);
-    font-size: 1.5rem;
-    z-index: 20;
-    transition: color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-    background-color: rgba(31, 41, 55, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    width: 45px;
-    height: 45px;
+    z-index: 1000;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.back-home-btn:hover {
-    color: var(--primary-color);
-    transform: scale(1.1);
-    border-color: var(--primary-color);
+.floating-home-btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
 }
 
-.back-home-btn i {
-    transform: rotate(180deg);
+.floating-home-btn i {
+    animation: bounce 1.5s infinite;
 }
 
 /* --- Footer --- */
