@@ -1,3 +1,22 @@
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+
+// Your Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+    authDomain: "mt-siganls.firebaseapp.com",
+    projectId: "mt-siganls",
+    storageBucket: "mt-siganls.firebasestorage.app",
+    messagingSenderId: "84758913270",
+    appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
 // Function to toggle between dark and light themes
 function toggleTheme() {
     const body = document.body;
@@ -112,6 +131,79 @@ function handleSplashScreen() {
     }
 }
 
+// Function to fetch and display testimonials
+async function fetchTestimonials() {
+    const testimonialsContainer = document.getElementById('testimonials-container');
+    if (!testimonialsContainer) return;
+
+    try {
+        const testimonialsQuery = query(collection(db, 'testimonials'), orderBy('createdAt', 'desc'));
+        const querySnapshot = await getDocs(testimonialsQuery);
+        
+        testimonialsContainer.innerHTML = ''; // Clear previous content
+
+        if (querySnapshot.empty) {
+            testimonialsContainer.innerHTML = '<p class="no-testimonials-message">كن أول من يضيف رأيه حول المنصة!</p>';
+            return;
+        }
+
+        querySnapshot.forEach((doc) => {
+            const testimonial = doc.data();
+            const testimonialCard = `
+                <div class="card testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="${testimonial.photoURL || 'https://via.placeholder.com/60'}" alt="${testimonial.username}" class="testimonial-avatar">
+                        <h4>${testimonial.username}</h4>
+                    </div>
+                    <p class="testimonial-comment">${testimonial.comment}</p>
+                </div>
+            `;
+            testimonialsContainer.innerHTML += testimonialCard;
+        });
+
+    } catch (error) {
+        console.error("Error fetching testimonials:", error);
+        testimonialsContainer.innerHTML = '<p class="error-message">فشل في تحميل الآراء. يرجى المحاولة لاحقاً.</p>';
+    }
+}
+
+// Function to handle testimonial submission
+async function handleTestimonialSubmission(e, user) {
+    e.preventDefault();
+    const form = e.target;
+    const testimonialText = form['testimonial-text'].value.trim();
+    const messageElement = document.getElementById('testimonial-message');
+
+    if (!testimonialText) {
+        messageElement.textContent = 'الرأي لا يمكن أن يكون فارغًا.';
+        messageElement.style.color = '#ff4d4f';
+        return;
+    }
+    
+    messageElement.textContent = 'جاري إرسال الرأي...';
+    messageElement.style.color = '#007BFF';
+
+    try {
+        await addDoc(collection(db, 'testimonials'), {
+            userId: user.uid,
+            username: user.displayName || user.email.split('@')[0],
+            photoURL: user.photoURL || null,
+            comment: testimonialText,
+            createdAt: serverTimestamp()
+        });
+        
+        messageElement.textContent = 'تم إضافة رأيك بنجاح!';
+        messageElement.style.color = '#00c6a7';
+        form.reset(); // Clear the form
+        fetchTestimonials(); // Refresh the testimonials list
+
+    } catch (error) {
+        console.error("Error adding testimonial:", error);
+        messageElement.textContent = 'فشل في إضافة الرأي. حاول مرة أخرى.';
+        messageElement.style.color = '#ff4d4f';
+    }
+}
+
 // Event listeners for page load and interactions
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize theme
@@ -148,5 +240,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggleButton = document.querySelector('.menu-toggle-button');
     if (menuToggleButton) {
         menuToggleButton.addEventListener('click', toggleMenu);
+    }
+    
+    // Check auth state for testimonials section
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        onAuthStateChanged(auth, (user) => {
+            const addTestimonialContainer = document.getElementById('add-testimonial-form-container');
+            const addTestimonialForm = document.getElementById('add-testimonial-form');
+
+            if (user) {
+                // User is logged in, show the form
+                if (addTestimonialContainer) {
+                    addTestimonialContainer.classList.remove('hidden');
+                }
+                if (addTestimonialForm) {
+                    addTestimonialForm.addEventListener('submit', (e) => handleTestimonialSubmission(e, user));
+                }
+            } else {
+                // User is not logged in, hide the form
+                if (addTestimonialContainer) {
+                    addTestimonialContainer.classList.add('hidden');
+                }
+            }
+        });
+
+        // Always fetch and display testimonials on the home page
+        fetchTestimonials();
     }
 });
