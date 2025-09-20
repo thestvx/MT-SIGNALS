@@ -58,15 +58,14 @@
                         <div class="card-content">
                             <h3>معلومات الملف الشخصي</h3>
                             <div class="profile-avatar-container">
-                                <img id="profile-image" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-avatar">
+                                <img id="profile-avatar" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-avatar">
                                 <form id="avatar-form">
                                     <label for="avatar-upload" class="button button-secondary button-small">
                                         تغيير الصورة
                                     </label>
                                     <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
-                                    <button type="submit" class="button button-primary button-small">حفظ الصورة</button>
+                                    <p id="avatar-message" class="message-text"></p>
                                 </form>
-                                <p id="avatar-message" class="message-text"></p>
                             </div>
                             <p class="text-muted" id="user-info">جاري تحميل البيانات...</p>
                         </div>
@@ -171,6 +170,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    
+    <script src="https://unpkg.com/cloudinary-core@2.11.3/cloudinary-core-shrinkwrap.js"></script>
+
     <script type="module" src="js/dashboard.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
