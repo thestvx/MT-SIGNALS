@@ -1,159 +1,120 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حول المنصة - MT SIGNALS</title>
+    <title>من نحن - MT Signals</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-theme="dark">
-
-    <div id="particles-js"></div>
-
+<body>
+    
     <header class="main-header">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
+                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
+                    <span class="site-name">MT Signals</span>
                 </a>
             </div>
-            <nav class="main-nav">
-                <ul>
+            <nav class="main-nav" id="main-nav">
+                <ul id="main-nav-ul">
                     <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html" class="active">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="about.html" class="active">من نحن</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
             </nav>
             <div class="header-right">
-                <div id="auth-buttons-container" class="auth-buttons">
-                    <a href="login.html" class="button button-primary">الدخول</a>
-                    <a href="signup.html" class="button button-secondary">التسجيل</a>
+                <div class="auth-buttons-container" id="auth-buttons-container">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
+                        <a href="signup.html" class="button button-primary cta-button-nav">إنشاء حساب</a>
+                    </div>
                 </div>
                 <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                    <button id="theme-toggle-button">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                <button class="menu-toggle-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="section hero-section about-hero-section">
-            <div class="container">
-                <h1 data-aos="fade-up">حول MT SIGNALS</h1>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    رؤيتنا هي أن نجعل التداول في أسواق العملات الرقمية أكثر سهولة وربحية للجميع.
-                </p>
-                <div class="hero-image" data-aos="fade-up" data-aos-delay="400">
-                    <img src="images/about-us-hero.png" alt="About Us Image">
-                </div>
-            </div>
-        </section>
+    <section class="hero-section about-hero-section">
+        <div class="container" data-aos="fade-up">
+            <h1 class="hero-title">
+                قصتنا: الالتزام بالتميز
+            </h1>
+            <p class="hero-subtitle">
+                نحن فريق من المحللين الماليين وخبراء التكنولوجيا، نكرس جهودنا لتقديم
+                أفضل إشارات التداول لعملائنا.
+            </p>
+        </div>
+    </section>
 
-        <section class="section story-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6" data-aos="fade-right">
-                        <h2 class="story-title">قصتنا</h2>
-                        <p class="text-muted">
-                            بدأت قصة MT SIGNALS من شغفنا المشترك بعالم العملات الرقمية، وإيماننا بأن التداول الاحترافي يجب أن يكون في متناول الجميع. لاحظنا أن السوق مليء بالمعلومات المضللة والإشارات غير الدقيقة، فقررنا بناء منصة تقدم تحليلات موثوقة وإشارات تداول مبنية على خوارزميات متقدمة وخبرة بشرية.
-                        </p>
-                        <p class="text-muted">
-                            منذ انطلاقنا، هدفنا هو بناء مجتمع من المتداولين الواعين، الذين يتخذون قراراتهم بناءً على بيانات حقيقية وتحليلات عميقة.
-                        </p>
-                    </div>
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <img src="images/our-story.png" class="img-fluid rounded" alt="Our Story">
-                    </div>
+    <section class="section story-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="story-title">كيف بدأنا</h2>
+                    <p class="section-subtitle" style="text-align: right; margin-bottom: 2rem;">
+                        بدأت MT Signals من شغف عميق بالأسواق المالية ورؤية واضحة: جعل التداول
+                        المحترف متاحًا للجميع. نؤمن بأن المعرفة قوة، وهدفنا هو تزويدك
+                        بالأدوات اللازمة لاتخاذ قرارات تداول مستنيرة.
+                    </p>
+                    <p style="text-align: right;">
+                        فريقنا يجمع بين الخبرة الطويلة في الأسواق المالية والمهارة في استخدام
+                        أحدث التقنيات لتحليل البيانات. نعمل بلا كلل لضمان أن كل إشارة
+                        تصلك قد تم فحصها بعناية فائقة.
+                    </p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="images/about-story.jpg" alt="Our Story" class="hero-image">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section values-section">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">قيمنا الأساسية</h2>
-                <div class="values-grid">
-                    <div class="card value-card" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-handshake"></i>
-                        <h4>الشفافية</h4>
-                        <p class="text-muted">نحن نؤمن بالشفافية الكاملة في جميع إشاراتنا وتحليلاتنا.</p>
-                    </div>
-                    <div class="card value-card" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fas fa-cogs"></i>
-                        <h4>الابتكار</h4>
-                        <p class="text-muted">نعمل باستمرار على تطوير خوارزمياتنا لتقديم أفضل النتائج.</p>
-                    </div>
-                    <div class="card value-card" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-users"></i>
-                        <h4>المجتمع</h4>
-                        <p class="text-muted">نسعى لبناء مجتمع داعم من المتداولين لمشاركة الخبرات.</p>
-                    </div>
+    <section class="section values-section">
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">قيمنا</h2>
+            <p class="section-subtitle">
+                الشفافية، الموثوقية، والدقة هي أساس عملنا.
+            </p>
+            <div class="values-grid">
+                <div class="card value-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-handshake icon-small"></i>
+                    <h4>الشفافية</h4>
+                    <p>نقدم معلومات واضحة وموثوقة حول أدائنا واستراتيجياتنا.</p>
+                </div>
+                <div class="card value-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-shield-alt icon-small"></i>
+                    <h4>الموثوقية</h4>
+                    <p>يمكنك الاعتماد على إشاراتنا لتحقيق نتائج ثابتة على المدى الطويل.</p>
+                </div>
+                <div class="card value-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-crosshairs icon-small"></i>
+                    <h4>الدقة</h4>
+                    <p>نستخدم أحدث الأدوات التحليلية لضمان أعلى مستوى من الدقة.</p>
                 </div>
             </div>
-        </section>
-
-        <section class="section team-section">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">فريق العمل</h2>
-                <div class="team-grid">
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
-                        <img src="images/team-member-1.jpg" alt="STVX">
-                        <h4>STVX</h4>
-                        <p class="text-muted">مبرمج المنصة</p>
-                    </div>
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="images/team-member-2.jpg" alt="Mohammad">
-                        <h4>محمد</h4>
-                        <p class="text-muted">مدير المنصة</p>
-                    </div>
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="300">
-                        <img src="images/team-member-3.jpg" alt="Marwan">
-                        <h4>مروان</h4>
-                        <p class="text-muted">الدعم الفني</p>
-                    </div>
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="400">
-                        <img src="images/team-member-4.jpg" alt="Asfoorah">
-                        <h4>عصفورة</h4>
-                        <p class="text-muted">الدعم الفني</p>
-                    </div>
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="500">
-                        <img src="images/team-member-5.jpg" alt="Noor">
-                        <h4>الكوين نور</h4>
-                        <p class="text-muted">الدعم الفني</p>
-                    </div>
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="600">
-                        <img src="images/team-member-6.jpg" alt="Alwaleed">
-                        <h4>الوليد</h4>
-                        <p class="text-muted">الدعم الفني</p>
-                    </div>
-                    <div class="team-member" data-aos="zoom-in" data-aos-delay="700">
-                        <img src="images/team-member-7.jpg" alt="Ayman Abdelmajid">
-                        <h4>أيمن ابوالمجد</h4>
-                        <p class="text-muted">الدعم الفني</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 MT Signals. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-    
+    <script type="module" src="js/script.js"></script>
     <script type="module" src="js/header.js"></script>
+
 </body>
 </html>
