@@ -26,10 +26,13 @@
                     <li><a href="about.html" class="active">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
-                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
                 </ul>
             </nav>
             <div class="header-right">
+                <div id="auth-buttons-container" class="auth-buttons">
+                    <a href="login.html" class="button button-primary">الدخول</a>
+                    <a href="signup.html" class="button button-secondary">التسجيل</a>
+                </div>
                 <div class="theme-toggle">
                     <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
                         <i class="fas fa-moon"></i>
@@ -147,11 +150,10 @@
         </div>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    
+    <script type="module" src="js/header.js"></script>
 </body>
 </html>
