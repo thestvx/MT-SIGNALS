@@ -25,20 +25,11 @@ function toggleMenu() {
 function setActiveLink() {
     const currentPath = window.location.pathname.split('/').pop();
     const navLinks = document.querySelectorAll('.main-nav ul li a');
-    const authLinks = document.querySelectorAll('#auth-buttons-container a');
     
     // Highlight main navigation links
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-
-    // Highlight auth links (Dashboard link)
-    authLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
+        const linkPath = link.getAttribute('href').split('/').pop();
+        if (linkPath === currentPath) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -100,108 +91,6 @@ function initializeParticles() {
     });
 }
 
-// Function to handle Firebase authentication
-function handleAuth() {
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
-    const googleLoginButton = document.getElementById('google-login');
-    const googleSignupButton = document.getElementById('google-signup');
-    const errorMessage = document.getElementById('error-message');
-
-    // Login with Email and Password
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            errorMessage.textContent = '';
-
-            try {
-                await auth.signInWithEmailAndPassword(email, password);
-                // Redirect to dashboard after successful login
-                window.location.href = 'dashboard.html';
-            } catch (error) {
-                if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
-                    errorMessage.textContent = 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
-                } else {
-                    errorMessage.textContent = 'حدث خطأ في تسجيل الدخول. يرجى المحاولة لاحقًا.';
-                    console.error('Login Error:', error);
-                }
-            }
-        });
-    }
-
-    // Signup with Email and Password
-    if (signupForm) {
-        signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            errorMessage.textContent = '';
-
-            try {
-                const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-                const user = userCredential.user;
-
-                await db.collection('users').doc(user.uid).set({
-                    username: username,
-                    email: email,
-                    created_at: firebase.firestore.FieldValue.serverTimestamp()
-                });
-
-                // Redirect to dashboard after successful signup
-                window.location.href = 'dashboard.html';
-            } catch (error) {
-                if (error.code === 'auth/email-already-in-use') {
-                    errorMessage.textContent = 'هذا البريد الإلكتروني مستخدم بالفعل.';
-                } else if (error.code === 'auth/weak-password') {
-                    errorMessage.textContent = 'كلمة المرور ضعيفة جدًا، يجب أن تكون 6 أحرف على الأقل.';
-                } else {
-                    errorMessage.textContent = 'حدث خطأ في إنشاء الحساب. يرجى المحاولة لاحقًا.';
-                    console.error('Signup Error:', error);
-                }
-            }
-        });
-    }
-
-    // Google Login/Signup
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    const handleGoogleAuth = async (button) => {
-        if (button) {
-            button.addEventListener('click', async () => {
-                errorMessage.textContent = '';
-                try {
-                    const result = await auth.signInWithPopup(googleProvider);
-                    const user = result.user;
-
-                    // Check if user document already exists
-                    const userDoc = await db.collection('users').doc(user.uid).get();
-                    if (!userDoc.exists) {
-                        await db.collection('users').doc(user.uid).set({
-                            username: user.displayName,
-                            email: user.email,
-                            created_at: firebase.firestore.FieldValue.serverTimestamp()
-                        });
-                    }
-
-                    // Redirect to dashboard after successful Google auth
-                    window.location.href = 'dashboard.html';
-                } catch (error) {
-                    console.error('Google Auth Error:', error);
-                    errorMessage.textContent = 'فشل التسجيل باستخدام جوجل. يرجى المحاولة مرة أخرى.';
-                }
-            });
-        }
-    };
-
-    handleGoogleAuth(googleLoginButton);
-    handleGoogleAuth(googleSignupButton);
-}
-
 // Function to handle the theme on page load
 function initializeTheme() {
     const savedTheme = localStorage.getItem('theme');
@@ -229,10 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
     handleSplashScreen();
 
     // Initialize AOS animations
-    AOS.init({
-        duration: 1000,
-        once: true,
-    });
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+    }
 
     // Initialize Particles.js
     initializeParticles();
@@ -255,7 +146,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggleButton) {
         menuToggleButton.addEventListener('click', toggleMenu);
     }
-
-    // Handle Firebase auth
-    handleAuth();
 });
