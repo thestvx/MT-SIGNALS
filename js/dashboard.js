@@ -1,8 +1,8 @@
 // js/dashboard.js
 
 import { getAuth, onAuthStateChanged, updatePassword, reauthenticateWithCredential, EmailAuthProvider, updateProfile } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
 // Your Firebase configuration
 const firebaseConfig = {
@@ -17,19 +17,30 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const storage = getStorage(app);
+const db = getFirestore(app);
+
+// Cloudinary configuration - استبدل القيم الخاصة بك هنا
+const CLOUDINARY_CLOUD_NAME = 'dtkp2a1cp';
+const CLOUDINARY_UPLOAD_PRESET = 'MT SIGNALS';
 
 document.addEventListener('DOMContentLoaded', () => {
     const userInfoEl = document.getElementById('user-info');
-    const profileImageEl = document.getElementById('profile-image');
+    const profileImageEl = document.getElementById('profile-avatar');
     const passwordChangeForm = document.getElementById('password-change-form');
     const currentPasswordInput = document.getElementById('current-password');
     const newPasswordInput = document.getElementById('new-password');
     const confirmNewPasswordInput = document.getElementById('confirm-new-password');
     const passwordMessageEl = document.getElementById('password-message');
-    const avatarForm = document.getElementById('avatar-form');
     const avatarUploadInput = document.getElementById('avatar-upload');
     const avatarMessageEl = document.getElementById('avatar-message');
+
+    // دالة لتحديث رسائل الحالة
+    const updateStatusMessage = (message, isSuccess) => {
+        if (avatarMessageEl) {
+            avatarMessageEl.textContent = message;
+            avatarMessageEl.style.color = isSuccess ? '#00c6a7' : '#ff4d4f';
+        }
+    };
 
     // Check auth state
     onAuthStateChanged(auth, (user) => {
@@ -93,36 +104,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle avatar upload form submission
-    if (avatarForm) {
-        avatarForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const file = avatarUploadInput.files[0];
-            const user = auth.currentUser;
+    // Handle avatar upload
+    if (avatarUploadInput) {
+        avatarUploadInput.addEventListener('change', async (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
 
-            if (!file) {
-                avatarMessageEl.textContent = 'الرجاء اختيار صورة أولاً.';
-                avatarMessageEl.style.color = '#ff4d4f';
-                return;
-            }
+            updateStatusMessage('جاري رفع الصورة...', false);
 
-            avatarMessageEl.textContent = 'جاري رفع الصورة...';
-            avatarMessageEl.style.color = '#fff';
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
 
-            if (user) {
-                try {
-                    const storageRef = ref(storage, `users/${user.uid}/profile_picture`);
-                    await uploadBytes(storageRef, file);
-                    const photoURL = await getDownloadURL(storageRef);
-                    await updateProfile(user, { photoURL: photoURL });
-                    profileImageEl.src = photoURL;
-                    avatarMessageEl.textContent = 'تم تغيير صورة الملف الشخصي بنجاح.';
-                    avatarMessageEl.style.color = '#00c6a7';
-                } catch (error) {
-                    avatarMessageEl.textContent = 'فشل في رفع الصورة. يرجى المحاولة مرة أخرى.';
-                    avatarMessageEl.style.color = '#ff4d4f';
-                    console.error('Error uploading avatar:', error);
+            try {
+                const response = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error('فشل رفع الصورة إلى Cloudinary.');
                 }
+
+                const data = await response.json();
+                const imageUrl = data.secure_url;
+
+                // تحديث رابط الصورة في Firestore
+                const userRef = doc(db, 'users', auth.currentUser.uid);
+                await updateDoc(userRef, {
+                    photoURL: imageUrl,
+                });
+                
+                // تحديث رابط الصورة في Firebase Auth
+                await updateProfile(auth.currentUser, { photoURL: imageUrl });
+
+                // تحديث واجهة المستخدم
+                document.getElementById('profile-avatar').src = imageUrl;
+                updateStatusMessage('تم تحديث الصورة بنجاح!', true);
+
+            } catch (error) {
+                console.error('حدث خطأ في رفع الصورة:', error);
+                updateStatusMessage('فشل تحديث الصورة. حاول مرة أخرى.', false);
             }
         });
     }
