@@ -1,5 +1,5 @@
 /* Importing Google Fonts and defining variables for colors and styles */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+@import url('https://fonts.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
 /* Defining the new custom font */
 @font-face {
@@ -345,12 +345,6 @@ body {
 .header-profile-link:hover {
     transform: scale(1.05);
 }
-.header-profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid var(--primary-color);
-}
 
 .user-info {
     display: flex;
@@ -417,7 +411,6 @@ body {
 .user-dropdown-menu a:hover {
     color: var(--primary-color);
 }
-
 
 .cta-button-nav {
     background-color: var(--primary-color);
@@ -1455,10 +1448,10 @@ input:checked + .slider:before {
         flex-direction: column;
     }
     .user-info .user-name {
-        display: block; /* Show name on smaller screens */
+        display: block;
     }
     .user-info .user-avatar-small {
-        display: none; /* Hide avatar on smaller screens to save space */
+        display: none;
     }
     .stats-section .stats-grid,
     .how-it-works-grid,
