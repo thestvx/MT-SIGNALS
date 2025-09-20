@@ -1,216 +1,71 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء حساب جديد - MT SIGNALS</title>
+    <title>إنشاء حساب - MT Signals</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-theme="dark" class="auth-page">
-
-    <div id="particles-js"></div>
-
+<body class="auth-page">
+    
     <header class="main-header">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
+                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
+                    <span class="site-name">MT Signals</span>
                 </a>
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                    <li><a href="signup.html" class="cta-button-nav active">إنشاء حساب جديد</a></li>
-                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
-                </ul>
-            </nav>
             <div class="header-right">
                 <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                    <button id="theme-toggle-button">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
-                    <i class="fas fa-bars"></i>
-                </button>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="section auth-section">
-            <div class="card auth-card" data-aos="zoom-in">
-                <div class="auth-header text-center">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="auth-logo">
-                    <h2 class="auth-title">إنشاء حساب جديد</h2>
-                    <p class="auth-subtitle">ابدأ رحلتك معنا اليوم واحصل على أفضل الإشارات!</p>
-                </div>
-                <form id="signup-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="username">اسم المستخدم</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">البريد الإلكتروني</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">كلمة المرور</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="button button-primary">إنشاء الحساب</button>
-                    <p id="error-message" class="error-message"></p>
-                </form>
-                <div class="social-login">
-                    <div class="divider">
-                        <span>أو</span>
-                    </div>
-                    <button id="google-signup" class="button button-google">
-                        <i class="fab fa-google"></i>
-                        <span>التسجيل باستخدام جوجل</span>
-                    </button>
-                </div>
-                <div class="auth-links">
-                    <p>هل لديك حساب بالفعل؟ <a href="login.html">سجّل الدخول</a></p>
-                </div>
+    <section class="auth-section">
+        <div class="card auth-card" data-aos="fade-up">
+            <div class="auth-header">
+                <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo">
+                <h2 class="auth-title">إنشاء حساب</h2>
+                <p class="auth-subtitle">ابدأ رحلتك معنا اليوم.</p>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
+            <form id="signup-form" class="auth-form">
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">تأكيد كلمة المرور</label>
+                    <input type="password" id="confirm-password" required>
+                </div>
+                <button type="submit" class="button button-primary" id="signup-button">إنشاء حساب</button>
+            </form>
+            <p id="auth-message" class="error-message"></p>
+            <div class="divider">
+                <span>أو</span>
+            </div>
+            <button id="google-signup-button" class="button-google">
+                <i class="fab fa-google"></i>
+                التسجيل باستخدام جوجل
+            </button>
+            <p class="auth-links">
+                هل لديك حساب بالفعل؟
+                <a href="login.html">تسجيل الدخول</a>
+            </p>
         </div>
-    </footer>
-    
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-        import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-        
-        // قم بوضع كود التهيئة الخاص بك هنا
-        const firebaseConfig = {
-          apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-          authDomain: "mt-siganls.firebaseapp.com",
-          projectId: "mt-siganls",
-          storageBucket: "mt-siganls.firebasestorage.app",
-          messagingSenderId: "84758913270",
-          appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
-        };
-        
-        // تهيئة Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+    </section>
 
-        function handleAuth(auth, db) {
-            const signupForm = document.getElementById('signup-form');
-            const googleSignupButton = document.getElementById('google-signup');
-            const errorMessageElement = document.getElementById('error-message');
-
-            if (signupForm) {
-                signupForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-
-                    const username = signupForm['username'].value;
-                    const email = signupForm['email'].value;
-                    const password = signupForm['password'].value;
-
-                    try {
-                        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                        const user = userCredential.user;
-                        console.log('تم إنشاء حساب جديد بنجاح:', user);
-
-                        await setDoc(doc(db, "users", user.uid), {
-                            username: username,
-                            email: email,
-                            createdAt: serverTimestamp(),
-                        });
-                        
-                        // **التعديل الجديد:** عرض رسالة نجاح وتغيير لونها
-                        errorMessageElement.textContent = 'تم إنشاء الحساب بنجاح! سيتم توجيهك إلى صفحة تسجيل الدخول.';
-                        errorMessageElement.style.color = '#00c6a7'; // لون أخضر أو أي لون يعجبك
-
-                        // **التعديل الجديد:** تأخير إعادة التوجيه
-                        setTimeout(() => {
-                            window.location.href = 'login.html'; 
-                        }, 2000); // 2000 مللي ثانية = 2 ثانية
-                        
-                    } catch (error) {
-                        console.error('فشل إنشاء الحساب:', error.code, error.message);
-                        let displayMessage = '';
-                        switch (error.code) {
-                            case 'auth/email-already-in-use':
-                                displayMessage = 'البريد الإلكتروني مستخدم بالفعل.';
-                                break;
-                            case 'auth/invalid-email':
-                                displayMessage = 'البريد الإلكتروني غير صالح.';
-                                break;
-                            case 'auth/weak-password':
-                                displayMessage = 'كلمة المرور ضعيفة جدًا. يجب أن تكون 6 أحرف على الأقل.';
-                                break;
-                            default:
-                                displayMessage = 'حدث خطأ. يرجى المحاولة مرة أخرى.';
-                        }
-                        errorMessageElement.textContent = displayMessage;
-                        errorMessageElement.style.color = '#ff4d4f'; // لون أحمر للأخطاء
-                    }
-                });
-            }
-
-            if (googleSignupButton) {
-                googleSignupButton.addEventListener('click', async () => {
-                    const provider = new GoogleAuthProvider();
-                    try {
-                        const result = await signInWithPopup(auth, provider);
-                        const user = result.user;
-                        console.log('تم تسجيل الدخول بحساب جوجل بنجاح:', user);
-                        
-                        const userDocRef = doc(db, "users", user.uid);
-                        const docSnap = await getDoc(userDocRef);
-                        
-                        if (!docSnap.exists()) {
-                            await setDoc(userDocRef, {
-                                username: user.displayName || 'Google User',
-                                email: user.email,
-                                createdAt: serverTimestamp(),
-                            });
-                        }
-
-                        // **التعديل الجديد:** عرض رسالة نجاح
-                        errorMessageElement.textContent = 'تم تسجيل الدخول بنجاح! سيتم توجيهك إلى صفحة تسجيل الدخول.';
-                        errorMessageElement.style.color = '#00c6a7';
-
-                        // **التعديل الجديد:** تأخير إعادة التوجيه
-                        setTimeout(() => {
-                            window.location.href = 'login.html';
-                        }, 2000);
-                    } catch (error) {
-                        console.error('فشل تسجيل الدخول بجوجل:', error.code, error.message);
-                        let displayMessage = 'فشل تسجيل الدخول بحساب جوجل.';
-                        if (error.code === 'auth/popup-closed-by-user') {
-                            displayMessage = 'تم إغلاق نافذة تسجيل الدخول.';
-                        }
-                        errorMessageElement.textContent = displayMessage;
-                        errorMessageElement.style.color = '#ff4d4f';
-                    }
-                });
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            handleAuth(auth, db);
-            // استدعاء الدوال الأخرى
-        });
-    </script>
-    <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/signup.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 </html>
