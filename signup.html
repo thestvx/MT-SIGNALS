@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء حساب - MT Signals</title>
+    <title>إنشاء حساب جديد - MT Signals</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="auth-page">
+<body>
     
     <header class="main-header">
         <div class="container">
@@ -17,55 +17,73 @@
                     <span class="site-name">MT Signals</span>
                 </a>
             </div>
+            <nav class="main-nav" id="main-nav">
+                <ul id="main-nav-ul">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
             <div class="header-right">
+                <div class="auth-buttons-container" id="auth-buttons-container">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
+                        <a href="signup.html" class="button button-primary cta-button-nav">إنشاء حساب</a>
+                    </div>
+                </div>
                 <div class="theme-toggle">
                     <button id="theme-toggle-button">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
+                <button class="menu-toggle-button">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <section class="auth-section">
-        <div class="card auth-card" data-aos="fade-up">
-            <div class="auth-header">
-                <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo">
-                <h2 class="auth-title">إنشاء حساب</h2>
-                <p class="auth-subtitle">ابدأ رحلتك معنا اليوم.</p>
+        <div class="container">
+            <div class="card auth-card">
+                <div class="auth-header">
+                    <img src="images/logo.png" alt="Logo" class="auth-logo">
+                    <h1 class="auth-title">إنشاء حساب جديد</h1>
+                    <p class="auth-subtitle">انضم إلينا اليوم وابدأ رحلتك في التداول الاحترافي</p>
+                </div>
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <input type="text" id="username" placeholder="اسم المستخدم" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" placeholder="كلمة المرور" required>
+                    </div>
+                    <button type="submit" class="button button-primary">إنشاء الحساب</button>
+                    <p id="signup-message" class="error-message"></p>
+                </form>
+
+                <div class="divider"><span>أو</span></div>
+                
+                <div class="social-login">
+                    <button class="button button-google" id="google-signup">
+                        <i class="fab fa-google"></i>
+                        إنشاء حساب باستخدام جوجل
+                    </button>
+                </div>
+
+                <p class="auth-links">
+                    هل لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a>
+                </p>
             </div>
-            <form id="signup-form" class="auth-form">
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">كلمة المرور</label>
-                    <input type="password" id="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">تأكيد كلمة المرور</label>
-                    <input type="password" id="confirm-password" required>
-                </div>
-                <button type="submit" class="button button-primary" id="signup-button">إنشاء حساب</button>
-            </form>
-            <p id="auth-message" class="error-message"></p>
-            <div class="divider">
-                <span>أو</span>
-            </div>
-            <button id="google-signup-button" class="button-google">
-                <i class="fab fa-google"></i>
-                التسجيل باستخدام جوجل
-            </button>
-            <p class="auth-links">
-                هل لديك حساب بالفعل؟
-                <a href="login.html">تسجيل الدخول</a>
-            </p>
         </div>
     </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script type="module" src="js/signup.js"></script>
     <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/header.js"></script>
 </body>
 </html>
