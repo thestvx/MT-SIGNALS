@@ -1,195 +1,290 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT SIGNALS - إشارات تداول احترافية للعملات الرقمية</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT SIGNALS - إشارات تداول احترافية للعملات الرقمية</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body data-theme="dark">
 
-    <div id="splash-screen">
-        <img src="logo.png" alt="MT SIGNALS Logo" class="splash-logo">
-        <h2 class="splash-text">أهلاً بك أيها المتداول</h2>
-        <p class="splash-subtext">هذه المنصة تم تطويرها بواسطة STVX، وتتشرف بتقديم هذا الإصدار الأول.</p>
-    </div>
+    <div id="splash-screen">
+        <img src="logo.png" alt="MT SIGNALS Logo" class="splash-logo">
+        <h2 class="splash-text">أهلاً بك أيها المتداول</h2>
+        <p class="splash-subtext">هذه المنصة تم تطويرها بواسطة STVX، وتتشرف بتقديم هذا الإصدار الأول.</p>
+    </div>
 
-    <div id="particles-js"></div>
+    <div id="particles-js"></div>
 
-    <header class="main-header">
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul id="main-nav-ul">
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div id="auth-buttons-container" class="auth-buttons">
-                    <a href="login.html" class="button button-primary">الدخول</a>
-                    <a href="signup.html" class="button button-secondary">التسجيل</a>
-                </div>
-                <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
+                    <span class="site-name">MT SIGNALS</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul id="main-nav-ul">
+                    <li><a href="index.html" class="active">الرئيسية</a></li>
+                    <li><a href="about.html">حول المنصة</a></li>
+                    <li><a href="pricing.html">الاشتراكات</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div id="auth-buttons-container" class="auth-buttons">
+                    <a href="login.html" class="button button-primary">الدخول</a>
+                    <a href="signup.html" class="button button-secondary">التسجيل</a>
+                </div>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <main>
-        <section class="section hero-section home-hero-section">
-            <div class="container">
-                <h1 data-aos="fade-up">إشارات تداول احترافية للعملات الرقمية</h1>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    احصل على أفضل إشارات التداول لأسواق العملات الرقمية. منصتنا توفر لك تحليلات دقيقة وتوصيات فورية لمساعدتك في اتخاذ قرارات تداول مربحة.
-                </p>
-                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                    <a href="signup.html" class="button button-primary">أبدا الآن</a>
-                    <a href="pricing.html" class="button button-secondary">اكتشف الاشتراكات</a>
-                </div>
-            </div>
-        </section>
+    <main>
+        <section class="section hero-section home-hero-section">
+            <div class="container">
+                <h1 data-aos="fade-up" class="hero-title">
+                    إشارات تداول احترافية <br> للعملات الرقمية
+                </h1>
+                <p data-aos="fade-up" data-aos-delay="200" class="hero-subtitle">
+                    أفضل إشارات التداول لأسواق العملات الرقمية. منصتنا توفر لك تحليلات دقيقة وتوصيات فورية لمساعدتك في اتخاذ قرارات تداول مربحة.
+                </p>
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+                    <a href="signup.html" class="button button-primary">أبدا الآن</a>
+                    <a href="pricing.html" class="button button-secondary">اكتشف الاشتراكات</a>
+                </div>
+            </div>
+        </section>
 
-        <section class="section features-section">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">لماذا تختار MT SIGNALS؟</h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    نحن نجمع بين الخبرة والذكاء الاصطناعي لتزويدك بأفضل إشارات التداول.
-                </p>
-                <div class="features-grid">
-                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fas fa-chart-line icon-large"></i>
-                        <h3>إشارات دقيقة</h3>
-                    </div>
-                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fas fa-bullhorn icon-large"></i>
-                        <h3>تنبيهات فورية</h3>
-                        <p class="text-muted">احصل على تنبيهات فورية عبر تطبيقنا أو بريدك الإلكتروني لضمان عدم تفويت أي فرصة.</p>
-                    </div>
-                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="500">
-                        <i class="fas fa-robot icon-large"></i>
-                        <h3>تحليلات آلية</h3>
-                        <p class="text-muted">نستخدم خوارزميات الذكاء الاصطناعي لمسح السوق على مدار الساعة وتقديم أفضل التوصيات.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="section features-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">لماذا تختار MT SIGNALS؟</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    نحن نجمع بين الخبرة والذكاء الاصطناعي لتزويدك بأفضل إشارات التداول.
+                </p>
+                <div class="features-grid">
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-chart-line icon-large"></i>
+                        <h3>إشارات دقيقة</h3>
+                        <p class="text-muted">نقدم إشارات تداول مبنية على تحليل فني وأساسي شامل لضمان أعلى مستويات الدقة.</p>
+                    </div>
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-bullhorn icon-large"></i>
+                        <h3>تنبيهات فورية</h3>
+                        <p class="text-muted">احصل على تنبيهات فورية عبر تطبيقنا أو بريدك الإلكتروني لضمان عدم تفويت أي فرصة.</p>
+                    </div>
+                    <div class="card feature-card" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-robot icon-large"></i>
+                        <h3>تحليلات آلية</h3>
+                        <p class="text-muted">نستخدم خوارزميات الذكاء الاصطناعي لمسح السوق على مدار الساعة وتقديم أفضل التوصيات.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <section class="section cta-section">
-            <div class="container text-center" data-aos="zoom-in">
-                <h2 class="section-title">انضم إلى مجتمعنا اليوم!</h2>
-                <p class="section-subtitle">ابدأ رحلتك في التداول الاحترافي مع MT SIGNALS واحصل على إشارات مربحة.</p>
-                <a href="signup.html" class="button button-primary">إنشاء حساب جديد</a>
-            </div>
-        </section>
-    </main>
+        <section class="section stats-section">
+            <div class="container">
+                <div class="stats-grid" data-aos="fade-up">
+                    <div class="card info-stat" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-users-cog icon-large"></i>
+                        <h3>+5000</h3>
+                        <p>مشترك</p>
+                    </div>
+                    <div class="card info-stat" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-signal icon-large"></i>
+                        <h3>+200</h3>
+                        <p>إشارة تداول شهرية</p>
+                    </div>
+                    <div class="card info-stat" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-percent icon-large"></i>
+                        <h3>90%</h3>
+                        <p>نسبة نجاح الإشارات</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+        <section class="section how-it-works-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">كيف تعمل منصتنا؟</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    ابدأ رحلتك في ثلاث خطوات بسيطة.
+                </p>
+                <div class="how-it-works-grid">
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">1</div>
+                        <i class="fas fa-user-plus icon-large"></i>
+                        <h4>التسجيل والاشتراك</h4>
+                        <p>قم بإنشاء حساب واختر خطة الاشتراك المناسبة لك للوصول إلى كافة الميزات.</p>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="step-number">2</div>
+                        <i class="fas fa-bell icon-large"></i>
+                        <h4>تفعيل التنبيهات</h4>
+                        <p>استقبل إشارات التداول الفورية مباشرة على هاتفك أو بريدك الإلكتروني.</p>
+                    </div>
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="step-number">3</div>
+                        <i class="fas fa-chart-bar icon-large"></i>
+                        <h4>ابدأ التداول</h4>
+                        <p>استخدم إشاراتنا لتنفيذ صفقات ناجحة في سوق العملات الرقمية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script type="module">
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+        <section class="section testimonials-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">ماذا يقول عملاؤنا؟</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    قصص نجاح حقيقية من مجتمعنا المتنامي من المتداولين.
+                </p>
+                <div class="testimonials-grid">
+                    <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                        <p>"منصة MT SIGNALS غيرت حياتي! بفضل إشاراتهم الدقيقة، تمكنت من تحقيق أرباح لم أتخيلها أبدًا."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="author-img">
+                            <div>
+                                <h4>علياء محمد</h4>
+                                <span class="text-muted">متداولة محترفة</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                        <p>"كنت أجد صعوبة في التداول، ولكن بفضل التوصيات الفورية من MT SIGNALS، أصبح التداول أسهل وأكثر ربحًا."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="author-img">
+                            <div>
+                                <h4>أحمد خالد</h4>
+                                <span class="text-muted">متداول مبتدئ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="500">
+                        <p>"الدعم الفني ممتاز والإشارات موثوقة. أوصي بشدة بهذه المنصة لأي شخص مهتم بالعملات الرقمية."</p>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60" alt="صورة المستخدم" class="author-img">
+                            <div>
+                                <h4>فاطمة الزهراء</h4>
+                                <span class="text-muted">محللة مالية</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section cta-section">
+            <div class="container text-center" data-aos="zoom-in">
+                <h2 class="section-title">انضم إلى مجتمعنا اليوم!</h2>
+                <p class="section-subtitle">ابدأ رحلتك في التداول الاحترافي مع MT SIGNALS واحصل على إشارات مربحة.</p>
+                <a href="signup.html" class="button button-primary">إنشاء حساب جديد</a>
+            </div>
+        </section>
+    </main>
 
-        // تهيئة Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
-            authDomain: "mt-siganls.firebaseapp.com",
-            projectId: "mt-siganls",
-            storageBucket: "mt-siganls.firebasestorage.app",
-            messagingSenderId: "84758913270",
-            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
-        };
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+    <script type="module">
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-        const authButtonsContainer = document.getElementById('auth-buttons-container');
-        const authLinks = document.getElementById('auth-links');
+        // تهيئة Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBV2kUxnxoqnE1wBEZKhNwkKYaAL14R1QY",
+            authDomain: "mt-siganls.firebaseapp.com",
+            projectId: "mt-siganls",
+            storageBucket: "mt-siganls.firebasestorage.app",
+            messagingSenderId: "84758913270",
+            appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
+        };
 
-        // دالة تسجيل الخروج
-        const handleLogout = async () => {
-            try {
-                await signOut(auth);
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error("Error signing out: ", error);
-            }
-        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
 
-        // دالة لعرض واجهة المستخدم للمستخدم المسجل دخوله
-        const renderUserUI = async (user) => {
-            const userRef = doc(db, 'users', user.uid);
-            const userSnap = await getDoc(userRef);
-            const userData = userSnap.data();
-            const photoURL = userData.photoURL || user.photoURL || 'https://via.placeholder.com/40';
-            const displayName = userData.displayName || user.email.split('@')[0];
+        const authButtonsContainer = document.getElementById('auth-buttons-container');
+        const authLinks = document.getElementById('auth-links');
 
-            authButtonsContainer.innerHTML = `
-                <a href="dashboard.html" class="header-profile-link" title="${displayName}">
-                    <img id="header-profile-pic" class="header-profile-pic" src="${photoURL}" alt="صورة الملف الشخصي">
-                </a>
-                <button id="logout-button" class="button button-secondary">تسجيل الخروج</button>
-            `;
+        // دالة تسجيل الخروج
+        const handleLogout = async () => {
+            try {
+                await signOut(auth);
+                window.location.href = 'index.html';
+            } catch (error) {
+                console.error("Error signing out: ", error);
+            }
+        };
 
-            document.getElementById('logout-button').addEventListener('click', handleLogout);
-        };
+        // دالة لعرض واجهة المستخدم للمستخدم المسجل دخوله
+        const renderUserUI = async (user) => {
+            const userRef = doc(db, 'users', user.uid);
+            const userSnap = await getDoc(userRef);
+            const userData = userSnap.data();
+            const photoURL = userData?.photoURL || user.photoURL || 'https://via.placeholder.com/40';
+            const displayName = userData?.displayName || user.email.split('@')[0];
 
-        // دالة لعرض واجهة المستخدم للمستخدم غير المسجل
-        const renderGuestUI = () => {
-            authButtonsContainer.innerHTML = `
-                <a href="login.html" class="button button-primary">الدخول</a>
-                <a href="signup.html" class="button button-secondary">التسجيل</a>
-            `;
-        };
+            authButtonsContainer.innerHTML = `
+                <a href="dashboard.html" class="header-profile-link" title="${displayName}">
+                    <img id="header-profile-pic" class="header-profile-pic" src="${photoURL}" alt="صورة الملف الشخصي">
+                </a>
+                <button id="logout-button" class="button button-secondary">تسجيل الخروج</button>
+            `;
 
-        // مراقبة حالة المصادقة
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // المستخدم مسجل دخوله
-                renderUserUI(user);
-            } else {
-                // المستخدم غير مسجل دخوله
-                renderGuestUI();
-            }
-        });
+            document.getElementById('logout-button').addEventListener('click', handleLogout);
+        };
 
-        // دالة للتحكم بالشاشة المؤقتة (splash screen)
-        const handleSplashScreen = () => {
-            const splashScreen = document.getElementById('splash-screen');
-            if (splashScreen) {
-                setTimeout(() => {
-                    splashScreen.classList.add('fade-out');
-                }, 5000); // 5 ثواني
-            }
-        };
-        
-        // استدعاء الدالة عند تحميل الصفحة
-        document.addEventListener('DOMContentLoaded', handleSplashScreen);
-    </script>
+        // دالة لعرض واجهة المستخدم للمستخدم غير المسجل
+        const renderGuestUI = () => {
+            authButtonsContainer.innerHTML = `
+                <a href="login.html" class="button button-primary">الدخول</a>
+                <a href="signup.html" class="button button-secondary">التسجيل</a>
+            `;
+        };
+
+        // مراقبة حالة المصادقة
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // المستخدم مسجل دخوله
+                renderUserUI(user);
+            } else {
+                // المستخدم غير مسجل دخوله
+                renderGuestUI();
+            }
+        });
+
+        // دالة للتحكم بالشاشة المؤقتة (splash screen)
+        const handleSplashScreen = () => {
+            const splashScreen = document.getElementById('splash-screen');
+            if (splashScreen) {
+                setTimeout(() => {
+                    splashScreen.classList.add('fade-out');
+                }, 5000); // 5 ثواني
+            }
+        };
+        
+        // استدعاء الدالة عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', handleSplashScreen);
+    </script>
 </body>
 </html>
