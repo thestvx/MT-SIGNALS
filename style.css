@@ -1090,13 +1090,26 @@ footer {
     align-items: center;
 }
 
+/* New Testimonial Card Design */
 .testimonial-card {
     width: 100%;
     max-width: 450px;
+    padding: 2.5rem;
     text-align: right;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background-color: rgba(31, 41, 55, 0.5); /* شفافية */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
     cursor: grab;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-card:active {
@@ -1106,7 +1119,7 @@ footer {
 .testimonial-header {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     direction: rtl;
 }
 
@@ -1116,21 +1129,39 @@ footer {
     border-radius: 50%;
     object-fit: cover;
     margin-left: 1rem;
-    border: 3px solid var(--primary-color);
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-avatar {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--accent-color);
 }
 
 .testimonial-header h4 {
     font-size: 1.2rem;
     font-weight: 700;
+    color: var(--primary-color);
 }
 
 .testimonial-comment {
     color: var(--text-color);
     font-style: italic;
     font-size: 1rem;
-    border-top: 1px solid var(--border-color);
-    padding-top: 1rem;
-    margin-top: 1rem;
+    line-height: 1.8;
+}
+
+.testimonial-card::before {
+    content: '“';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.05);
+    z-index: -1;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
 }
 
 .no-testimonials-message, .error-message {
@@ -1140,30 +1171,34 @@ footer {
     font-size: 1.1rem;
 }
 
+/* New Add Testimonial Form Design */
 .add-testimonial-card {
     margin-top: 4rem;
     text-align: center;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    background-color: var(--card-bg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.add-testimonial-card h3 {
+.add-testimonial-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    direction: rtl;
+}
+
+.add-testimonial-header h3 {
     font-size: 1.8rem;
     font-weight: 700;
-    margin-bottom: 2rem;
     color: var(--primary-color);
+    margin: 0;
 }
 
 .add-testimonial-card textarea {
-    width: 100%;
-    background-color: var(--dark-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1rem;
-    color: var(--text-color);
-    font-size: 1rem;
-    resize: vertical;
+    min-height: 120px;
 }
 
 .add-testimonial-card button {
