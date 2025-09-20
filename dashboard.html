@@ -5,111 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم - MT Signals</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="dashboard-page">
 
-    <header class="main-header">
+    <header class="main-header" id="main-header">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
+                    <img src="images/logo.png" alt="Logo" class="logo">
                     <span class="site-name">MT Signals</span>
                 </a>
             </div>
-            <nav class="main-nav" id="main-nav">
-                <ul id="main-nav-ul">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="pricing.html">الأسعار</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </nav>
             <div class="header-right">
+                <nav class="main-nav" id="main-nav">
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li class="auth-buttons hidden" id="auth-buttons">
+                            <a href="login.html" class="button cta-button-nav">تسجيل الدخول</a>
+                        </li>
+                        <li class="user-profile-actions" id="user-profile-actions">
+                            <a href="dashboard.html" class="dashboard-link active">
+                                <img src="images/default-avatar.jpg" alt="User Avatar" class="profile-avatar-small" id="user-avatar-header">
+                                <span id="user-name-header"></span>
+                            </a>
+                            <button id="logout-button" class="button button-danger">تسجيل الخروج</button>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="theme-toggle">
-                    <button id="theme-toggle-button">
+                    <button id="theme-toggle-btn">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                <button class="menu-toggle-button">
+                <button class="menu-toggle-button" id="menu-toggle-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="dashboard-container">
-        <div class="container">
-            <h1 class="section-title" data-aos="fade-down">لوحة التحكم</h1>
-            <p class="section-subtitle" data-aos="fade-down" data-aos-delay="100">مرحبًا بك في مساحة عملك الخاصة.</p>
-
-            <div class="dashboard-card user-profile-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="profile-avatar-container">
-                    <img src="https://via.placeholder.com/150" alt="صورة الملف الشخصي" id="profile-avatar" class="profile-avatar-large">
-                    <label for="avatar-upload" class="avatar-upload-label">
-                        <i class="fas fa-camera"></i>
-                    </label>
-                    <input type="file" id="avatar-upload" accept="image/*" class="avatar-upload-input">
+    <main>
+        <section class="dashboard-container section">
+            <div class="container">
+                <div class="dashboard-card user-profile-card">
+                    <img id="user-avatar-dashboard" class="profile-avatar-large" src="images/default-avatar.jpg" alt="User Avatar">
+                    <h2 class="user-name" id="user-name-dashboard"></h2>
+                    <p class="user-email" id="user-email-dashboard"></p>
+                    <p class="user-id" id="user-id-dashboard"></p>
                 </div>
-                <p id="avatar-message" class="error-message"></p>
+                
+                <div class="dashboard-card subscription-card">
+                    <h3>معلومات الاشتراك</h3>
+                    <p id="subscription-status">الحالة: <span class="status-active">نشط</span></p>
+                    <p id="subscription-expiry">ينتهي بتاريخ: <span>2025/12/31</span></p>
+                    <a href="#" class="button button-primary">تجديد الاشتراك</a>
+                </div>
 
-                <div class="profile-info-grid">
-                    <div class="profile-info-item">
-                        <h4>معلومات الحساب</h4>
-                        <div id="user-info">
-                            </div>
-                    </div>
-                    <div class="profile-info-item">
-                        <h4>حالة الاشتراك</h4>
-                        <p id="subscription-status"></p>
-                    </div>
+                <div class="dashboard-card signals-card">
+                    <h3>إشارات اليوم</h3>
+                    <ul id="signals-list">
+                        </ul>
                 </div>
             </div>
-
-            <div class="card profile-card" data-aos="fade-up" data-aos-delay="200">
-                <h3>تحديث اسم المستخدم</h3>
-                <form id="username-change-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="new-username">اسم المستخدم الجديد</label>
-                        <input type="text" id="new-username" required>
-                    </div>
-                    <button type="submit" class="button button-primary">تحديث الاسم</button>
-                    <p id="username-message" class="error-message"></p>
-                </form>
-            </div>
-            
-            <div class="card profile-card" data-aos="fade-up" data-aos-delay="200">
-                <h3>تغيير كلمة المرور</h3>
-                <form id="password-change-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="current-password">كلمة المرور الحالية</label>
-                        <input type="password" id="current-password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="new-password">كلمة المرور الجديدة</label>
-                        <input type="password" id="new-password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm-new-password">تأكيد كلمة المرور الجديدة</label>
-                        <input type="password" id="confirm-new-password" required>
-                    </div>
-                    <button type="submit" class="button button-primary">تغيير كلمة المرور</button>
-                    <p id="password-message" class="error-message"></p>
-                </form>
-            </div>
-        </div>
+        </section>
     </main>
-    
+
+    <a href="index.html" class="floating-home-btn" title="العودة للصفحة الرئيسية">
+        <i class="fas fa-home"></i>
+    </a>
+
     <footer>
         <div class="container">
             <p>&copy; 2024 MT Signals. جميع الحقوق محفوظة.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="module" src="js/dashboard.js"></script>
-    <script type="module" src="js/header.js"></script>
-
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
