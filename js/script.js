@@ -171,7 +171,16 @@ async function fetchTestimonials() {
         swiper = new Swiper('.testimonials-swiper', {
             slidesPerView: 1,
             spaceBetween: 30,
+            grabCursor: true,
             loop: true,
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -256,9 +265,19 @@ async function handleTestimonialSubmission(e, user) {
 // Check auth state and update UI accordingly
 function updateTestimonialsUI(user) {
     const addTestimonialContainer = document.getElementById('add-testimonial-form-container');
+    const userAvatar = document.getElementById('user-avatar');
+    const userName = document.getElementById('user-name');
     const addTestimonialForm = document.getElementById('add-testimonial-form');
 
     if (user) {
+        // Update user info in the form header
+        if (userAvatar) {
+            userAvatar.src = user.photoURL || 'https://via.placeholder.com/60';
+        }
+        if (userName) {
+            userName.textContent = user.displayName || user.email.split('@')[0];
+        }
+
         // Check if user has already left a testimonial
         const userTestimonialsQuery = query(collection(db, 'testimonials'), where('userId', '==', user.uid));
         getDocs(userTestimonialsQuery).then(snapshot => {
