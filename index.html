@@ -3,233 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT Signals - إشارات تداول احترافية</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <title>منصة حكمة - الرئيسية</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body data-theme="dark">
-
-    <div id="splash-screen">
-        <div class="splash-logo-container">
-            <img src="images/logo.png" alt="MT Signals Logo" class="splash-logo">
-            <h2 class="splash-text">MT Signals</h2>
-            <p class="splash-subtext">إشارات تداول احترافية</p>
-        </div>
-    </div>
+<body>
 
     <header class="main-header">
         <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
-                    <span class="site-name">MT Signals</span>
-                </a>
-            </div>
+            <a href="index.html" class="logo-container">
+                <img src="images/logo.png" alt="شعار منصة حكمة" class="logo">
+                <span class="site-name">حكمة</span>
+            </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="#features">المميزات</a></li>
-                    <li><a href="#pricing">الاشتراكات</a></li>
+                    <li><a href="about.html">عن المنصة</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
                     <li><a href="contact.html">تواصل معنا</a></li>
                 </ul>
             </nav>
-            <div class="header-right">
-                <div class="theme-toggle">
-                    <button id="theme-toggle-button">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                </div>
-                <div id="auth-buttons-container" class="auth-buttons">
-                    <div id="user-logged-in" style="display: none;">
-                        <a href="dashboard.html" class="header-profile-link">
-                            <span class="user-info">
-                                <span class="user-name">اسم المستخدم</span>
-                                <img src="images/profile-pic.png" alt="User Avatar" class="user-avatar-small">
-                            </span>
-                        </a>
-                        <button class="button button-secondary" onclick="handleLogout()">تسجيل الخروج</button>
-                    </div>
-                    <div id="user-logged-out">
-                        <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
-                        <a href="signup.html" class="button button-primary">اشتراك</a>
-                    </div>
-                </div>
-                <button class="menu-toggle-button">
-                    <i class="fas fa-bars"></i>
-                </button>
+            <div class="auth-buttons">
+                <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
+                <a href="signup.html" class="button button-primary">إنشاء حساب</a>
             </div>
         </div>
     </header>
 
-    <div id="particles-js"></div>
-
-    <section class="hero-section home-hero-section">
-        <div class="container">
-            <h1 class="hero-title" data-aos="fade-up">إشارات تداول احترافية للعملات الرقمية</h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">أفضل إشارات التداول للأسواق العالمية الرقمية، منصتنا توفر لك تحليلات دقيقة وتوصيات فورية لمساعدتك في اتخاذ قرارات تداول مربحة.</p>
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
-                <a href="#pricing" class="button button-primary">ابدأ الآن</a>
-                <a href="#features" class="button button-secondary">اكتشف المميزات</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">لماذا MT Signals؟</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">نحن نقدم لك الأدوات والتحليلات التي تحتاجها للتفوق في عالم التداول الرقمي.</p>
-            <div class="features-grid">
-                <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-chart-line icon-large"></i>
-                    <h3>تحليلات دقيقة</h3>
-                    <p>فريق من الخبراء يحلل السوق لتقديم أفضل التوصيات.</p>
-                </div>
-                <div class="card feature-card" data-aos="fade-up" data-aos-delay="400">
-                    <i class="fas fa-paper-plane icon-large"></i>
-                    <h3>إشارات فورية</h3>
-                    <p>احصل على الإشارات في الوقت الحقيقي عبر قناتنا الخاصة.</p>
-                </div>
-                <div class="card feature-card" data-aos="fade-up" data-aos-delay="500">
-                    <i class="fas fa-user-shield icon-large"></i>
-                    <h3>أمان وخصوصية</h3>
-                    <p>نضمن حماية بياناتك الشخصية وتداولاتك.</p>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>اكتشف حكمة الماضي، لتصنع مستقبلك</h1>
+                <p>مكتبتك الرقمية الشاملة للكتب الصوتية، لتستمع بحكمة عظماء التاريخ في أي وقت ومكان.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="button button-primary">ابدأ مجانًا</a>
+                    <a href="#" class="button button-secondary">اكتشف المزيد</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section stats-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">نجاحاتنا بالأرقام</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">نحن نفخر بالإحصائيات التي تعكس جودة خدماتنا ونجاح عملائنا.</p>
-            <div class="stats-grid">
-                <div class="info-stat" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="stat-number">100+</h3>
-                    <p>عميل سعيد</p>
-                </div>
-                <div class="info-stat" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="stat-number">95%</h3>
-                    <p>دقة الإشارات</p>
-                </div>
-                <div class="info-stat" data-aos="fade-up" data-aos-delay="500">
-                    <h3 class="stat-number">3K+</h3>
-                    <p>إشارة تم إرسالها</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="how-it-works" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">كيف تعمل منصتنا؟</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">ابدأ رحلتك في التداول الناجح بخطوات بسيطة.</p>
-            <div class="how-it-works-grid">
-                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
-                    <span class="step-number">1</span>
-                    <i class="fas fa-user-plus"></i>
-                    <h4>سجل واشترك</h4>
-                    <p>أنشئ حسابك واختر خطة الاشتراك التي تناسبك.</p>
-                </div>
-                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
-                    <span class="step-number">2</span>
-                    <i class="fas fa-bell"></i>
-                    <h4>استقبل الإشارات</h4>
-                    <p>تلقى إشعارات فورية بأحدث إشارات التداول.</p>
-                </div>
-                <div class="step-card" data-aos="fade-up" data-aos-delay="500">
-                    <span class="step-number">3</span>
-                    <i class="fas fa-exchange-alt"></i>
-                    <h4>ابدأ التداول</h4>
-                    <p>قم بتطبيق الإشارات على منصة التداول الخاصة بك.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">ماذا يقول عملاؤنا؟</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">آراء من بعض المتداولين الذين استفادوا من خدماتنا.</p>
-            <div class="testimonials-grid">
-                <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <p>"بفضل MT Signals، تمكنت من تحقيق أرباح لم أكن أحلم بها. دقة الإشارات تفوق التوقعات!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60" alt="Author 1" class="author-img">
-                        <div class="author-info">
-                            <h4>أحمد سعيد</h4>
-                            <span>متداول مبتدئ</span>
-                        </div>
+        <section class="features-section section">
+            <div class="container">
+                <h2 class="section-title">لماذا تختار منصة حكمة؟</h2>
+                <div class="features-grid">
+                    <div class="card feature-card">
+                        <i class="fa-solid fa-headphones-alt icon-large"></i>
+                        <h3>مكتبة صوتية ضخمة</h3>
+                        <p>استمتع بالوصول إلى آلاف الكتب والمقالات الصوتية من مختلف المجالات والتصنيفات.</p>
                     </div>
-                </div>
-                <div class="card testimonial-card" data-aos="fade-up" data-aos-delay="400">
-                    <p>"خدمة ممتازة ودعم فني احترافي. الإشارات تصل في وقتها وتساعدني على اتخاذ قرارات سريعة."</p>
-                    <div class="testimonial-author">
-                        <img src="https://via.placeholder.com/60" alt="Author 2" class="author-img">
-                        <div class="author-info">
-                            <h4>فاطمة علي</h4>
-                            <span>متداولة محترفة</span>
-                        </div>
+                    <div class="card feature-card">
+                        <i class="fa-solid fa-clock-rotate-left icon-large"></i>
+                        <h3>مرونة في الاستماع</h3>
+                        <p>استمع للكتب أثناء التنقل، السفر، أو ممارسة الرياضة، ووفر وقتك الثمين.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <i class="fa-solid fa-book-open-reader icon-large"></i>
+                        <h3>تعلم مستمر</h3>
+                        <p>تغذى عقلك بالمعرفة والحكمة من أشهر المؤلفين والمفكرين في العالم.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">اختر خطتك المناسبة</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">خططنا مصممة لتلبية احتياجاتك سواء كنت مبتدئًا أو خبيرًا.</p>
-            <div class="pricing-grid">
-                <div class="card pricing-card" data-aos="fade-up" data-aos-delay="300">
-                    <h3>خطة شهرية</h3>
-                    <p class="price">$50/شهر</p>
-                    <a href="#" class="button button-primary">اشتراك الآن</a>
-                    <ul>
-                        <li><i class="fas fa-check icon-small"></i> وصول كامل للإشارات</li>
-                        <li><i class="fas fa-check icon-small"></i> تحليلات يومية</li>
-                        <li class="unavailable"><i class="fas fa-times icon-small"></i> دعم فني VIP</li>
-                    </ul>
-                </div>
-                <div class="card pricing-card featured" data-aos="fade-up" data-aos-delay="400">
-                    <span class="card-badge">الأكثر شعبية</span>
-                    <h3>خطة سنوية</h3>
-                    <p class="price">$500/سنة</p>
-                    <a href="#" class="button button-primary">اشتراك الآن</a>
-                    <ul>
-                        <li><i class="fas fa-check icon-small"></i> وصول كامل للإشارات</li>
-                        <li><i class="fas fa-check icon-small"></i> تحليلات يومية</li>
-                        <li><i class="fas fa-check icon-small"></i> دعم فني VIP</li>
-                        <li><i class="fas fa-check icon-small"></i> تقارير خاصة</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section cta-section" data-aos="fade-up">
-        <div class="container">
-            <h2 class="cta-title">لا تفوت فرصة النجاح في التداول</h2>
-            <p class="cta-subtitle">ابدأ رحلتك مع MT Signals اليوم واستفد من خبراتنا في تحليل السوق.</p>
-            <a href="#pricing" class="button button-primary">ابدأ الآن</a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 MT Signals. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 حكمة. جميع الحقوق محفوظة.</p>
             <div class="social-links">
-                <a href="#" class="social-icon-link"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="js/script.js"></script>
 </body>
 </html>
