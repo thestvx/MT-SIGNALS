@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // المستخدم مسجل الدخول
             // إخفاء أزرار الدخول والتسجيل
             if (authButtonsContainer) {
-                authButtonsContainer.style.display = 'none';
+                authButtonsContainer.classList.add('hidden');
             }
 
             // إنشاء وعرض صورة المستخدم وزر لوحة التحكم وزر تسجيل الخروج
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // المستخدم غير مسجل الدخول
             // عرض أزرار الدخول والتسجيل
             if (authButtonsContainer) {
-                authButtonsContainer.style.display = 'flex'; // أو block، حسب التصميم
+                authButtonsContainer.classList.remove('hidden');
             }
         }
     });
