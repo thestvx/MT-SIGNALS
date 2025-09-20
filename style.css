@@ -511,11 +511,6 @@ body {
     border-bottom: 1px dashed var(--border-color);
 }
 
-.pricing-section .pricing-card ul li i {
-    font-size: 0.9rem;
-    margin-right: 10px;
-}
-
 .pricing-section .pricing-card .unavailable i {
     color: var(--text-muted);
 }
@@ -1067,6 +1062,101 @@ footer {
 /* تعديل عرض أزرار المصادقة عند تسجيل الدخول */
 .auth-buttons-container.hidden {
     display: none;
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    background-color: var(--card-bg);
+    padding: 5rem 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    text-align: right;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    direction: rtl;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 1rem;
+    border: 3px solid var(--primary-color);
+}
+
+.testimonial-header h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.testimonial-comment {
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.no-testimonials-message, .error-message {
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+.add-testimonial-card {
+    margin-top: 4rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-testimonial-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.add-testimonial-card textarea {
+    width: 100%;
+    background-color: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    resize: vertical;
+}
+
+.add-testimonial-card button {
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.hidden {
+    display: none !important;
 }
 
 /* --- Media Queries for Responsiveness --- */
