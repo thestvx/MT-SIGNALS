@@ -1,181 +1,115 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة التحكم - MT SIGNALS</title>
+    <title>لوحة التحكم - MT Signals</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-theme="dark">
-
-    <div id="particles-js"></div>
+<body class="dashboard-page">
 
     <header class="main-header">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
+                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
+                    <span class="site-name">MT Signals</span>
                 </a>
             </div>
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav">
                 <ul id="main-nav-ul">
                     <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
                 </ul>
             </nav>
             <div class="header-right">
-                <div id="auth-buttons-container" class="auth-buttons">
-                    </div>
                 <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                    <button id="theme-toggle-button">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                <button class="menu-toggle-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="section dashboard-section">
-            <div class="container">
-                <h1 class="section-title" data-aos="fade-up">لوحة التحكم</h1>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">مرحباً بك مجدداً، أيها المتداول.</p>
+    <main class="dashboard-container">
+        <div class="container">
+            <h1 class="section-title" data-aos="fade-down">لوحة التحكم</h1>
+            <p class="section-subtitle" data-aos="fade-down" data-aos-delay="100">مرحبًا بك في مساحة عملك الخاصة.</p>
 
-                <div class="dashboard-grid">
+            <div class="dashboard-card user-profile-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="profile-avatar-container">
+                    <img src="https://via.placeholder.com/150" alt="صورة الملف الشخصي" id="profile-avatar" class="profile-avatar-large">
+                    <label for="avatar-upload" class="avatar-upload-label">
+                        <i class="fas fa-camera"></i>
+                    </label>
+                    <input type="file" id="avatar-upload" accept="image/*" class="avatar-upload-input">
+                </div>
+                <p id="avatar-message" class="error-message"></p>
 
-                    <div class="card dashboard-card profile-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-icon">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>معلومات الملف الشخصي</h3>
-                            <div class="profile-avatar-container">
-                                <img id="profile-avatar" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-avatar">
-                                <form id="avatar-form">
-                                    <label for="avatar-upload" class="button button-secondary button-small">
-                                        تغيير الصورة
-                                    </label>
-                                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
-                                    <p id="avatar-message" class="message-text"></p>
-                                </form>
+                <div class="profile-info-grid">
+                    <div class="profile-info-item">
+                        <h4>معلومات الحساب</h4>
+                        <div id="user-info">
                             </div>
-                            <p class="text-muted" id="user-info">جاري تحميل البيانات...</p>
-                        </div>
                     </div>
-
-                    <div class="card dashboard-card settings-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card-icon">
-                            <i class="fas fa-cog"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>إعدادات الحساب</h3>
-                            <form id="password-change-form">
-                                <div class="form-group">
-                                    <label for="current-password">كلمة المرور الحالية</label>
-                                    <input type="password" id="current-password" placeholder="أدخل كلمة المرور الحالية" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="new-password">كلمة المرور الجديدة</label>
-                                    <input type="password" id="new-password" placeholder="أدخل كلمة المرور الجديدة" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirm-new-password">تأكيد كلمة المرور الجديدة</label>
-                                    <input type="password" id="confirm-new-password" placeholder="أعد إدخال كلمة المرور الجديدة" required>
-                                </div>
-                                <button type="submit" class="button button-primary button-small">تغيير كلمة المرور</button>
-                                <p id="password-message" class="message-text"></p>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="card dashboard-card subscription-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>حالة الاشتراك</h3>
-                            <p class="text-muted" id="subscription-status">لا يوجد لديك اشتراك حالي.</p>
-                            <a href="pricing.html" class="button button-primary button-small">تصفح الخطط</a>
-                        </div>
-                    </div>
-
-                    <div class="card dashboard-card notification-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="card-icon">
-                            <i class="fas fa-bell"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>تنبيهات الإشعارات</h3>
-                            <p class="text-muted">تحكم في التنبيهات التي ترغب في استلامها.</p>
-                            <a href="#" class="button button-secondary button-small">إدارة التنبيهات</a>
-                        </div>
-                    </div>
-
-                    <div class="card dashboard-card stats-card" data-aos="fade-up" data-aos-delay="600">
-                        <div class="card-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>إحصائيات الأداء</h3>
-                            <p class="text-muted">نظرة عامة على أداء حسابك.</p>
-                            <ul class="stats-list">
-                                <li><strong>الصفقات المفتوحة:</strong> <span id="open-trades-count">0</span></li>
-                                <li><strong>الأرباح الإجمالية:</strong> <span id="total-profit-amount">$0</span></li>
-                                <li><strong>أخر إشارة:</strong> <span id="last-signal-info">لا توجد بيانات</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card dashboard-card advanced-settings-card" data-aos="fade-up" data-aos-delay="700">
-                        <div class="card-icon">
-                            <i class="fas fa-sliders-h"></i>
-                        </div>
-                        <div class="card-content">
-                            <h3>الإعدادات المتقدمة</h3>
-                            <p class="text-muted">تحكم في خيارات إضافية لحسابك.</p>
-                            <div class="form-group form-switch">
-                                <label for="email-notifications">إشعارات البريد الإلكتروني</label>
-                                <label class="switch">
-                                    <input type="checkbox" id="email-notifications">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                            <div class="form-group form-switch">
-                                <label for="sms-notifications">تنبيهات الرسائل النصية</label>
-                                <label class="switch">
-                                    <input type="checkbox" id="sms-notifications">
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
+                    <div class="profile-info-item">
+                        <h4>حالة الاشتراك</h4>
+                        <p id="subscription-status"></p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
+            <div class="card profile-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>تحديث اسم المستخدم</h3>
+                <form id="username-change-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="new-username">اسم المستخدم الجديد</label>
+                        <input type="text" id="new-username" required>
+                    </div>
+                    <button type="submit" class="button button-primary">تحديث الاسم</button>
+                    <p id="username-message" class="error-message"></p>
+                </form>
+            </div>
+            
+            <div class="card profile-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>تغيير كلمة المرور</h3>
+                <form id="password-change-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="current-password">كلمة المرور الحالية</label>
+                        <input type="password" id="current-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">كلمة المرور الجديدة</label>
+                        <input type="password" id="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">تأكيد كلمة المرور الجديدة</label>
+                        <input type="password" id="confirm-new-password" required>
+                    </div>
+                    <button type="submit" class="button button-primary">تغيير كلمة المرور</button>
+                    <p id="password-message" class="error-message"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+    
     <footer>
         <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 MT Signals. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-    
-    <script src="https://unpkg.com/cloudinary-core@2.11.3/cloudinary-core-shrinkwrap.js"></script>
-
-    <script type="module" src="js/dashboard.js"></script>
-    <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="js/header.js"></script>
+
 </body>
 </html>
