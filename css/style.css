@@ -5,7 +5,7 @@
 @font-face {
     font-family: 'All Genders v4';
     /* تم تعديل المسار هنا ليصبح صحيحًا */
-    src: url('fonts/All Genders v4.otf') format('otf');
+    src: url('../fonts/All Genders v4.otf') format('otf');
     font-weight: normal;
     font-style: normal;
 }
@@ -1157,4 +1157,3 @@ footer {
         flex-direction: column-reverse;
     }
 }
-
