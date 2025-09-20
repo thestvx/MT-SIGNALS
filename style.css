@@ -1064,27 +1064,43 @@ footer {
     display: none;
 }
 
-/* --- Testimonials Section --- */
+/* --- Testimonials Section (New Swiper Design) --- */
 .testimonials-section {
-    background-color: var(--card-bg);
+    background-color: var(--dark-bg);
     padding: 5rem 0;
 }
 
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+.testimonials-swiper {
+    width: 100%;
+    height: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+.testimonials-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonial-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .testimonial-card {
+    width: 100%;
+    max-width: 450px;
     text-align: right;
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease;
+    cursor: grab;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-10px);
+.testimonial-card:active {
+    cursor: grabbing;
 }
 
 .testimonial-header {
@@ -1121,7 +1137,7 @@ footer {
     text-align: center;
     color: var(--text-muted);
     font-style: italic;
-    margin-top: 2rem;
+    font-size: 1.1rem;
 }
 
 .add-testimonial-card {
@@ -1157,6 +1173,27 @@ footer {
 
 .hidden {
     display: none !important;
+}
+
+/* Swiper Navigation & Pagination Styles */
+.swiper-button-next, .swiper-button-prev {
+    color: var(--primary-color) !important;
+    font-size: 2rem !important;
+    transform: scale(0.8) !important;
+    transition: transform 0.3s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    transform: scale(1) !important;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--text-muted);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
 }
 
 /* --- Media Queries for Responsiveness --- */
