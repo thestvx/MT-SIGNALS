@@ -1,123 +1,118 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تواصل معنا - MT SIGNALS</title>
+    <title>اتصل بنا - MT Signals</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body data-theme="dark">
-
-    <div id="particles-js"></div>
-
+<body>
+    
     <header class="main-header">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="logo.png" alt="MT SIGNALS Logo" class="logo">
-                    <span class="site-name">MT SIGNALS</span>
+                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
+                    <span class="site-name">MT Signals</span>
                 </a>
             </div>
-            <nav class="main-nav">
-                <ul>
+            <nav class="main-nav" id="main-nav">
+                <ul id="main-nav-ul">
                     <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">حول المنصة</a></li>
-                    <li><a href="pricing.html">الاشتراكات</a></li>
-                    <li><a href="contact.html" class="active">تواصل معنا</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="pricing.html">الأسعار</a></li>
+                    <li><a href="contact.html" class="active">اتصل بنا</a></li>
                 </ul>
             </nav>
             <div class="header-right">
-                <div id="auth-buttons-container" class="auth-buttons">
-                    <a href="login.html" class="button button-primary">الدخول</a>
-                    <a href="signup.html" class="button button-secondary">التسجيل</a>
+                <div class="auth-buttons-container" id="auth-buttons-container">
+                    <div class="auth-buttons">
+                        <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
+                        <a href="signup.html" class="button button-primary cta-button-nav">إنشاء حساب</a>
+                    </div>
                 </div>
                 <div class="theme-toggle">
-                    <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
+                    <button id="theme-toggle-button">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                <button class="menu-toggle-button" aria-label="Toggle navigation menu">
+                <button class="menu-toggle-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="section contact-section">
-            <div class="container">
-                <div class="contact-header text-center" data-aos="fade-down">
-                    <h1 class="section-title">تواصل معنا</h1>
-                    <p class="section-subtitle">نحن هنا لمساعدتك والإجابة على استفساراتك.</p>
+    <section class="hero-section about-hero-section">
+        <div class="container" data-aos="fade-up">
+            <h1 class="hero-title">
+                تواصل معنا
+            </h1>
+            <p class="hero-subtitle">
+                نحن هنا للإجابة على جميع استفساراتك وتقديم المساعدة.
+            </p>
+        </div>
+    </section>
+
+    <section class="section contact-section">
+        <div class="container">
+            <div class="contact-container" data-aos="fade-up">
+                <div class="card contact-form-card">
+                    <h3>أرسل لنا رسالة</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">رسالتك</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="button button-primary">إرسال</button>
+                    </form>
                 </div>
-                 
-                <div class="contact-container" data-aos="fade-up" data-aos-delay="200">
-                    <div class="contact-info card">
-                        <h3>معلومات الاتصال</h3>
-                        <div class="info-item">
-                            <i class="fas fa-envelope icon-small"></i>
-                            <div class="info-text">
-                                <h4>البريد الإلكتروني</h4>
-                                <a href="mailto:contact@mtsignals.com">contact@mtsignals.com</a>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone-alt icon-small"></i>
-                            <div class="info-text">
-                                <h4>رقم الهاتف</h4>
-                                <a href="tel:+966501234567">+966 50 123 4567</a>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fab fa-whatsapp icon-small"></i>
-                            <div class="info-text">
-                                <h4>واتساب</h4>
-                                <a href="https://wa.me/966501234567" target="_blank">+966 50 123 4567</a>
-                            </div>
-                        </div>
-                        <div class="social-media-icons">
-                            <a href="https://www.instagram.com/MTSignals" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="https://twitter.com/MTSignals" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="https://t.me/MTSignalsChannel" target="_blank" class="social-icon"><i class="fab fa-telegram-plane"></i></a>
-                            <a href="https://www.facebook.com/MTSignals" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <div class="contact-info">
+                    <div class="info-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <div class="info-text">
+                            <h4>موقعنا</h4>
+                            <p>123 شارع الإشارات، مدينة النجاح، 45678</p>
                         </div>
                     </div>
-                     
-                    <div class="contact-form-card card">
-                        <h3>أرسل لنا رسالة</h3>
-                        <form action="#" method="POST" class="contact-form">
-                            <div class="form-group">
-                                <label for="name">الاسم الكامل</label>
-                                <input type="text" name="name" id="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">البريد الإلكتروني</label>
-                                <input type="email" name="email" id="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">رسالتك</label>
-                                <textarea name="message" id="message" rows="6" required></textarea>
-                            </div>
-                            <button type="submit" class="button button-primary">إرسال الرسالة</button>
-                        </form>
+                    <div class="info-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-envelope icon"></i>
+                        <div class="info-text">
+                            <h4>البريد الإلكتروني</h4>
+                            <a href="mailto:info@mtsignals.com">info@mtsignals.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-phone icon"></i>
+                        <div class="info-text">
+                            <h4>اتصال</h4>
+                            <a href="tel:+1234567890">+1 234 567 890</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 MT SIGNALS. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2024 MT Signals. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
-    
+    <script type="module" src="js/script.js"></script>
     <script type="module" src="js/header.js"></script>
+    
 </body>
 </html>
