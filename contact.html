@@ -26,10 +26,13 @@
                     <li><a href="about.html">حول المنصة</a></li>
                     <li><a href="pricing.html">الاشتراكات</a></li>
                     <li><a href="contact.html" class="active">تواصل معنا</a></li>
-                    <li><a href="login.html" class="cta-button-nav">تسجيل الدخول</a></li>
                 </ul>
             </nav>
             <div class="header-right">
+                <div id="auth-buttons-container" class="auth-buttons">
+                    <a href="login.html" class="button button-primary">الدخول</a>
+                    <a href="signup.html" class="button button-secondary">التسجيل</a>
+                </div>
                 <div class="theme-toggle">
                     <button id="theme-toggle-button" aria-label="Toggle dark/light theme">
                         <i class="fas fa-moon"></i>
@@ -49,7 +52,7 @@
                     <h1 class="section-title">تواصل معنا</h1>
                     <p class="section-subtitle">نحن هنا لمساعدتك والإجابة على استفساراتك.</p>
                 </div>
-                
+                 
                 <div class="contact-container" data-aos="fade-up" data-aos-delay="200">
                     <div class="contact-info card">
                         <h3>معلومات الاتصال</h3>
@@ -81,7 +84,7 @@
                             <a href="https://www.facebook.com/MTSignals" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
-                    
+                     
                     <div class="contact-form-card card">
                         <h3>أرسل لنا رسالة</h3>
                         <form action="#" method="POST" class="contact-form">
@@ -114,17 +117,7 @@
     <script src="js/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
-
-    <script>
-        // Particles.js initialization
-        particlesJS('particles-js', { "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5 }, "size": { "value": 5, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6 } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true } }, "retina_detect": true });
-
-        // AOS initialization
-        AOS.init({
-            duration: 1000,
-            once: true,
-            delay: 300
-        });
-    </script>
+    
+    <script type="module" src="js/header.js"></script>
 </body>
 </html>
