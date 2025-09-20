@@ -6,52 +6,24 @@
     <title>إنشاء حساب جديد - MT Signals</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
+<body class="auth-page">
     
-    <header class="main-header">
-        <div class="container">
-            <div class="logo-container">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
-                    <span class="site-name">MT Signals</span>
-                </a>
-            </div>
-            <nav class="main-nav" id="main-nav">
-                <ul id="main-nav-ul">
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="pricing.html">الأسعار</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </nav>
-            <div class="header-right">
-                <div class="auth-buttons-container" id="auth-buttons-container">
-                    <div class="auth-buttons">
-                        <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
-                        <a href="signup.html" class="button button-primary cta-button-nav">إنشاء حساب</a>
-                    </div>
-                </div>
-                <div class="theme-toggle">
-                    <button id="theme-toggle-button">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
-                <button class="menu-toggle-button">
-                    <i class="fas fa-bars"></i>
-                </button>
+    <main class="auth-split-section">
+        <div class="auth-visual-side">
+            <div class="auth-visual-content">
+                <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo-large">
+                <h1 class="auth-visual-title">انضم إلينا اليوم</h1>
+                <p class="auth-visual-text">استفد من إشارات التداول الاحترافية وكن جزءًا من مجتمعنا المتنامي.</p>
             </div>
         </div>
-    </header>
 
-    <section class="auth-section">
-        <div class="container">
-            <div class="card auth-card">
-                <div class="auth-header">
-                    <img src="images/logo.png" alt="Logo" class="auth-logo">
-                    <h1 class="auth-title">إنشاء حساب جديد</h1>
-                    <p class="auth-subtitle">انضم إلينا اليوم وابدأ رحلتك في التداول الاحترافي</p>
-                </div>
+        <div class="auth-form-side">
+            <div class="auth-form-container" data-aos="fade-up">
+                <h2 class="auth-title">إنشاء حساب جديد</h2>
+                <p class="auth-subtitle">ابدأ رحلتك في التداول الآن.</p>
+
                 <form id="signup-form" class="auth-form">
                     <div class="form-group">
                         <input type="text" id="username" placeholder="اسم المستخدم" required>
@@ -80,10 +52,15 @@
                 </p>
             </div>
         </div>
-    </section>
+    </main>
 
     <script type="module" src="js/signup.js"></script>
-    <script type="module" src="js/script.js"></script>
-    <script type="module" src="js/header.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    </script>
 </body>
 </html>
