@@ -335,7 +335,7 @@ body {
     gap: 1rem;
 }
 
-/* User Info and Avatar Styles (new) */
+/* User Info and Avatar Styles */
 .header-profile-link {
     display: flex;
     align-items: center;
@@ -360,7 +360,7 @@ body {
 }
 
 .user-info .user-name {
-    display: none; /* Hidden by default on desktop */
+    display: block; /* Show name on desktop */
 }
 
 .user-avatar-small {
@@ -411,6 +411,7 @@ body {
 .user-dropdown-menu a:hover {
     color: var(--primary-color);
 }
+
 
 .cta-button-nav {
     background-color: var(--primary-color);
