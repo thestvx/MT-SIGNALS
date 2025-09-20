@@ -57,6 +57,17 @@
                         </div>
                         <div class="card-content">
                             <h3>معلومات الملف الشخصي</h3>
+                            <div class="profile-avatar-container">
+                                <img id="profile-image" src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-avatar">
+                                <form id="avatar-form">
+                                    <label for="avatar-upload" class="button button-secondary button-small">
+                                        تغيير الصورة
+                                    </label>
+                                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                                    <button type="submit" class="button button-primary button-small">حفظ الصورة</button>
+                                </form>
+                                <p id="avatar-message" class="message-text"></p>
+                            </div>
                             <p class="text-muted" id="user-info">جاري تحميل البيانات...</p>
                         </div>
                     </div>
@@ -69,8 +80,16 @@
                             <h3>إعدادات الحساب</h3>
                             <form id="password-change-form">
                                 <div class="form-group">
-                                    <label for="new-password">تغيير كلمة المرور</label>
+                                    <label for="current-password">كلمة المرور الحالية</label>
+                                    <input type="password" id="current-password" placeholder="أدخل كلمة المرور الحالية" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">كلمة المرور الجديدة</label>
                                     <input type="password" id="new-password" placeholder="أدخل كلمة المرور الجديدة" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-new-password">تأكيد كلمة المرور الجديدة</label>
+                                    <input type="password" id="confirm-new-password" placeholder="أعد إدخال كلمة المرور الجديدة" required>
                                 </div>
                                 <button type="submit" class="button button-primary button-small">تغيير كلمة المرور</button>
                                 <p id="password-message" class="message-text"></p>
@@ -97,6 +116,45 @@
                             <h3>تنبيهات الإشعارات</h3>
                             <p class="text-muted">تحكم في التنبيهات التي ترغب في استلامها.</p>
                             <a href="#" class="button button-secondary button-small">إدارة التنبيهات</a>
+                        </div>
+                    </div>
+
+                    <div class="card dashboard-card stats-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>إحصائيات الأداء</h3>
+                            <p class="text-muted">نظرة عامة على أداء حسابك.</p>
+                            <ul class="stats-list">
+                                <li><strong>الصفقات المفتوحة:</strong> <span id="open-trades-count">0</span></li>
+                                <li><strong>الأرباح الإجمالية:</strong> <span id="total-profit-amount">$0</span></li>
+                                <li><strong>أخر إشارة:</strong> <span id="last-signal-info">لا توجد بيانات</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card dashboard-card advanced-settings-card" data-aos="fade-up" data-aos-delay="700">
+                        <div class="card-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>الإعدادات المتقدمة</h3>
+                            <p class="text-muted">تحكم في خيارات إضافية لحسابك.</p>
+                            <div class="form-group form-switch">
+                                <label for="email-notifications">إشعارات البريد الإلكتروني</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="email-notifications">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="form-group form-switch">
+                                <label for="sms-notifications">تنبيهات الرسائل النصية</label>
+                                <label class="switch">
+                                    <input type="checkbox" id="sms-notifications">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
