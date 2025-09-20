@@ -751,6 +751,16 @@ body {
     animation: rotate-logo 5s linear infinite;
 }
 
+.logo-link {
+    display: block;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
 .auth-visual-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -880,6 +890,38 @@ body {
 }
 .success-message {
     color: #00c6a7;
+}
+
+/* Style for the back-to-home button */
+.back-home-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    z-index: 20;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    background-color: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.back-home-btn:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+}
+
+.back-home-btn i {
+    transform: rotate(180deg);
 }
 
 /* --- Footer --- */
@@ -1332,6 +1374,11 @@ footer {
 
     .auth-visual-side {
         display: none; /* Hide visual side on smaller screens */
+    }
+
+    .back-home-btn {
+        top: 1rem;
+        right: 1rem;
     }
 }
 
