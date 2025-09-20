@@ -1337,6 +1337,22 @@ footer {
 .swiper-pagination-bullet-active {
     background-color: var(--primary-color);
 }
+/* User Profile Avatar in Dashboard */
+.profile-avatar-large {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+    transition: all 0.4s ease;
+    margin-bottom: 1.5rem;
+}
+
+.profile-avatar-large:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.6);
+}
 
 /* --- Media Queries for Responsiveness --- */
 @media (max-width: 992px) {
