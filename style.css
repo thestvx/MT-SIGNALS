@@ -151,8 +151,8 @@ body {
     justify-content: center;
     width: 100%;
     padding: 0.75rem;
-    background-color: #fff;
-    color: #1f2937;
+    background-color: var(--card-bg); /* updated color */
+    color: var(--text-color); /* updated color */
     border: 1px solid var(--border-color);
     border-radius: 8px;
     font-weight: 700;
@@ -161,7 +161,7 @@ body {
 }
 
 .button-google:hover {
-    background-color: #f1f1f1;
+    background-color: var(--border-color); /* updated color */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -299,14 +299,6 @@ body {
     margin-right: 2rem;
 }
 
-.main-nav ul li.user-info {
-    color: var(--accent-color);
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-}
-
 .main-nav ul li a {
     color: var(--text-color);
     text-decoration: none;
@@ -342,6 +334,74 @@ body {
     align-items: center;
     gap: 1rem; /* هذه الخاصية الجديدة هي الحل للمشكلة */
 }
+
+/* User Info and Avatar Styles (new) */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.user-info:hover {
+    color: var(--primary-color);
+}
+
+.user-info .user-name {
+    display: none; /* Hidden by default on desktop */
+}
+
+.user-avatar-small {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.user-avatar-small:hover {
+    transform: scale(1.1);
+}
+
+.user-dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    margin-top: 1rem;
+    min-width: 200px;
+    display: none;
+    z-index: 100;
+}
+
+.user-dropdown-menu.show {
+    display: block;
+}
+
+.user-dropdown-menu a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.user-dropdown-menu a:hover {
+    color: var(--primary-color);
+}
+
 
 .cta-button-nav {
     background-color: var(--primary-color);
@@ -676,6 +736,9 @@ body {
     color: var(--accent-color);
     margin-left: 1rem;
     min-width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .info-item .info-text h4 {
@@ -1253,5 +1316,11 @@ input:checked + .slider:before {
     }
     .dashboard-card.profile-card {
         flex-direction: column;
+    }
+    .user-info .user-name {
+        display: block; /* Show name on smaller screens */
+    }
+    .user-info .user-avatar-small {
+        display: none; /* Hide avatar on smaller screens to save space */
     }
 }
