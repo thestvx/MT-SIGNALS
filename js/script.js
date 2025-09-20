@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs, where } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
 
 // Your Firebase configuration
@@ -131,6 +131,8 @@ function handleSplashScreen() {
     }
 }
 
+let swiper;
+
 // Function to fetch and display testimonials
 async function fetchTestimonials() {
     const testimonialsContainer = document.getElementById('testimonials-container');
@@ -143,27 +145,61 @@ async function fetchTestimonials() {
         testimonialsContainer.innerHTML = ''; // Clear previous content
 
         if (querySnapshot.empty) {
-            testimonialsContainer.innerHTML = '<p class="no-testimonials-message">كن أول من يضيف رأيه حول المنصة!</p>';
-            return;
-        }
-
-        querySnapshot.forEach((doc) => {
-            const testimonial = doc.data();
-            const testimonialCard = `
-                <div class="card testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="${testimonial.photoURL || 'https://via.placeholder.com/60'}" alt="${testimonial.username}" class="testimonial-avatar">
-                        <h4>${testimonial.username}</h4>
+            testimonialsContainer.innerHTML = `<p class="no-testimonials-message swiper-slide">كن أول من يضيف رأيه حول المنصة!</p>`;
+        } else {
+            querySnapshot.forEach((doc) => {
+                const testimonial = doc.data();
+                const testimonialCard = `
+                    <div class="swiper-slide testimonial-slide">
+                        <div class="card testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="${testimonial.photoURL || 'https://via.placeholder.com/60'}" alt="${testimonial.username}" class="testimonial-avatar">
+                                <h4>${testimonial.username}</h4>
+                            </div>
+                            <p class="testimonial-comment">${testimonial.comment}</p>
+                        </div>
                     </div>
-                    <p class="testimonial-comment">${testimonial.comment}</p>
-                </div>
-            `;
-            testimonialsContainer.innerHTML += testimonialCard;
+                `;
+                testimonialsContainer.innerHTML += testimonialCard;
+            });
+        }
+        
+        // Initialize Swiper after content is loaded
+        if (swiper) {
+            swiper.destroy(true, true);
+        }
+        swiper = new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 50,
+                },
+            },
+            centeredSlides: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
         });
 
     } catch (error) {
         console.error("Error fetching testimonials:", error);
-        testimonialsContainer.innerHTML = '<p class="error-message">فشل في تحميل الآراء. يرجى المحاولة لاحقاً.</p>';
+        testimonialsContainer.innerHTML = `<p class="error-message swiper-slide">فشل في تحميل الآراء. يرجى المحاولة لاحقاً.</p>`;
     }
 }
 
@@ -184,6 +220,16 @@ async function handleTestimonialSubmission(e, user) {
     messageElement.style.color = '#007BFF';
 
     try {
+        // Check if user already has a testimonial
+        const userTestimonialsQuery = query(collection(db, 'testimonials'), where('userId', '==', user.uid));
+        const existingTestimonials = await getDocs(userTestimonialsQuery);
+        
+        if (!existingTestimonials.empty) {
+            messageElement.textContent = 'لقد قمت بإضافة رأيك بالفعل. يمكنك إضافة رأي واحد فقط.';
+            messageElement.style.color = '#ff4d4f';
+            return;
+        }
+
         await addDoc(collection(db, 'testimonials'), {
             userId: user.uid,
             username: user.displayName || user.email.split('@')[0],
@@ -196,11 +242,52 @@ async function handleTestimonialSubmission(e, user) {
         messageElement.style.color = '#00c6a7';
         form.reset(); // Clear the form
         fetchTestimonials(); // Refresh the testimonials list
+        // Hide the form after submission
+        const addTestimonialContainer = document.getElementById('add-testimonial-form-container');
+        addTestimonialContainer.classList.add('hidden');
 
     } catch (error) {
         console.error("Error adding testimonial:", error);
         messageElement.textContent = 'فشل في إضافة الرأي. حاول مرة أخرى.';
         messageElement.style.color = '#ff4d4f';
+    }
+}
+
+// Check auth state and update UI accordingly
+function updateTestimonialsUI(user) {
+    const addTestimonialContainer = document.getElementById('add-testimonial-form-container');
+    const addTestimonialForm = document.getElementById('add-testimonial-form');
+
+    if (user) {
+        // Check if user has already left a testimonial
+        const userTestimonialsQuery = query(collection(db, 'testimonials'), where('userId', '==', user.uid));
+        getDocs(userTestimonialsQuery).then(snapshot => {
+            if (snapshot.empty) {
+                // User has no testimonial, show the form
+                if (addTestimonialContainer) {
+                    addTestimonialContainer.classList.remove('hidden');
+                }
+                if (addTestimonialForm) {
+                    addTestimonialForm.addEventListener('submit', (e) => handleTestimonialSubmission(e, user), { once: true });
+                }
+            } else {
+                // User has a testimonial, hide the form
+                if (addTestimonialContainer) {
+                    addTestimonialContainer.classList.add('hidden');
+                }
+            }
+        }).catch(error => {
+            console.error("Error checking user testimonial:", error);
+            // In case of error, still hide the form to be safe
+            if (addTestimonialContainer) {
+                addTestimonialContainer.classList.add('hidden');
+            }
+        });
+    } else {
+        // User is not logged in, hide the form
+        if (addTestimonialContainer) {
+            addTestimonialContainer.classList.add('hidden');
+        }
     }
 }
 
@@ -244,25 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Check auth state for testimonials section
     if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
-        onAuthStateChanged(auth, (user) => {
-            const addTestimonialContainer = document.getElementById('add-testimonial-form-container');
-            const addTestimonialForm = document.getElementById('add-testimonial-form');
-
-            if (user) {
-                // User is logged in, show the form
-                if (addTestimonialContainer) {
-                    addTestimonialContainer.classList.remove('hidden');
-                }
-                if (addTestimonialForm) {
-                    addTestimonialForm.addEventListener('submit', (e) => handleTestimonialSubmission(e, user));
-                }
-            } else {
-                // User is not logged in, hide the form
-                if (addTestimonialContainer) {
-                    addTestimonialContainer.classList.add('hidden');
-                }
-            }
-        });
+        onAuthStateChanged(auth, updateTestimonialsUI);
 
         // Always fetch and display testimonials on the home page
         fetchTestimonials();
