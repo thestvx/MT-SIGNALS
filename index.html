@@ -3,156 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT Signals - الإشارات الرائدة في التداول</title>
+    <title>MT Signals - الإشارات الموثوقة</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
-<body>
+<body data-theme="dark">
+    <div id="particles-js"></div>
 
-    <div id="splash-screen">
-        <img src="images/logo.png" alt="MT Signals Logo" class="splash-logo">
-        <h1 class="splash-text">MT SIGNALS</h1>
-        <p class="splash-subtext">هذه النسخة الأولى للمنصة - تم تطويرها من طرف ستِيفكس.</p>
-    </div>
-
-    <header class="main-header">
+    <header class="main-header" id="main-header">
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="images/logo.png" alt="MT Signals Logo" class="logo">
+                    <img src="images/logo.png" alt="Logo" class="logo">
                     <span class="site-name">MT Signals</span>
                 </a>
             </div>
-            <nav class="main-nav" id="main-nav">
-                <ul id="main-nav-ul">
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="pricing.html">الأسعار</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </nav>
             <div class="header-right">
-                <div class="auth-buttons-container" id="auth-buttons-container">
-                    <div class="auth-buttons">
-                        <a href="login.html" class="button button-secondary">تسجيل الدخول</a>
-                        <a href="signup.html" class="button button-primary cta-button-nav">إنشاء حساب</a>
-                    </div>
-                </div>
+                <nav class="main-nav" id="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                        <li class="auth-buttons" id="auth-buttons">
+                            <a href="login.html" class="button cta-button-nav">تسجيل الدخول</a>
+                        </li>
+                        <li class="user-profile-actions hidden" id="user-profile-actions">
+                            <a href="dashboard.html" class="dashboard-link">
+                                <img src="images/default-avatar.jpg" alt="User Avatar" class="profile-avatar-small" id="user-avatar-header">
+                                <span id="user-name-header"></span>
+                            </a>
+                            <button id="logout-button" class="button button-danger">تسجيل الخروج</button>
+                        </li>
+                    </ul>
+                </nav>
                 <div class="theme-toggle">
-                    <button id="theme-toggle-button">
+                    <button id="theme-toggle-btn">
                         <i class="fas fa-moon"></i>
                     </button>
                 </div>
-                <button class="menu-toggle-button">
+                <button class="menu-toggle-button" id="menu-toggle-button">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="hero-section home-hero-section">
-        <div id="particles-js"></div>
-        <div class="container" data-aos="fade-up">
-            <h1 class="hero-title">
-                إشارات تداول احترافية <br>
-                بأحدث التقنيات
-            </h1>
-            <p class="hero-subtitle">
-                احصل على إشارات دقيقة وموثوقة لقرارات تداول أفضل. سواء كنت مبتدئًا أو محترفًا،
-                إشاراتنا مصممة لمساعدتك على النجاح.
-            </p>
-            <div class="hero-buttons">
-                <a href="signup.html" class="button button-primary" data-aos="zoom-in" data-aos-delay="600">ابدأ الآن</a>
-                <a href="about.html" class="button button-secondary" data-aos="zoom-in" data-aos-delay="700">اكتشف المزيد</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section features-section">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">المميزات الرئيسية</h2>
-            <p class="section-subtitle">
-                اكتشف الأدوات والمزايا التي نقدمها لتعزيز تجربة التداول الخاصة بك.
-            </p>
-            <div class="features-grid">
-                <div class="card feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-signal icon-large"></i>
-                    <h3>إشارات دقيقة</h3>
-                    <p>نقدم إشارات تداول عالية الدقة بناءً على تحليلات فنية قوية.</p>
-                </div>
-                <div class="card feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-chart-line icon-large"></i>
-                    <h3>تحليلات احترافية</h3>
-                    <p>تحليلات فنية شاملة للسوق لمساعدتك في اتخاذ قرارات مدروسة.</p>
-                </div>
-                <div class="card feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-bell icon-large"></i>
-                    <h3>تنبيهات فورية</h3>
-                    <p>تلقي تنبيهات فورية للإشارات الجديدة مباشرة إلى هاتفك.</p>
+    <main>
+        <section class="hero-section home-hero-section section">
+            <div class="container">
+                <h1 class="hero-title">تداول بذكاء، اربح بثقة.</h1>
+                <p class="hero-subtitle">انضم إلينا اليوم واحصل على إشارات تداول دقيقة لتحقق أقصى استفادة من أسواق المال.</p>
+                <div class="hero-buttons">
+                    <a href="signup.html" class="button button-primary">ابدأ الآن مجانًا</a>
+                    <a href="#about-us" class="button button-secondary">اكتشف المزيد</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section cta-section">
-        <div class="container" data-aos="fade-up">
-            <h2 class="cta-title">مستعد للبدء في رحلة التداول؟</h2>
-            <p class="cta-subtitle">
-                انضم إلينا اليوم واستفد من إشاراتنا الاحترافية لتحقيق النجاح.
-            </p>
-            <a href="signup.html" class="button button-primary">ابدأ الآن</a>
-        </div>
-    </section>
-
-    <section class="section testimonials-section">
-        <div class="container" data-aos="fade-up">
-            <h2 class="section-title">ماذا يقول عملاؤنا؟</h2>
-            <p class="section-subtitle">
-                آراء من مستخدمينا الذين يثقون في خدماتنا لتحقيق أهدافهم.
-            </p>
-
-            <div class="swiper testimonials-swiper">
-                <div class="swiper-wrapper" id="testimonials-container">
+        <section id="features" class="features-section section">
+            <div class="container">
+                <h2 class="section-title">مميزاتنا</h2>
+                <p class="section-subtitle">نقدم لك أدوات متكاملة لمساعدتك في رحلتك التجارية.</p>
+                <div class="features-grid">
+                    <div class="card feature-card">
+                        <i class="fas fa-chart-line icon-large"></i>
+                        <h3>إشارات دقيقة</h3>
+                        <p>إشارات فورية وموثوقة لتحقيق أفضل النتائج.</p>
                     </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
-            <div id="add-testimonial-form-container" class="card add-testimonial-card hidden" data-aos="fade-up" data-aos-delay="200">
-                <div class="add-testimonial-header">
-                    <img id="user-avatar" src="https://via.placeholder.com/60" alt="User Avatar" class="testimonial-avatar">
-                    <h3 id="user-name">أضف رأيك</h3>
-                </div>
-                <form id="add-testimonial-form">
-                    <div class="form-group">
-                        <textarea id="testimonial-text" placeholder="اكتب رأيك هنا..." rows="4" required></textarea>
+                    <div class="card feature-card">
+                        <i class="fas fa-shield-alt icon-large"></i>
+                        <h3>أمان عالي</h3>
+                        <p>نحمي بياناتك الشخصية والتجارية بأعلى المعايير.</p>
                     </div>
-                    <button type="submit" class="button button-primary">إرسال الرأي</button>
-                    <p id="testimonial-message" class="error-message"></p>
-                </form>
+                    <div class="card feature-card">
+                        <i class="fas fa-headset icon-large"></i>
+                        <h3>دعم 24/7</h3>
+                        <p>فريق دعم فني متاح على مدار الساعة للإجابة على استفساراتك.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <i class="fas fa-mobile-alt icon-large"></i>
+                        <h3>منصة متعددة</h3>
+                        <p>استخدم منصتنا على أي جهاز، في أي وقت ومكان.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="cta" class="cta-section section">
+            <div class="container">
+                <h2 class="cta-title">مستعد للبدء في رحلتك؟</h2>
+                <p class="cta-subtitle">لا تفوت فرصة الانضمام إلى مجتمعنا من المتداولين الناجحين.</p>
+                <a href="signup.html" class="button button-primary">سجل الآن</a>
+            </div>
+        </section>
+    </main>
+
+    <a href="index.html" class="floating-home-btn" title="العودة للصفحة الرئيسية">
+        <i class="fas fa-home"></i>
+    </a>
 
     <footer>
         <div class="container">
             <p>&copy; 2024 MT Signals. جميع الحقوق محفوظة.</p>
             <div class="social-links">
-                <a href="#" class="social-icon-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="fab fa-telegram social-icon-link"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-telegram-plane"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="module" src="js/script.js"></script>
-    <script type="module" src="js/header.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/particles-config.js"></script>
 </body>
 </html>
