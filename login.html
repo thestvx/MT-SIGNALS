@@ -6,7 +6,6 @@
     <title>تسجيل الدخول - MT Signals</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="auth-page">
 
@@ -14,57 +13,53 @@
         <div class="auth-visual-side">
             <div class="auth-visual-content">
                 <a href="index.html" class="logo-link">
-                    <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo-large animated-bounce">
+                    <img src="images/logo.png" alt="MT Signals Logo" class="auth-logo-large">
                 </a>
-                <h1 class="auth-visual-title">انضم إلينا اليوم</h1>
-                <p class="auth-visual-text">استفد من إشارات التداول الاحترافية وكن جزءًا من مجتمعنا المتنامي.</p>
+                <h1 class="auth-visual-title">مرحباً بعودتك!</h1>
+                <p class="auth-visual-text">سجل دخولك للوصول إلى لوحة التحكم الخاصة بك والاستفادة من أحدث الإشارات.</p>
             </div>
         </div>
-
         <div class="auth-form-side">
-            <div class="auth-form-container" data-aos="fade-up">
-                <h2 class="auth-title">تسجيل الدخول</h2>
-                <p class="auth-subtitle">أدخل بياناتك للمتابعة.</p>
+            <div class="auth-form-container">
+                <h2>تسجيل الدخول</h2>
+                <p class="auth-subtitle">استمر في رحلتك نحو تداول ناجح.</p>
 
                 <form id="login-form" class="auth-form">
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                        <label for="login-email">البريد الإلكتروني</label>
+                        <input type="email" id="login-email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" id="password" placeholder="كلمة المرور" required>
+                        <label for="login-password">كلمة المرور</label>
+                        <input type="password" id="login-password" name="password" required>
                     </div>
-                    <a href="#" class="forgot-password-link">هل نسيت كلمة المرور؟</a>
+                    <a href="#" class="forgot-password-link">نسيت كلمة المرور؟</a>
                     <button type="submit" class="button button-primary">تسجيل الدخول</button>
-                    <p id="login-message" class="error-message"></p>
                 </form>
 
                 <div class="divider"><span>أو</span></div>
 
                 <div class="social-login">
-                    <button class="button button-google" id="google-login">
+                    <button class="button-google">
                         <i class="fab fa-google"></i>
-                        الدخول باستخدام جوجل
+                        تسجيل الدخول باستخدام جوجل
                     </button>
                 </div>
 
                 <p class="auth-links">
-                    لا تمتلك حسابًا؟ <a href="signup.html">إنشاء حساب جديد</a>
+                    ليس لديك حساب؟
+                    <a href="signup.html">سجل الآن</a>
                 </p>
+                <p id="error-message" class="error-message hidden"></p>
             </div>
         </div>
     </main>
-    
-    <a href="index.html" class="floating-home-btn" title="العودة إلى الرئيسية">
+
+    <a href="index.html" class="floating-home-btn" title="العودة للصفحة الرئيسية">
         <i class="fas fa-home"></i>
     </a>
 
-    <script type="module" src="js/login.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
