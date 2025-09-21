@@ -4,7 +4,7 @@ const firebaseConfig = {
   authDomain: "mt-siganls.firebaseapp.com",
   projectId: "mt-siganls",
   storageBucket: "mt-siganls.firebasestorage.app",
-  -  messagingSenderId: "84758913270",
+  messagingSenderId: "84758913270",
   appId: "1:84758913270:web:c22d6aebcdf4f897f80cd7"
 };
 
